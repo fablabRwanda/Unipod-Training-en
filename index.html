@@ -4,940 +4,623 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNIPOD Training | FabLab Rwanda Partnership</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary: #00f7ff;
-            --secondary: #7b61ff;
-            --dark: #0a0a1f;
-            --light: #f0f8ff;
-            --accent: #ff2a6d;
-            --africa-green: #008000;
-            --rwanda-blue: #00a1de;
-        }
-
-        body {
-            background-color: var(--dark);
-            color: var(--light);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* Header Styles */
-        header {
-            padding: 1.5rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(10, 10, 31, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 247, 255, 0.2);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-icon {
-            color: var(--primary);
-            font-size: 2rem;
-        }
-
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(to right, var(--primary), var(--rwanda-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .cta-button {
-            background: linear-gradient(45deg, var(--rwanda-blue), var(--africa-green));
-            color: var(--light);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 161, 222, 0.3);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 5%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 600px;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(to right, var(--primary), var(--rwanda-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #a0a0c0;
-        }
-
-        .partner-badge {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background: rgba(0, 161, 222, 0.1);
-            border-radius: 10px;
-            border-left: 4px solid var(--rwanda-blue);
-        }
-
-        .partner-badge img {
-            height: 50px;
-            width: auto;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .outline-button {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .outline-button:hover {
-            background: rgba(0, 247, 255, 0.1);
-        }
-
-        .hero-visual {
-            position: absolute;
-            right: 5%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 500px;
-            height: 500px;
-            z-index: 1;
-        }
-
-        .floating-element {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--rwanda-blue), transparent);
-            opacity: 0.5;
-            filter: blur(20px);
-            animation: float 6s infinite ease-in-out;
-        }
-
-        .floating-element:nth-child(1) {
-            width: 200px;
-            height: 200px;
-            top: 10%;
-            right: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            bottom: 20%;
-            right: 30%;
-            animation-delay: 2s;
-        }
-
-        .floating-element:nth-child(3) {
-            width: 100px;
-            height: 100px;
-            top: 40%;
-            right: 20%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-20px) scale(1.05); }
-        }
-
-        /* Programs Section */
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-        }
-
-        .section-title span {
-            background: linear-gradient(to right, var(--primary), var(--rwanda-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .programs {
-            padding: 5rem 5%;
-            background: rgba(15, 15, 40, 0.7);
-        }
-
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .program-card {
-            background: rgba(20, 20, 50, 0.6);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid rgba(123, 97, 255, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .program-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--rwanda-blue), var(--africa-green));
-        }
-
-        .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .program-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .program-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .program-card p {
-            color: #a0a0c0;
-            margin-bottom: 1.5rem;
-        }
-
-        .program-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .program-features li {
-            padding: 0.5rem 0;
-            color: #c0c0e0;
-        }
-
-        .program-features li i {
-            color: var(--primary);
-            margin-right: 0.5rem;
-        }
-
-        /* UNIPODs Section */
-        .unipods {
-            padding: 5rem 5%;
-        }
-
-        .unipods-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .unipod-card {
-            background: rgba(20, 20, 50, 0.6);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s;
-            border: 1px solid rgba(0, 161, 222, 0.2);
-        }
-
-        .unipod-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .unipod-flag {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .unipod-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .unipod-card p {
-            color: #a0a0c0;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Students Section */
-        .students {
-            padding: 5rem 5%;
-            background: rgba(15, 15, 40, 0.7);
-        }
-
-        .students-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .student-card {
-            background: rgba(20, 20, 50, 0.6);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: transform 0.3s;
-            border: 1px solid rgba(123, 97, 255, 0.2);
-        }
-
-        .student-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .student-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .student-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--rwanda-blue), var(--africa-green));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .student-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .student-info p {
-            color: #a0a0c0;
-            font-size: 0.9rem;
-        }
-
-        .student-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .student-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        .student-link:hover {
-            color: var(--rwanda-blue);
-        }
-
-        /* Schedule Section */
-        .schedule {
-            padding: 5rem 5%;
-        }
-
-        .schedule-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(20, 20, 50, 0.6);
-            border-radius: 15px;
-            padding: 2rem;
-            border: 1px solid rgba(0, 161, 222, 0.2);
-        }
-
-        .schedule-item {
-            display: flex;
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .schedule-date {
-            min-width: 100px;
-            margin-right: 2rem;
-        }
-
-        .schedule-date .day {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .schedule-date .month {
-            font-size: 1rem;
-            color: #a0a0c0;
-        }
-
-        .schedule-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .schedule-content p {
-            color: #a0a0c0;
-            margin-bottom: 1rem;
-        }
-
-        .schedule-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--rwanda-blue);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .schedule-link:hover {
-            text-decoration: underline;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 5rem 5%;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(15, 15, 40, 0.9), rgba(10, 10, 31, 0.9));
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            color: #a0a0c0;
-        }
-
-        /* Footer */
-        footer {
-            padding: 3rem 5%;
-            background: rgba(5, 5, 20, 0.9);
-            border-top: 1px solid rgba(123, 97, 255, 0.2);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-column ul li a {
-            color: #a0a0c0;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-column ul li a:hover {
-            color: var(--primary);
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(123, 97, 255, 0.2);
-            color: var(--light);
-            transition: all 0.3s;
-        }
-
-        .social-icons a:hover {
-            background: var(--primary);
-            color: var(--dark);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #a0a0c0;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero-visual {
-                width: 400px;
-                height: 400px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                padding: 1rem 5%;
-            }
-            
-            .logo {
-                margin-bottom: 1rem;
-            }
-            
-            nav ul {
-                gap: 1rem;
-                margin-bottom: 1rem;
-            }
-            
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 120px;
-            }
-            
-            .hero-content {
-                max-width: 100%;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
-            .hero-visual {
-                position: relative;
-                right: auto;
-                top: auto;
-                transform: none;
-                width: 100%;
-                height: 300px;
-                margin-top: 2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .schedule-item {
-                flex-direction: column;
-            }
-
-            .schedule-date {
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .programs-grid, .unipods-grid, .students-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="logo">
-            <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
-            <div class="logo-text">UNIPOD</div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-graduation-cap me-2"></i>UNIPOD
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#labs">Labs & Equipment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#schedule">Course Content</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#students">Students</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                </ul>
+                <button class="btn btn-primary">Join Program</button>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#programs">Programs</a></li>
-                <li><a href="#unipods">UNIPODs</a></li>
-                <li><a href="#students">Students</a></li>
-                <li><a href="#schedule">Schedule</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
-        <button class="cta-button">Join Program</button>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Empowering Africa's Future with <span>UNIPOD Training</span></h1>
-            <p>In partnership with FabLab Rwanda, we're delivering cutting-edge technology education across Africa. Join our mission to build digital skills for the next generation.</p>
-            
-            <div class="partner-badge">
-                <div class="partner-logo">
-                    <i class="fas fa-microchip" style="font-size: 2.5rem; color: var(--rwanda-blue);"></i>
-                </div>
-                <div>
-                    <h3>In Partnership with FabLab Rwanda</h3>
-                    <p>Leading innovation and digital fabrication in Africa</p>
-                </div>
-            </div>
-            
-            <div class="hero-buttons">
-                <button class="cta-button">Explore Programs</button>
-                <button class="outline-button">Meet Our Students</button>
-            </div>
-        </div>
-        <div class="hero-visual">
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-        </div>
-    </section>
+    <section class="bg-dark text-light py-5 min-vh-100 d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Empowering Africa's Future with <span class="text-primary">UNIPOD Training</span></h1>
+                    <p class="lead mb-4">In partnership with Timbktu, UNDP, FabLab Rwanda and UNIPODS, we're delivering cutting-edge technology education across Africa. Join our mission to build digital skills for the next generation.</p>
 
-    <!-- Programs Section -->
-    <section id="programs" class="programs">
-        <h2 class="section-title">Our <span>Training Programs</span></h2>
-        <div class="programs-grid">
-            <div class="program-card">
-                <div class="program-icon"><i class="fas fa-robot"></i></div>
-                <h3>AI & Machine Learning</h3>
-                <p>Master AI fundamentals with practical applications tailored for African contexts and challenges.</p>
-                <ul class="program-features">
-                    <li><i class="fas fa-check"></i> 6-month intensive program</li>
-                    <li><i class="fas fa-check"></i> Focus on African datasets</li>
-                    <li><i class="fas fa-check"></i> Industry certification</li>
-                    <li><i class="fas fa-check"></i> Local mentorship</li>
-                </ul>
-                <button class="outline-button">Learn More</button>
-            </div>
-            <div class="program-card">
-                <div class="program-icon"><i class="fas fa-code"></i></div>
-                <h3>Web & Mobile Development</h3>
-                <p>Build responsive web and mobile applications that solve real African problems.</p>
-                <ul class="program-features">
-                    <li><i class="fas fa-check"></i> Full-stack development</li>
-                    <li><i class="fas fa-check"></i> Mobile-first approach</li>
-                    <li><i class="fas fa-check"></i> Agile methodology</li>
-                    <li><i class="fas fa-check"></i> Portfolio projects</li>
-                </ul>
-                <button class="outline-button">Learn More</button>
-            </div>
-            <div class="program-card">
-                <div class="program-icon"><i class="fas fa-network-wired"></i></div>
-                <h3>IoT & Embedded Systems</h3>
-                <p>Design and implement IoT solutions for agriculture, health, and smart cities in Africa.</p>
-                <ul class="program-features">
-                    <li><i class="fas fa-check"></i> Hardware prototyping</li>
-                    <li><i class="fas fa-check"></i> Sensor networks</li>
-                    <li><i class="fas fa-check"></i> Cloud integration</li>
-                    <li><i class="fas fa-check"></i> Field testing</li>
-                </ul>
-                <button class="outline-button">Learn More</button>
+                    <div class="card bg-primary bg-opacity-10 border-primary mb-4">
+                        <div class="card-body d-flex align-items-center">
+                            <i class="fas fa-microchip fa-3x text-primary me-3"></i>
+                            <div>
+                                <h5 class="card-title">In Partnership with Timbktu, UNDP, FabLab Rwanda and UNIPODS</h5>
+                                <p class="card-text">Leading innovation and digital fabrication in Africa</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-primary btn-lg">Explore Programs</button>
+                        <button class="btn btn-outline-primary btn-lg">Meet Our Students</button>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <!-- Placeholder for visual -->
+                    <div class="text-center">
+                        <i class="fas fa-cogs fa-10x text-primary opacity-25"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- UNIPODs Section -->
-    <section id="unipods" class="unipods">
-        <h2 class="section-title">UNIPODs Across <span>Africa</span></h2>
-        <div class="unipods-grid">
-            <div class="unipod-card">
-                <div class="unipod-flag">🇷🇼</div>
-                <h3>Kigali UNIPOD</h3>
-                <p>Our flagship center in Rwanda, partnering with FabLab Rwanda to deliver cutting-edge tech education.</p>
-                <button class="outline-button">Visit Center</button>
-            </div>
-            <div class="unipod-card">
-                <div class="unipod-flag">🇰🇪</div>
-                <h3>Nairobi UNIPOD</h3>
-                <p>Located in Kenya's tech hub, focusing on fintech and mobile innovation.</p>
-                <button class="outline-button">Visit Center</button>
-            </div>
-            <div class="unipod-card">
-                <div class="unipod-flag">🇳🇬</div>
-                <h3>Lagos UNIPOD</h3>
-                <p>Nigeria's center for AI and creative technology education.</p>
-                <button class="outline-button">Visit Center</button>
-            </div>
-            <div class="unipod-card">
-                <div class="unipod-flag">🇿🇦</div>
-                <h3>Cape Town UNIPOD</h3>
-                <p>South Africa's hub for data science and machine learning.</p>
-                <button class="outline-button">Visit Center</button>
+    <!-- Labs Section -->
+    <section id="labs" class="py-5">
+        <div class="container">
+            <h2 class="text-center display-4 mb-5">Our training will focus on the following <span class="text-primary">labs and equipments</span></h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/design-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-desktop fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Design Lab</h5>
+                                <p class="card-text">Computers for design and modeling</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/rapid-prototyping-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-cube fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Rapid Prototyping Lab</h5>
+                                <p class="card-text">Resin 3D printers, FDM 3D printers</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/laser-cutter.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-cut fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Laser Cutter</h5>
+                                <p class="card-text">Precision cutting equipment</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/vinyl-cutter.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-scissors fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Vinyl Cutter</h5>
+                                <p class="card-text">Vinyl cutting machine</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/vacuum-forming-machine.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-wind fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Vacuum Forming Machine</h5>
+                                <p class="card-text">Plastic molding equipment</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/3d-scanner.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-search fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">3D Scanner</h5>
+                                <p class="card-text">3D scanning technology</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/mechanical-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-cogs fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Mechanical Lab</h5>
+                                <p class="card-text">CNC Plasma, CNC Milling machine, Welding machine (Mig, Stick, Laser), Metal cut off machine, Injection Molding</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/woodworking-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-tree fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Woodworking Lab</h5>
+                                <p class="card-text">CNC Router machine, Adjustable saw cutter machine</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/electrical-electronic-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-microchip fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Electrical & Electronic Lab</h5>
+                                <p class="card-text">PCB manufacturing machines, CNC PCB milling machine, Soldering machine, Oscilloscope machine, Function generator</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/textile-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-tshirt fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Textile Lab</h5>
+                                <p class="card-text">Sewing Machine, Embroidery machine, Fabric cutter machine</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/vr-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-vr-cardboard fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">VR Lab</h5>
+                                <p class="card-text">Gaming PC, VR headsets</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/green-tech-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-leaf fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Green Tech Lab</h5>
+                                <p class="card-text">Smart grid equipment, Hybrid engine, Solar training kit, Plastic shredder machine, Hydrogen fuel cell kit</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/food-agritech-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-utensils fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Food & Agritech Lab</h5>
+                                <p class="card-text">Industrial scale and oven, Grinder, Mixer, Juicer, Soil nutrient analyser, Cold press machine, Packaging machine</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Students Section -->
-    <section id="students" class="students">
-        <h2 class="section-title">Our <span>Students</span></h2>
-        <div class="students-grid">
-            <div class="student-card">
-                <div class="student-header">
-                    <div class="student-avatar">AM</div>
-                    <div class="student-info">
-                        <h3>Amina Mbeki</h3>
-                        <p>AI & Machine Learning</p>
+    <section id="students" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center display-4 mb-5">Our <span class="text-primary">Students</span></h2>
+            <div class="row g-3">
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Amina Mbeki</h6>
+                            <p class="text-muted small mb-2">Kigali UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <p>Developing an AI solution for diagnosing crop diseases in East Africa.</p>
-                <div class="student-links">
-                    <a href="#" class="student-link"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="#" class="student-link"><i class="fas fa-globe"></i> Portfolio</a>
-                </div>
-            </div>
-            <div class="student-card">
-                <div class="student-header">
-                    <div class="student-avatar">KO</div>
-                    <div class="student-info">
-                        <h3>Kwame Osei</h3>
-                        <p>Web & Mobile Development</p>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Kwame Osei</h6>
+                            <p class="text-muted small mb-2">Nairobi UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <p>Building a platform connecting smallholder farmers to markets.</p>
-                <div class="student-links">
-                    <a href="#" class="student-link"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="#" class="student-link"><i class="fas fa-globe"></i> Portfolio</a>
-                </div>
-            </div>
-            <div class="student-card">
-                <div class="student-header">
-                    <div class="student-avatar">FN</div>
-                    <div class="student-info">
-                        <h3>Fatima Nkosi</h3>
-                        <p>IoT & Embedded Systems</p>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Fatima Nkosi</h6>
+                            <p class="text-muted small mb-2">Lagos UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <p>Creating smart water monitoring systems for rural communities.</p>
-                <div class="student-links">
-                    <a href="#" class="student-link"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="#" class="student-link"><i class="fas fa-globe"></i> Portfolio</a>
-                </div>
-            </div>
-            <div class="student-card">
-                <div class="student-header">
-                    <div class="student-avatar">JM</div>
-                    <div class="student-info">
-                        <h3>Jabari Mensah</h3>
-                        <p>Data Science</p>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Jabari Mensah</h6>
+                            <p class="text-muted small mb-2">Cape Town UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <p>Analyzing healthcare data to improve service delivery in West Africa.</p>
-                <div class="student-links">
-                    <a href="#" class="student-link"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="#" class="student-link"><i class="fas fa-globe"></i> Portfolio</a>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Zara Ahmed</h6>
+                            <p class="text-muted small mb-2">Kigali UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Emmanuel Nwosu</h6>
+                            <p class="text-muted small mb-2">Lagos UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Grace Wanjiku</h6>
+                            <p class="text-muted small mb-2">Nairobi UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Thabo Molefe</h6>
+                            <p class="text-muted small mb-2">Cape Town UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Nomsa Zulu</h6>
+                            <p class="text-muted small mb-2">Cape Town UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Kofi Asante</h6>
+                            <p class="text-muted small mb-2">Accra UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Amara Okafor</h6>
+                            <p class="text-muted small mb-2">Lagos UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Simba Ndlovu</h6>
+                            <p class="text-muted small mb-2">Harare UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Lila Hassan</h6>
+                            <p class="text-muted small mb-2">Dar es Salaam UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Jelani Kamau</h6>
+                            <p class="text-muted small mb-2">Nairobi UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Zola Mthembu</h6>
+                            <p class="text-muted small mb-2">Durban UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Tariq El-Masri</h6>
+                            <p class="text-muted small mb-2">Cairo UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Schedule Section -->
-    <section id="schedule" class="schedule">
-        <h2 class="section-title">Program <span>Schedule</span></h2>
-        <div class="schedule-container">
-            <div class="schedule-item">
-                <div class="schedule-date">
-                    <div class="day">15</div>
-                    <div class="month">SEPT 2023</div>
+    <section id="schedule" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center display-4 mb-5">Course <span class="text-primary">Content</span></h2>
+            <div class="row g-3">
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/version-control.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Version Control</h6>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="schedule-content">
-                    <h3>New Cohort Orientation</h3>
-                    <p>Welcome session for new students joining the UNIPOD program across all centers.</p>
-                    <a href="#" class="schedule-link">Add to Calendar <i class="far fa-calendar-plus"></i></a>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/computer-aided-design.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Computer-Aided Design</h6>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <div class="schedule-item">
-                <div class="schedule-date">
-                    <div class="day">22</div>
-                    <div class="month">SEPT 2023</div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/computer-controlled-cutting.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Computer-Controlled Cutting</h6>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="schedule-content">
-                    <h3>Technical Workshops Begin</h3>
-                    <p>Hands-on sessions in AI, Web Development, and IoT fundamentals.</p>
-                    <a href="#" class="schedule-link">Add to Calendar <i class="far fa-calendar-plus"></i></a>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/embedded-programming.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Embedded Programming</h6>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <div class="schedule-item">
-                <div class="schedule-date">
-                    <div class="day">10</div>
-                    <div class="month">OCT 2023</div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/3d-scanning-printing.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">3D Scanning and Printing</h6>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="schedule-content">
-                    <h3>Project Pitches</h3>
-                    <p>Students present their project ideas for the semester.</p>
-                    <a href="#" class="schedule-link">Add to Calendar <i class="far fa-calendar-plus"></i></a>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/electronics-design.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Electronics Design</h6>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <div class="schedule-item">
-                <div class="schedule-date">
-                    <div class="day">15</div>
-                    <div class="month">DEC 2023</div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/computer-controlled-machining.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Computer-Controlled Machining</h6>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="schedule-content">
-                    <h3>Demo Day Africa</h3>
-                    <p>Final project presentations with industry partners and investors.</p>
-                    <a href="#" class="schedule-link">Add to Calendar <i class="far fa-calendar-plus"></i></a>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/electronics-production.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Electronics Production</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/input-devices.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Input Devices</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/output-devices.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Output Devices</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/networking-communications.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Networking and Communications</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/molding-casting.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Molding and Casting</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/interface-application-programming.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Interface and Application Programming</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/system-integration.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">System Integration</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/wildcard-week.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Wildcard Week</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/invention-ip-income.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Invention, Intellectual Property, and Income</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/final-project-presentations.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Final Project Presentations</h6>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
-        <h2>Ready to Transform Africa's Tech Future?</h2>
-        <p>Join UNIPOD Training today and be part of the movement to build digital skills across the continent.</p>
-        <button class="cta-button">Apply Now</button>
+    <section class="py-5 bg-primary text-white text-center">
+        <div class="container">
+            <h2 class="display-4 mb-3">Ready to Transform Africa's Tech Future?</h2>
+            <p class="lead mb-4">Join UNIPOD Training today and be part of the movement to build digital skills across the continent.</p>
+            <a href="https://forms.gle/aVF7mqV1YphGsWAbA" class="btn btn-light btn-lg" target="_blank">Apply Now</a>
+        </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>UNIPOD Training</h3>
-                <p>Empowering Africa's next generation of tech innovators through quality education.</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <h5>UNIPOD Training</h5>
+                    <p>Empowering Africa's next generation of tech innovators through quality education.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="text-light"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5>Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 44 KG 548 St, Kigali</li>
+                        <li><i class="fas fa-phone me-2"></i> +250-789-276-080</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@fablab.rw</li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-column">
-                <h3>Programs</h3>
-                <ul>
-                    <li><a href="#">AI & Machine Learning</a></li>
-                    <li><a href="#">Web & Mobile Development</a></li>
-                    <li><a href="#">IoT & Embedded Systems</a></li>
-                    <li><a href="#">Data Science</a></li>
-                </ul>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 UNIPOD Training. All rights reserved. | In partnership with Timbktu, UNDP, FabLab Rwanda and UNIPODS</p>
             </div>
-            <div class="footer-column">
-                <h3>UNIPOD Centers</h3>
-                <ul>
-                    <li><a href="#">Kigali, Rwanda</a></li>
-                    <li><a href="#">Nairobi, Kenya</a></li>
-                    <li><a href="#">Lagos, Nigeria</a></li>
-                    <li><a href="#">Cape Town, South Africa</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Contact</h3>
-                <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> FabLab Rwanda, Kigali</li>
-                    <li><i class="fas fa-phone"></i> +250 788 123 456</li>
-                    <li><i class="fas fa-envelope"></i> info@unipod.africa</li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2023 UNIPOD Training. All rights reserved. | In partnership with FabLab Rwanda</p>
         </div>
     </footer>
 
@@ -1012,5 +695,6 @@
             });
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
