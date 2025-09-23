@@ -39,14 +39,67 @@
                 <div class="col-md-8 mx-auto">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Resources</h5>
-                            <p class="card-text">This section will contain resources, tutorials, and materials for Version Control.</p>
-                            <!-- Add resources here -->
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Resource 1: <a href="#" target="_blank">Link</a></li>
-                                <li class="list-group-item">Resource 2: <a href="#" target="_blank">Link</a></li>
-                                <li class="list-group-item">Resource 3: <a href="#" target="_blank">Link</a></li>
+                            <h5 class="card-title">What is Git?</h5>
+                            <p class="card-text">Git is a distributed version control system that tracks changes in your project files over time, enabling collaboration, history, branching, and safe experimentation.</p>
+
+                            <h5 class="mt-4">What is GitHub?</h5>
+                            <p class="card-text">GitHub is a cloud platform for hosting Git repositories. It adds collaboration features (issues, pull requests), access control, and deployment tools like GitHub Pages for static websites.</p>
+
+                            <h5 class="mt-4">Install and Configure Git</h5>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><code>git --version</code> to confirm Git is installed</li>
+                                <li class="list-group-item"><code>git config --global user.name "Your Name"</code></li>
+                                <li class="list-group-item"><code>git config --global user.email "you@example.com"</code></li>
                             </ul>
+
+                            <h5 class="mt-4">Create SSH Keys and add to GitHub</h5>
+                            <ol class="mb-3">
+                                <li>Generate a key: <code>ssh-keygen -t ed25519 -C "you@example.com"</code> (press Enter to accept defaults, set a passphrase if you want).</li>
+                                <li>Start the agent and add your key:
+                                    <div class="bg-light border rounded p-2 my-2"><code>eval "$(ssh-agent -s)"<br>ssh-add ~/.ssh/id_ed25519</code></div>
+                                </li>
+                                <li>Copy the public key:
+                                    <div class="bg-light border rounded p-2 my-2"><code>pbcopy &lt; ~/.ssh/id_ed25519.pub</code> (macOS)</div>
+                                </li>
+                                <li>Add it in GitHub &rarr; Settings &rarr; SSH and GPG keys &rarr; New SSH key.</li>
+                            </ol>
+
+                            <h5 class="mt-4">Basic Git Workflow</h5>
+                            <ol class="mb-3">
+                                <li>Clone: <code>git clone git@github.com:YOUR_USER/YOUR_REPO.git</code></li>
+                                <li>Create a branch: <code>git switch -c feature/my-change</code></li>
+                                <li>Stage and commit: <code>git add -A &amp;&amp; git commit -m "Describe your change"</code></li>
+                                <li>Push: <code>git push -u origin feature/my-change</code></li>
+                                <li>Open a Pull Request on GitHub and merge.</li>
+                            </ol>
+
+                            <h5 class="mt-4">Host a Website with GitHub Pages</h5>
+                            <ol class="mb-3">
+                                <li>Create a repository named <code>YOUR_USER.github.io</code>.</li>
+                                <li>Add your static site (HTML/CSS/JS) at the repo root.</li>
+                                <li>Commit and push to <code>main</code>.</li>
+                                <li>Your site will be available at <code>https://YOUR_USER.github.io</code> within a few minutes.</li>
+                            </ol>
+
+                            <h5 class="mt-4">Deploy an Existing Project to GitHub Pages</h5>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item">Option 1 (user site): push your site to <code>YOUR_USER.github.io</code>.</li>
+                                <li class="list-group-item">Option 2 (project site): enable Pages in Repository Settings &rarr; Pages &rarr; set Source to <code>main</code> (or <code>gh-pages</code>) and folder to <code>/</code> or <code>/docs</code>.</li>
+                            </ul>
+
+                            <h5 class="mt-4">Student Guide: Create Your Website</h5>
+                            <ol class="mb-3">
+                                <li>Fork the template: <a href="https://github.com/Fablab-Rwanda/documentation-page" target="_blank">documentation-page</a>.</li>
+                                <li>Rename your fork to <code>YOUR_USER.github.io</code> for a user site, or keep the name for a project site.</li>
+                                <li>Clone your fork via SSH: <code>git clone git@github.com:YOUR_USER/YOUR_USER.github.io.git</code></li>
+                                <li>Customize content in the repository (HTML files like <code>index.html</code>, <code>week1.html</code>, etc.).</li>
+                                <li>Commit and push changes: <code>git add -A &amp;&amp; git commit -m "Customize site" &amp;&amp; git push</code></li>
+                                <li>Enable GitHub Pages in Settings if needed, then visit your site URL.</li>
+                            </ol>
+
+                            <div class="alert alert-info mt-4">
+                                Tip: The template repository includes additional pages and partials to help you start fast. See the template at <a href="https://github.com/Fablab-Rwanda/documentation-page" target="_blank">documentation-page</a>.
+                            </div>
                         </div>
                     </div>
                 </div>
