@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNIPOD Training | Future-Ready Education</title>
+    <title>UNIPOD Training | FabLab Rwanda Partnership</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -19,6 +19,8 @@
             --dark: #0a0a1f;
             --light: #f0f8ff;
             --accent: #ff2a6d;
+            --africa-green: #008000;
+            --rwanda-blue: #00a1de;
         }
 
         body {
@@ -57,7 +59,7 @@
         .logo-text {
             font-size: 1.8rem;
             font-weight: 700;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(to right, var(--primary), var(--rwanda-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -96,8 +98,8 @@
         }
 
         .cta-button {
-            background: linear-gradient(45deg, var(--secondary), var(--primary));
-            color: var(--dark);
+            background: linear-gradient(45deg, var(--rwanda-blue), var(--africa-green));
+            color: var(--light);
             border: none;
             padding: 0.8rem 1.5rem;
             border-radius: 30px;
@@ -108,7 +110,7 @@
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 161, 222, 0.3);
         }
 
         /* Hero Section */
@@ -133,7 +135,7 @@
         }
 
         .hero h1 span {
-            background: linear-gradient(to right, var(--primary), var(--accent));
+            background: linear-gradient(to right, var(--primary), var(--rwanda-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -142,6 +144,22 @@
             font-size: 1.2rem;
             margin-bottom: 2rem;
             color: #a0a0c0;
+        }
+
+        .partner-badge {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(0, 161, 222, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--rwanda-blue);
+        }
+
+        .partner-badge img {
+            height: 50px;
+            width: auto;
         }
 
         .hero-buttons {
@@ -177,7 +195,7 @@
         .floating-element {
             position: absolute;
             border-radius: 50%;
-            background: radial-gradient(circle, var(--primary), transparent);
+            background: radial-gradient(circle, var(--rwanda-blue), transparent);
             opacity: 0.5;
             filter: blur(20px);
             animation: float 6s infinite ease-in-out;
@@ -220,7 +238,7 @@
         }
 
         .section-title span {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(to right, var(--primary), var(--rwanda-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -253,7 +271,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(to right, var(--secondary), var(--primary));
+            background: linear-gradient(to right, var(--rwanda-blue), var(--africa-green));
         }
 
         .program-card:hover {
@@ -292,35 +310,176 @@
             margin-right: 0.5rem;
         }
 
-        /* Features Section */
-        .features {
+        /* UNIPODs Section */
+        .unipods {
             padding: 5rem 5%;
         }
 
-        .features-grid {
+        .unipods-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
 
-        .feature-card {
-            text-align: center;
+        .unipod-card {
+            background: rgba(20, 20, 50, 0.6);
+            border-radius: 15px;
             padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid rgba(0, 161, 222, 0.2);
         }
 
-        .feature-icon {
+        .unipod-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .unipod-flag {
             font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
-        .feature-card p {
+        .unipod-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .unipod-card p {
             color: #a0a0c0;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Students Section */
+        .students {
+            padding: 5rem 5%;
+            background: rgba(15, 15, 40, 0.7);
+        }
+
+        .students-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .student-card {
+            background: rgba(20, 20, 50, 0.6);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: transform 0.3s;
+            border: 1px solid rgba(123, 97, 255, 0.2);
+        }
+
+        .student-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .student-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .student-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--rwanda-blue), var(--africa-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .student-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .student-info p {
+            color: #a0a0c0;
+            font-size: 0.9rem;
+        }
+
+        .student-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .student-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .student-link:hover {
+            color: var(--rwanda-blue);
+        }
+
+        /* Schedule Section */
+        .schedule {
+            padding: 5rem 5%;
+        }
+
+        .schedule-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(20, 20, 50, 0.6);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 161, 222, 0.2);
+        }
+
+        .schedule-item {
+            display: flex;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .schedule-date {
+            min-width: 100px;
+            margin-right: 2rem;
+        }
+
+        .schedule-date .day {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .schedule-date .month {
+            font-size: 1rem;
+            color: #a0a0c0;
+        }
+
+        .schedule-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .schedule-content p {
+            color: #a0a0c0;
+            margin-bottom: 1rem;
+        }
+
+        .schedule-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--rwanda-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .schedule-link:hover {
+            text-decoration: underline;
         }
 
         /* CTA Section */
@@ -468,6 +627,15 @@
             .section-title {
                 font-size: 2rem;
             }
+
+            .schedule-item {
+                flex-direction: column;
+            }
+
+            .schedule-date {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -480,7 +648,7 @@
                 align-items: center;
             }
             
-            .programs-grid {
+            .programs-grid, .unipods-grid, .students-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -495,24 +663,35 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Programs</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Resources</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#unipods">UNIPODs</a></li>
+                <li><a href="#students">Students</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#about">About</a></li>
             </ul>
         </nav>
-        <button class="cta-button">Enroll Now</button>
+        <button class="cta-button">Join Program</button>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Shape Your Future with <span>UNIPOD Training</span></h1>
-            <p>Experience next-generation education with our immersive training programs designed for the careers of tomorrow. Join thousands of learners transforming their futures today.</p>
+            <h1>Empowering Africa's Future with <span>UNIPOD Training</span></h1>
+            <p>In partnership with FabLab Rwanda, we're delivering cutting-edge technology education across Africa. Join our mission to build digital skills for the next generation.</p>
+            
+            <div class="partner-badge">
+                <div class="partner-logo">
+                    <i class="fas fa-microchip" style="font-size: 2.5rem; color: var(--rwanda-blue);"></i>
+                </div>
+                <div>
+                    <h3>In Partnership with FabLab Rwanda</h3>
+                    <p>Leading innovation and digital fabrication in Africa</p>
+                </div>
+            </div>
+            
             <div class="hero-buttons">
                 <button class="cta-button">Explore Programs</button>
-                <button class="outline-button">Watch Demo</button>
+                <button class="outline-button">Meet Our Students</button>
             </div>
         </div>
         <div class="hero-visual">
@@ -523,80 +702,198 @@
     </section>
 
     <!-- Programs Section -->
-    <section class="programs">
+    <section id="programs" class="programs">
         <h2 class="section-title">Our <span>Training Programs</span></h2>
         <div class="programs-grid">
             <div class="program-card">
                 <div class="program-icon"><i class="fas fa-robot"></i></div>
                 <h3>AI & Machine Learning</h3>
-                <p>Master the fundamentals and advanced concepts of artificial intelligence with hands-on projects and real-world applications.</p>
+                <p>Master AI fundamentals with practical applications tailored for African contexts and challenges.</p>
                 <ul class="program-features">
                     <li><i class="fas fa-check"></i> 6-month intensive program</li>
+                    <li><i class="fas fa-check"></i> Focus on African datasets</li>
                     <li><i class="fas fa-check"></i> Industry certification</li>
-                    <li><i class="fas fa-check"></i> Career placement assistance</li>
-                    <li><i class="fas fa-check"></i> Access to AI lab</li>
+                    <li><i class="fas fa-check"></i> Local mentorship</li>
                 </ul>
                 <button class="outline-button">Learn More</button>
             </div>
             <div class="program-card">
                 <div class="program-icon"><i class="fas fa-code"></i></div>
-                <h3>Quantum Computing</h3>
-                <p>Dive into the world of quantum algorithms and computation with cutting-edge technology and expert instructors.</p>
+                <h3>Web & Mobile Development</h3>
+                <p>Build responsive web and mobile applications that solve real African problems.</p>
                 <ul class="program-features">
-                    <li><i class="fas fa-check"></i> 8-month specialized program</li>
-                    <li><i class="fas fa-check"></i> Quantum hardware access</li>
-                    <li><i class="fas fa-check"></i> Research opportunities</li>
-                    <li><i class="fas fa-check"></i> Industry partnerships</li>
+                    <li><i class="fas fa-check"></i> Full-stack development</li>
+                    <li><i class="fas fa-check"></i> Mobile-first approach</li>
+                    <li><i class="fas fa-check"></i> Agile methodology</li>
+                    <li><i class="fas fa-check"></i> Portfolio projects</li>
                 </ul>
                 <button class="outline-button">Learn More</button>
             </div>
             <div class="program-card">
-                <div class="program-icon"><i class="fas fa-vr-cardboard"></i></div>
-                <h3>Extended Reality Development</h3>
-                <p>Create immersive experiences with AR, VR, and MR technologies. Build the future of digital interaction.</p>
+                <div class="program-icon"><i class="fas fa-network-wired"></i></div>
+                <h3>IoT & Embedded Systems</h3>
+                <p>Design and implement IoT solutions for agriculture, health, and smart cities in Africa.</p>
                 <ul class="program-features">
-                    <li><i class="fas fa-check"></i> 5-month creative program</li>
-                    <li><i class="fas fa-check"></i> State-of-the-art equipment</li>
-                    <li><i class="fas fa-check"></i> Portfolio development</li>
-                    <li><i class="fas fa-check"></i> Industry showcases</li>
+                    <li><i class="fas fa-check"></i> Hardware prototyping</li>
+                    <li><i class="fas fa-check"></i> Sensor networks</li>
+                    <li><i class="fas fa-check"></i> Cloud integration</li>
+                    <li><i class="fas fa-check"></i> Field testing</li>
                 </ul>
                 <button class="outline-button">Learn More</button>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <h2 class="section-title">Why Choose <span>UNIPOD</span></h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-brain"></i></div>
-                <h3>Neural Learning</h3>
-                <p>Our adaptive learning technology personalizes content based on your cognitive patterns for optimal retention.</p>
+    <!-- UNIPODs Section -->
+    <section id="unipods" class="unipods">
+        <h2 class="section-title">UNIPODs Across <span>Africa</span></h2>
+        <div class="unipods-grid">
+            <div class="unipod-card">
+                <div class="unipod-flag">🇷🇼</div>
+                <h3>Kigali UNIPOD</h3>
+                <p>Our flagship center in Rwanda, partnering with FabLab Rwanda to deliver cutting-edge tech education.</p>
+                <button class="outline-button">Visit Center</button>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-globe"></i></div>
-                <h3>Global Network</h3>
-                <p>Connect with learners and industry experts from around the world in our immersive virtual campus.</p>
+            <div class="unipod-card">
+                <div class="unipod-flag">🇰🇪</div>
+                <h3>Nairobi UNIPOD</h3>
+                <p>Located in Kenya's tech hub, focusing on fintech and mobile innovation.</p>
+                <button class="outline-button">Visit Center</button>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-rocket"></i></div>
-                <h3>Future-Ready Skills</h3>
-                <p>Our curriculum is continuously updated to match the evolving demands of the future job market.</p>
+            <div class="unipod-card">
+                <div class="unipod-flag">🇳🇬</div>
+                <h3>Lagos UNIPOD</h3>
+                <p>Nigeria's center for AI and creative technology education.</p>
+                <button class="outline-button">Visit Center</button>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-hands-helping"></i></div>
-                <h3>Career Acceleration</h3>
-                <p>Get personalized career guidance and access to exclusive opportunities with our partner organizations.</p>
+            <div class="unipod-card">
+                <div class="unipod-flag">🇿🇦</div>
+                <h3>Cape Town UNIPOD</h3>
+                <p>South Africa's hub for data science and machine learning.</p>
+                <button class="outline-button">Visit Center</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Students Section -->
+    <section id="students" class="students">
+        <h2 class="section-title">Our <span>Students</span></h2>
+        <div class="students-grid">
+            <div class="student-card">
+                <div class="student-header">
+                    <div class="student-avatar">AM</div>
+                    <div class="student-info">
+                        <h3>Amina Mbeki</h3>
+                        <p>AI & Machine Learning</p>
+                    </div>
+                </div>
+                <p>Developing an AI solution for diagnosing crop diseases in East Africa.</p>
+                <div class="student-links">
+                    <a href="#" class="student-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" class="student-link"><i class="fas fa-globe"></i> Portfolio</a>
+                </div>
+            </div>
+            <div class="student-card">
+                <div class="student-header">
+                    <div class="student-avatar">KO</div>
+                    <div class="student-info">
+                        <h3>Kwame Osei</h3>
+                        <p>Web & Mobile Development</p>
+                    </div>
+                </div>
+                <p>Building a platform connecting smallholder farmers to markets.</p>
+                <div class="student-links">
+                    <a href="#" class="student-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" class="student-link"><i class="fas fa-globe"></i> Portfolio</a>
+                </div>
+            </div>
+            <div class="student-card">
+                <div class="student-header">
+                    <div class="student-avatar">FN</div>
+                    <div class="student-info">
+                        <h3>Fatima Nkosi</h3>
+                        <p>IoT & Embedded Systems</p>
+                    </div>
+                </div>
+                <p>Creating smart water monitoring systems for rural communities.</p>
+                <div class="student-links">
+                    <a href="#" class="student-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" class="student-link"><i class="fas fa-globe"></i> Portfolio</a>
+                </div>
+            </div>
+            <div class="student-card">
+                <div class="student-header">
+                    <div class="student-avatar">JM</div>
+                    <div class="student-info">
+                        <h3>Jabari Mensah</h3>
+                        <p>Data Science</p>
+                    </div>
+                </div>
+                <p>Analyzing healthcare data to improve service delivery in West Africa.</p>
+                <div class="student-links">
+                    <a href="#" class="student-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" class="student-link"><i class="fas fa-globe"></i> Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="schedule">
+        <h2 class="section-title">Program <span>Schedule</span></h2>
+        <div class="schedule-container">
+            <div class="schedule-item">
+                <div class="schedule-date">
+                    <div class="day">15</div>
+                    <div class="month">SEPT 2023</div>
+                </div>
+                <div class="schedule-content">
+                    <h3>New Cohort Orientation</h3>
+                    <p>Welcome session for new students joining the UNIPOD program across all centers.</p>
+                    <a href="#" class="schedule-link">Add to Calendar <i class="far fa-calendar-plus"></i></a>
+                </div>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-date">
+                    <div class="day">22</div>
+                    <div class="month">SEPT 2023</div>
+                </div>
+                <div class="schedule-content">
+                    <h3>Technical Workshops Begin</h3>
+                    <p>Hands-on sessions in AI, Web Development, and IoT fundamentals.</p>
+                    <a href="#" class="schedule-link">Add to Calendar <i class="far fa-calendar-plus"></i></a>
+                </div>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-date">
+                    <div class="day">10</div>
+                    <div class="month">OCT 2023</div>
+                </div>
+                <div class="schedule-content">
+                    <h3>Project Pitches</h3>
+                    <p>Students present their project ideas for the semester.</p>
+                    <a href="#" class="schedule-link">Add to Calendar <i class="far fa-calendar-plus"></i></a>
+                </div>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-date">
+                    <div class="day">15</div>
+                    <div class="month">DEC 2023</div>
+                </div>
+                <div class="schedule-content">
+                    <h3>Demo Day Africa</h3>
+                    <p>Final project presentations with industry partners and investors.</p>
+                    <a href="#" class="schedule-link">Add to Calendar <i class="far fa-calendar-plus"></i></a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <h2>Ready to Launch Your Future?</h2>
-        <p>Join UNIPOD today and gain access to cutting-edge training programs that will prepare you for the careers of tomorrow.</p>
-        <button class="cta-button">Start Your Journey</button>
+        <h2>Ready to Transform Africa's Tech Future?</h2>
+        <p>Join UNIPOD Training today and be part of the movement to build digital skills across the continent.</p>
+        <button class="cta-button">Apply Now</button>
     </section>
 
     <!-- Footer -->
@@ -604,45 +901,43 @@
         <div class="footer-content">
             <div class="footer-column">
                 <h3>UNIPOD Training</h3>
-                <p>Transforming education through innovative technology and future-focused curriculum.</p>
+                <p>Empowering Africa's next generation of tech innovators through quality education.</p>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             <div class="footer-column">
                 <h3>Programs</h3>
                 <ul>
                     <li><a href="#">AI & Machine Learning</a></li>
-                    <li><a href="#">Quantum Computing</a></li>
-                    <li><a href="#">Extended Reality</a></li>
-                    <li><a href="#">Biotechnology</a></li>
-                    <li><a href="#">Space Technology</a></li>
+                    <li><a href="#">Web & Mobile Development</a></li>
+                    <li><a href="#">IoT & Embedded Systems</a></li>
+                    <li><a href="#">Data Science</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h3>Resources</h3>
+                <h3>UNIPOD Centers</h3>
                 <ul>
-                    <li><a href="#">Learning Hub</a></li>
-                    <li><a href="#">Research Papers</a></li>
-                    <li><a href="#">Career Portal</a></li>
-                    <li><a href="#">Student Success</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Kigali, Rwanda</a></li>
+                    <li><a href="#">Nairobi, Kenya</a></li>
+                    <li><a href="#">Lagos, Nigeria</a></li>
+                    <li><a href="#">Cape Town, South Africa</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Contact</h3>
                 <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Future Tech Campus, Neo City</li>
-                    <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-                    <li><i class="fas fa-envelope"></i> info@unipod.training</li>
+                    <li><i class="fas fa-map-marker-alt"></i> FabLab Rwanda, Kigali</li>
+                    <li><i class="fas fa-phone"></i> +250 788 123 456</li>
+                    <li><i class="fas fa-envelope"></i> info@unipod.africa</li>
                 </ul>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2023 UNIPOD Training. All rights reserved. | Designed for the Future</p>
+            <p>&copy; 2023 UNIPOD Training. All rights reserved. | In partnership with FabLab Rwanda</p>
         </div>
     </footer>
 
@@ -672,9 +967,18 @@
                 observer.observe(card);
             });
 
-            // Animate feature cards on scroll
-            const featureCards = document.querySelectorAll('.feature-card');
-            featureCards.forEach(card => {
+            // Animate UNIPOD cards on scroll
+            const unipodCards = document.querySelectorAll('.unipod-card');
+            unipodCards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s, transform 0.5s';
+                observer.observe(card);
+            });
+
+            // Animate student cards on scroll
+            const studentCards = document.querySelectorAll('.student-card');
+            studentCards.forEach(card => {
                 card.style.opacity = 0;
                 card.style.transform = 'translateY(20px)';
                 card.style.transition = 'opacity 0.5s, transform 0.5s';
@@ -691,6 +995,20 @@
                     header.style.background = 'rgba(10, 10, 31, 0.9)';
                     header.style.boxShadow = 'none';
                 }
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
             });
         });
     </script>
