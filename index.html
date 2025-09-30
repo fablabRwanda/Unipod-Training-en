@@ -96,6 +96,79 @@
         .btn-outline-light:hover {
             color: #000 !important;
         }
+        /* Roadmap timeline styles */
+        .roadmap-wrapper {
+            position: relative;
+        }
+        .timeline {
+            position: relative;
+            margin: 0 auto;
+            padding: 0 0 2rem 0;
+            max-width: 1100px;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: #e9ecef;
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 0 2rem 2.5rem 2rem;
+            margin-top: 1rem;
+        }
+        .timeline-item .timeline-card {
+            background: #fff;
+            border-radius: .5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border: 0;
+            padding-top: 1.5rem; /* reduced since badge moved up */
+        }
+        .timeline-item.left { float: left; text-align: right; }
+        .timeline-item.right { float: right; text-align: left; }
+        .timeline-badge {
+            position: absolute;
+            top: -24px; /* sit slightly above the card */
+            left: 50%;
+            transform: translate(-50%, 0);
+            background: #0d6efd;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: 0 6px 14px rgba(13,110,253,0.35);
+            z-index: 2;
+        }
+        .timeline-connector {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60px;
+            height: 2px;
+            background: #dee2e6;
+            transform: translate(-50%, -50%);
+        }
+        .timeline-item.left .timeline-connector { left: calc(50% - 34px); }
+        .timeline-item.right .timeline-connector { left: calc(50% + 34px); }
+        .timeline h3 { font-weight: 700; }
+        .timeline .phase-meta { color: #6c757d; font-weight: 500; }
+        .timeline .topic-links .card { transition: transform .15s ease; }
+        .timeline .topic-links .card:hover { transform: translateY(-3px); }
+        @media (max-width: 991.98px) {
+            .timeline::before { left: 8px; transform: none; }
+            .timeline-item { width: 100%; padding-left: 2.5rem; padding-right: 0; text-align: left; float: none; margin-top: 1.25rem; }
+            .timeline-badge { left: 8px; transform: none; top: -20px; }
+            .timeline-connector { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -470,162 +543,256 @@
 
     <!-- Schedule Section -->
     <section id="schedule" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center display-4 mb-5">Course <span class="text-primary">Content</span></h2>
-            <div class="row g-3">
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/version-control.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Version Control</h6>
+        <div class="container roadmap-wrapper">
+            <h2 class="text-center display-4 mb-5">Your 12-Month <span class="text-primary">Roadmap to Mastery</span></h2>
+            <div class="timeline">
+                <!-- Item 1 -->
+                <div class="timeline-item left">
+                    <span class="timeline-badge">1</span>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-card p-4">
+                        <h3 class="mb-1">Foundation <span class="phase-meta">(Months 1-2)</span></h3>
+                        <p class="text-muted mb-3">Build your maker mindset. Master design thinking principles and CAD fundamentals. Learn to see problems as opportunities for creative solutions.</p>
+                        <div class="row g-3 topic-links">
+                            <div class="col-sm-6">
+                                <a href="course-content/introduction.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-book-open fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">Introduction</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="course-content/version-control.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fab fa-github fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">Version Control</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="course-content/computer-aided-design.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-drafting-compass fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">Computer-Aided Design</h6>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/computer-aided-design.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Computer-Aided Design</h6>
+                <!-- Item 2 -->
+                <div class="timeline-item right">
+                    <span class="timeline-badge">2</span>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-card p-4">
+                        <h3 class="mb-1">Rapid Prototyping <span class="phase-meta">(Months 3-4)</span></h3>
+                        <p class="text-muted mb-3">Bring digital designs into the physical world. Master 3D printing, laser cutting, and 3D scanning to iterate quickly and effectively.</p>
+                        <div class="row g-3 topic-links">
+                            <div class="col-sm-6">
+                                <a href="course-content/3d-scanning-printing.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-cube fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">3D Scanning and Printing</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="course-content/computer-controlled-cutting.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-cut fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">Computer-Controlled Cutting</h6>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/computer-controlled-cutting.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Computer-Controlled Cutting</h6>
+                <!-- Item 3 -->
+                <div class="timeline-item left">
+                    <span class="timeline-badge">3</span>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-card p-4">
+                        <h3 class="mb-1">Electronics <span class="phase-meta">(Months 5-6)</span></h3>
+                        <p class="text-muted mb-3">Add intelligence to your creations. Dive into circuits, microcontrollers, and sensors to build responsive, interactive prototypes.</p>
+                        <div class="row g-3 topic-links">
+                            <div class="col-sm-6">
+                                <a href="course-content/electronics-design.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-microchip fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">Electronics Design</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="course-content/electronics-production.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-industry fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">Electronics Production</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="course-content/embedded-programming.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-code fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">Embedded Programming</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="course-content/input-devices.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-microphone-lines fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">Input Devices</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="course-content/output-devices.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-lightbulb fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">Output Devices</h6>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/embedded-programming.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Embedded Programming</h6>
+                <!-- Item 4 -->
+                <div class="timeline-item right">
+                    <span class="timeline-badge">4</span>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-card p-4">
+                        <h3 class="mb-1">Mechanical &amp; Fabrication <span class="phase-meta">(Months 7-8)</span></h3>
+                        <p class="text-muted mb-3">Level up with heavy-duty tools. Learn CNC machining, welding, and advanced fabrication techniques for robust, professional-grade builds.</p>
+                        <div class="row g-3 topic-links">
+                            <div class="col-sm-6">
+                                <a href="course-content/computer-controlled-machining.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-cog fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">Computer-Controlled Machining</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="course-content/molding-casting.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-fill-drip fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">Molding and Casting</h6>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/3d-scanning-printing.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">3D Scanning and Printing</h6>
+                <!-- Item 5 -->
+                <div class="timeline-item left">
+                    <span class="timeline-badge">5</span>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-card p-4">
+                        <h3 class="mb-1">Integration &amp; Capstone <span class="phase-meta">(Months 9-12)</span></h3>
+                        <p class="text-muted mb-3">Synthesize everything you've learned. Design and build your masterpiece project that showcases your complete skill set and creative vision.</p>
+                        <div class="row g-3 topic-links">
+                            <div class="col-sm-6">
+                                <a href="course-content/networking-communications.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-network-wired fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">Networking and Communications</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="course-content/interface-application-programming.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-desktop fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">Interface and Application Programming</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="course-content/system-integration.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-project-diagram fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">System Integration</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="course-content/invention-ip-income.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-lightbulb fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">Invention, Intellectual Property, and Income</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="course-content/final-project-presentations.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-chalkboard-user fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">Final Project Presentations</h6>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/electronics-design.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Electronics Design</h6>
+                <!-- Item 6 -->
+                <div class="timeline-item right">
+                    <span class="timeline-badge">6</span>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-card p-4">
+                        <h3 class="mb-1">Textile, VR , GreenTech, Food &amp; AgriTech <span class="phase-meta">(Months 9-11)</span></h3>
+                        <p class="text-muted mb-3">Diversify your maker skills. Combine electronics with fabric to create interactive wearables, build virtual prototypes in VR, and tackle real-world challenges in renewable energy, recycling, and food production technology.</p>
+                        <div class="row g-3 topic-links">
+                            <div class="col-sm-6">
+                                <a href="course-content/wildcard-week.html" class="text-decoration-none">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-star fa-2x text-primary mb-2"></i>
+                                            <h6 class="card-title mb-0">Wildcard Week</h6>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/computer-controlled-machining.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Computer-Controlled Machining</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/electronics-production.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Electronics Production</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/input-devices.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Input Devices</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/output-devices.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Output Devices</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/networking-communications.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Networking and Communications</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/molding-casting.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Molding and Casting</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/interface-application-programming.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Interface and Application Programming</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/system-integration.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">System Integration</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/wildcard-week.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Wildcard Week</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/invention-ip-income.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Invention, Intellectual Property, and Income</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <a href="course-content/final-project-presentations.html" class="text-decoration-none">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Final Project Presentations</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                <div style="clear: both;"></div>
             </div>
         </div>
     </section>
