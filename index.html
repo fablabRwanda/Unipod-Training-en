@@ -752,13 +752,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Data source for Students section (Google Sheets CSV). Falls back to local CSV if unset.
+        window.STUDENTS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS3BV-UJHSoXlVbJPyMEgWFZ9JNQbCddDo0_lJXCVWUjFKAJuFmTzMW9t-_7ZBipNrnrDzoS7eOq6cN/pub?gid=1198996204&single=true&output=csv';
+    </script>
+    <script>
         // Populate Students section from github_links.csv
         document.addEventListener('DOMContentLoaded', function() {
             const grid = document.getElementById('students-grid');
             if (!grid) return;
 
             function loadStudents() {
-                const url = `github_links.csv?_=${Date.now()}`; // cache-bust
+                const base = (window.STUDENTS_CSV_URL || 'github_links.csv');
+                const url = `${base}${base.includes('?') ? '&' : '?'}_=${Date.now()}`; // cache-bust
                 return fetch(url, { cache: 'no-store' })
                 .then(r => r.text())
                 .then(text => {
@@ -818,13 +823,13 @@
                         }
                     });
 
-                    // Sort by UniPod (then Country) then Name
+                    // Sort A–Z by UniPod label (fallback to Country), then by Full Name
                     const students = Array.from(nameToStudent.values()).sort((a, b) => {
                         const aGroup = (a.unipod || a.country || '').toLowerCase();
                         const bGroup = (b.unipod || b.country || '').toLowerCase();
                         if (aGroup < bGroup) return -1;
                         if (aGroup > bGroup) return 1;
-                        return a.name.localeCompare(b.name);
+                        return a.name.localeCompare(b.name, 'en', { sensitivity: 'base' });
                     });
 
                     // Render
