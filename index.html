@@ -757,7 +757,9 @@
             const grid = document.getElementById('students-grid');
             if (!grid) return;
 
-            fetch('github_links.csv')
+            function loadStudents() {
+                const url = `github_links.csv?_=${Date.now()}`; // cache-bust
+                return fetch(url, { cache: 'no-store' })
                 .then(r => r.text())
                 .then(text => {
                     const rows = text.split('\n').filter(Boolean);
@@ -826,6 +828,7 @@
                     });
 
                     // Render
+                    grid.innerHTML = '';
                     students.forEach(s => {
                         const groupLabel = s.unipod ? `${s.unipod}${s.country ? ` (${s.country})` : ''}` : s.country;
                         const col = document.createElement('div');
@@ -843,10 +846,23 @@
                             </div>`;
                         grid.appendChild(col);
                     });
-                })
-                .catch(() => {
-                    // Fallback: leave section empty on error
                 });
+            }
+
+            // Initial load
+            loadStudents().catch(() => {});
+
+            // Refresh on tab focus
+            document.addEventListener('visibilitychange', () => {
+                if (!document.hidden) {
+                    loadStudents().catch(() => {});
+                }
+            });
+
+            // Periodic refresh every 5 minutes
+            setInterval(() => {
+                loadStudents().catch(() => {});
+            }, 5 * 60 * 1000);
         });
     </script>
     <script>
