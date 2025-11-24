@@ -37,17 +37,164 @@
         <div class="container">
             <h1 class="text-center display-4 mb-4">Computer-Controlled Cutting</h1>
             <div class="row">
-                <div class="col-md-8 mx-auto">
-                    <div class="card">
+                <div class="col-lg-10 mx-auto">
+                    <p class="lead">
+                        This two–week sprint introduces students to safe laser-cutter operation, design
+                        workflows, and iterative prototyping. Each week blends mini-lectures, live
+                        demos, and studio time so learners leave with both conceptual understanding
+                        and tangible artifacts.
+                    </p>
+
+                    <div class="card mb-4 shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title">Resources</h5>
-                            <p class="card-text">This section will contain resources, tutorials, and materials for Computer-Controlled Cutting.</p>
-                            <!-- Add resources here -->
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Resource 1: <a href="#" target="_blank">Link</a></li>
-                                <li class="list-group-item">Resource 2: <a href="#" target="_blank">Link</a></li>
-                                <li class="list-group-item">Resource 3: <a href="#" target="_blank">Link</a></li>
+                            <h2 class="h3 text-primary mb-3">Week 1 — Foundations &amp; Machine Operation</h2>
+                            <p class="mb-4">Goal: Build a safety-first mindset, master core machine skills, and ship a first press-fit prototype.</p>
+
+                            <h3 class="h5 text-secondary mt-4">1. Introduction to Laser Cutting</h3>
+                            <p>
+                                We begin by tracing the entire journey of a photon inside a CO<sub>2</sub> laser. The glass tube is filled with carbon dioxide, nitrogen, and helium, and when electricity excites the gas, the mixture emits infrared light. Mirrors mounted at either end bounce the light back and forth until it exits the resonator, hits a series of adjustable mirrors, and finally travels through the lens on the moving head. I demonstrate this with a whiteboard sketch and a short video of the gantry moving along the X and Y axes so you can picture how a two-dimensional drawing becomes precise motion.
+                            </p>
+                            <p>
+                                Next, we compare three categories of machines you are likely to encounter. A CO<sub>2</sub> laser excels at cutting organic materials like plywood and acrylic, a fiber laser handles metal marking and cutting, and a compact diode unit serves as an entry-level engraver for thin materials. I bring sample nameplates and metal tags that were produced on each system so you can feel the difference while we discuss maintenance requirements such as water chillers for CO<sub>2</sub> and air cooling for diodes.
+                            </p>
+                            <p>
+                                Safety is non-negotiable. I walk you through our makerspace expectations—eye protection, no unattended jobs, knowing where the fire extinguisher is mounted, and how the buddy policy works. We practice using the red-tag procedure by role-playing what to do if smoke builds up or if a lens cracks during operation.
+                            </p>
+                            <p>
+                                We finish this block with a guided tour of the machine. Everyone circles the bed to note the honeycomb table, we trace the exhaust path to the filtration unit, and we open the chiller cabinet to see the coolant lines. You log the purpose of each component on your worksheet so that you can later explain them to a peer.
+                            </p>
+                            <p>
+                                Finally, you take a short safety readiness check. The quiz includes scenario-based questions such as “What do you do if a cut catches fire?” Passing the quiz unlocks supervised access to the laser, so treat it like your first license.
+                            </p>
+
+                            <h3 class="h5 text-secondary mt-4">2. Materials &amp; Laser Settings</h3>
+                            <p>
+                                Laser jobs fall into three modes: vector cutting slices all the way through, vector scoring creates shallow grooves, and raster engraving fills an area line by line. I show you a color-coded Illustrator file where red lines cut, blue lines score, and black fills engrave, then we send it to the machine so you can witness the order of operations.
+                            </p>
+                            <p>
+                                We move through a materials show-and-tell. You hold MDF, birch plywood, cast acrylic, leather, cardboard, and EVA foam to notice weight and smell differences. I also pass around a steel dog tag marked on the fiber laser. We talk honestly about what we exclude—PVC releases chlorine gas—so you understand the “never cut” list.
+                            </p>
+                            <p>
+                                Settings control everything. I demonstrate how increasing power while keeping speed constant deepens the cut but can also char edges. By running the same spiral pattern at three speeds, we observe how kerf widens when the beam dwells longer. I explain frequency (or PPI) with a strobe-light analogy so you understand why high frequency polishes acrylic edges.
+                            </p>
+                            <p>
+                                Together we design a power/speed test card: a 5x5 grid where each row uses a different speed and each column uses a different power. Everyone labels their square, and once it is cut we gather around to see which cells give clean edges versus burned edges. Those results go straight into the shared logbook.
+                            </p>
+                            <p>
+                                To build a personal reference, you engrave a small swatch for each approved material. The swatch lists material name, thickness, optimal cut settings, and engraving settings. Keep these on a keyring; they become invaluable when you start designing independently.
+                            </p>
+
+                            <h3 class="h5 text-secondary mt-4">3. Design Software Fundamentals</h3>
+                            <p>
+                                Many first-time designers are surprised that the laser only understands vectors for cutting even if the artwork looks like a photograph. We open Inkscape and I demonstrate how Bézier curves define the motion of the head, while raster data creates scanlines. You trace a bitmap logo to convert it into smooth vectors, learning to simplify nodes so the machine does not jitter.
+                            </p>
+                            <p>
+                                We standardize our colors and stroke weights. Cuts are red with a 0.001 in stroke, scores are blue, and engraves are black fills. I show how each software—Illustrator, CorelDRAW, LightBurn—stores these settings and how to copy them into our lab-provided templates so that anyone else can open your file and run it without guesswork.
+                            </p>
+                            <p>
+                                To practice, you design a luggage tag. This mini project forces you to align text, use boolean operations to subtract a slot for the strap, and set a raster area for your name. I circulate with tips on kerning and engraving depth so the text reads clearly.
+                            </p>
+                            <p>
+                                Before we export, we run a “pre-flight check.” You zoom in to ensure there are no overlapping lines that would cause the machine to cut twice, confirm your artboard matches the bed size, and convert any strokes to hairlines. Only then do you export a DXF or SVG, which we quickly re-import to verify scale before sending it to the laser.
+                            </p>
+
+                            <h3 class="h5 text-secondary mt-4">4. Machine Operation Basics</h3>
+                            <p>
+                                Every session starts with a disciplined power-up routine. I model the sequence—chiller, air compressor, exhaust, and finally laser—and you follow along, signing the checklist posted next to the machine. We talk about why this order matters by looking at a damaged tube that overheated because the chiller was off.
+                            </p>
+                            <p>
+                                Focusing deserves its own ritual. You use the acrylic focus tool to set the ideal height, then run a ramp test where a scrap board is tilted under the beam. By examining which part of the ramp produces the thinnest cut, you see firsthand how focus influences kerf width and engraving sharpness.
+                            </p>
+                            <p>
+                                Daily maintenance keeps the optics clear. I remove the lens and mirror, showing you the proper lint-free wipes and solvent. Everyone observes the difference between a clean lens and one with residue under a flashlight so you can spot issues during your shifts.
+                            </p>
+                            <p>
+                                Troubleshooting becomes easier once you know what “normal” looks like. When a scrap cut fails to make it all the way through, we compare settings to yesterday’s logbook entry, check that the material is flat, and verify the air-assist is blowing strongly. You document the root cause and fix so future students can learn from your process.
+                            </p>
+                            <p>
+                                With procedures in place, you launch your first supervised cut: a personalized badge or desk nameplate. I watch as you load material, set focus, frame the job, and hit go, while another student photographs the steps for your documentation page.
+                            </p>
+
+                            <h3 class="h5 text-secondary mt-4">5. Joints, Kerf &amp; Fit</h3>
+                            <p>
+                                Kerf—the width of material removed by the beam—determines whether parts fall apart or lock snugly. You cut a comb test at 0.05 mm increments, measure the results with calipers, and record the true kerf for 3 mm plywood and 4.5 mm acrylic. We enter the numbers into a shared spreadsheet so future designs can start from proven offsets.
+                            </p>
+                            <p>
+                                With accurate kerf data, we explore joint styles. I demonstrate finger joints that resist shear, T-slots for perpendicular assemblies, and wedge tabs that can be disassembled. You modify parameters in your CAD file to see how widening a slot by only 0.1 mm can suddenly make a part loose.
+                            </p>
+                            <p>
+                                Living hinges show how rigid materials can flex. We cut three hinge patterns with varying slit spacing and then test their bend radius. One pattern snaps quickly, another bends like fabric; we discuss why grain direction and slot spacing matter.
+                            </p>
+                            <p>
+                                To finish the week, you fabricate a pocket-sized press-fit kit—think of it as a laser-cut version of building blocks. After assembling it, you write a short critique on your personal site explaining which tolerances felt tight, which were loose, and what you will adjust in the next iteration.
+                            </p>
+
+                            <div class="alert alert-info mt-4">
+                                <strong>Week 1 Homework:</strong>
+                                <ul class="mb-0">
+                                    <li><strong>Individual:</strong> Publish on your personal documentation page a design brief for a press-fit object (purpose, materials, hazards) plus photos of the first build.</li>
+                                    <li><strong>Individual:</strong> Upload kerf-test photos, measurements, and preferred offsets so others can reproduce your results.</li>
+                                    <li><strong>Group:</strong> Collaborate on a shared “Laser Safety &amp; Settings” page that links every member’s prototype reflection and summarizes agreed best practices.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h2 class="h3 text-primary mb-3">Week 2 — Design Thinking, Projects &amp; Advanced Techniques</h2>
+                            <p class="mb-4">Goal: Apply parametric methods, explore advanced engraving, and iterate on a personal project.</p>
+
+                            <h3 class="h5 text-secondary mt-4">1. Parametric &amp; Assembly Design</h3>
+                            <p>
+                                Week 2 opens with parametric thinking. In Fusion 360, you create user parameters called <code>materialThickness</code>, <code>kerf</code>, and <code>clearance</code>. I then change <code>materialThickness</code> from 3 mm to 6 mm and watch the model update automatically so you can see the power of designing once and fabricating many times.
+                            </p>
+                            <p>
+                                Assembly planning becomes a virtual rehearsal. Using constraints and construction planes, you align parts as they will sit after cutting. Exploded views help you confirm that tabs reach their slots and that nothing collides. I share a sample phone stand model that highlights where dogbones or fillets are necessary.
+                            </p>
+                            <p>
+                                Efficient nesting saves both time and material. We import an exported DXF back into LightBurn and explore how to rotate parts to align with the wood grain, keep consistent spacing for kerf, and label duplicates. I challenge you to reduce waste on a simple box layout by at least 15% compared to your first attempt.
+                            </p>
+                            <p>
+                                You then design your own parametric artifact—maybe a modular box, a set of stackable coasters, or a mini shelf. To prove the parameters work, you cut a single panel at two different thicknesses and show the class how the slot width adjusted automatically.
+                            </p>
+
+                            <h3 class="h5 text-secondary mt-4">2. Advanced Laser Techniques</h3>
+                            <p>
+                                Advanced engraving starts with photography. We import a portrait, convert it to grayscale, and test different DPI values—250, 400, 600—on scrap maple. By comparing the tiles, you learn how dithering patterns affect highlights and why acrylic prefers lower power to avoid melting.
+                            </p>
+                            <p>
+                                Multi-pass engraving allows you to sculpt depth. I demonstrate an emboss-style plaque where the first pass removes paint, the second deepens the wood, and the third polishes edges. You record the exact power and speed for each pass so you can repeat the effect later.
+                            </p>
+                            <p>
+                                Layered inlays combine precision with craftsmanship. We cut a recess in walnut, cut an acrylic inlay that is 0.1 mm smaller, prefinish both surfaces, and then press them together using a tape hinge to maintain alignment. The result shows how contrasting materials elevate a simple design.
+                            </p>
+                            <p>
+                                Accurate repetition often requires a jig. You design a corner fence with registration pins that allow you to flip a workpiece for double-sided engraving without losing alignment. Documenting the jig measurements ensures any teammate can recreate the setup.
+                            </p>
+
+                            <h3 class="h5 text-secondary mt-4">3. Project Prototyping</h3>
+                            <p>
+                                Each student now writes a project charter. You might choose a desk organizer, lamp, signage package, clock, or laptop stand; what matters is that you clearly define the user, the environment where the object will live, and the success criteria. You post this charter to your personal page so mentors can hold you accountable to your stated goals.
+                            </p>
+                            <p>
+                                Before cutting full sheets, we insist on test coupons. You isolate a single joint, hinge, or engraved texture and cut it on scrap, measure the result with calipers, and adjust your CAD parameters accordingly. Sharing photos of failed coupons normalizes iteration and teaches others what to avoid.
+                            </p>
+                            <p>
+                                Feedback loops accelerate learning. Midweek you present your progress to a peer, capture their comments directly in your notebook, and immediately update the parametric model. Re-exporting clean DXF/SVG files after every major change prevents old errors from sneaking into production.
+                            </p>
+                            <p>
+                                Documentation is part of the assignment. You photograph each milestone—from first sketch to final assembly—and jot a short reflection. By the time critique day arrives, your personal page reads like a lab report showing hypothesis, experiment, and conclusion.
+                            </p>
+
+                            <div class="alert alert-info mt-4">
+                                <strong>Week 2 Homework:</strong>
+                                <ul class="mb-0">
+                                    <li><strong>Individual:</strong> Post your parametric CAD file and exported DXF/SVG on your personal page, highlighting screenshots of the key parameters you created.</li>
+                                    <li><strong>Individual:</strong> Produce one advanced technique sample (photo engrave, inlay, or layered assembly) and document exact settings, passes, and cleanup notes.</li>
+                                    <li><strong>Group:</strong> Host a critique, capture peer feedback, and publish a shared recap showing each member’s prototype status plus agreed next iterations.</li>
                             </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
