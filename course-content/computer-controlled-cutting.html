@@ -66,10 +66,114 @@
                             <p>
                                 Finally, you take a short safety readiness check. The quiz includes scenario-based questions such as “What do you do if a cut catches fire?” Passing the quiz unlocks supervised access to the laser, so treat it like your first license.
                             </p>
+                            <div class="row my-4 align-items-center">
+                                <div class="col-md-5">
+                                    <img src="../images/co2-laser-overview.webp" class="img-fluid rounded shadow-sm" alt="CO2 laser electrical discharge and mirror diagram from Physics Girl">
+                                </div>
+                                <div class="col-md-7">
+                                    <p class="mb-2">
+                                        To reinforce how the machine actually creates light, we walk through the CO<sub>2</sub> laser anatomy described by Physics Girl: a gas reservoir containing CO<sub>2</sub>, N<sub>2</sub>, and He, an electrical discharge system (RF or DC) that pumps energy into the gas, a sealed laser tube with mirrors that form an optical cavity, and a cooling loop that prevents thermal runaway.
+                                    </p>
+                                    <p class="mb-2">
+                                        Understanding those components makes it easier to interpret real-world behavior—for example, recognizing that poor cuts may stem from insufficient gas excitation or misaligned mirrors rather than just “bad settings.” The article also highlights stimulated emission, mirror reflections, and the 10.6&nbsp;µm infrared wavelength that lets CO<sub>2</sub> lasers excel at cutting and engraving organic materials, which ties directly to our makerspace applications.
+                                    </p>
+                                    <small class="text-muted">Image &amp; reference: <a href="https://physicsgirl.in/power-of-co2-lasers/" target="_blank" rel="noopener">Physics Girl — Understanding the Power of CO<sub>2</sub> Lasers</a></small>
+                                </div>
+                            </div>
+                            <div class="bg-light border rounded p-4 mb-4">
+                                <p>Carbon dioxide (CO2) lasers, renowned for their diverse applications across industries, derive their efficacy from a meticulous construction and a fundamental working principle. This article delves into the intricacies of CO2 laser design and operation, elucidating the components involved and the principles that govern their functionality.</p>
+                                <p>Construction of CO2 Lasers:</p>
+                                <p>Gas Reservoir:</p>
+                                <p>The heart of a CO2 laser system lies in its gas mixture. Typically composed of carbon dioxide (CO2), nitrogen (N2), and helium (He), the gas reservoir ensures a controlled environment for laser action.</p>
+                                <p>The proportions of each gas in the mixture are carefully calibrated, with CO2 being the primary lasing medium.</p>
+                                <p>Electrical Discharge System:</p>
+                                <p>Electrical Discharge System</p>
+                                <div class="text-center my-3">
+                                    <img src="../images/electrical-discharge-system.jpg" class="img-fluid rounded shadow-sm" alt="Electrical discharge system diagram showing finger electrodes and RF power supply">
+                                    <small class="d-block text-muted mt-2">Source: <a href="https://physicsgirl.in/power-of-co2-lasers/" target="_blank" rel="noopener">Physics Girl</a></small>
+                                </div>
+                                <p>CO2 lasers rely on an electrical discharge to excite the gas mixture and create a population inversion—a condition where more molecules are in higher energy states than lower ones.</p>
+                                <p>Two common methods for inducing the electrical discharge are radio-frequency (RF) excitation or direct current (DC) discharge.</p>
+                                <p>Optical Cavity:</p>
+                                <p>The laser cavity consists of two mirrors, one highly reflective and the other partially transmissive.</p>
+                                <p>The mirrors define the optical path and facilitate the creation of a standing wave pattern that enhances the amplification of the  laser light.</p>
+                                <p>Laser Tube:</p>
+                                <p>The laser tube, housing the gas mixture, is a critical component. It is designed to withstand the pressure created during the discharge and to maintain a stable environment for the laser action.</p>
+                                <p>Cooling System:</p>
+                                <p>Due to the heat generated during the laser process, an efficient cooling system is essential. Water or gas-based cooling systems help maintain the temperature within the laser tube, preventing overheating and ensuring stable performance.</p>
+                                <p>Working Principle of CO2 Lasers:</p>
+                                <p>Population Inversion:</p>
+                                <p>The working principle of CO2 lasers hinges on achieving population inversion within the gas mixture. The electrical discharge excites the CO2 molecules to higher energy states, creating a surplus of high-energy particles.</p>
+                                <p>Stimulated Emission:</p>
+                                <p>Stimulated emission occurs when a high-energy CO2 molecule collides with another excited CO2 molecule. This collision induces the emission of a photon, resulting in the amplification of light.</p>
+                                <p>Mirror Reflections:</p>
+                                <p>The amplified photons travel back and forth between the mirrors within the optical cavity. This causes the stimulated emission process to continue, leading to further amplification.</p>
+                                <p>Emission of Laser Beam:</p>
+                                <p>What is stimulated emission in lasers</p>
+                                <p>The partially transmissive mirror allows a fraction of the amplified photons to pass through, resulting in the emission of a coherent, high-intensity laser beam.</p>
+                                <p>Wavelength and Infrared Emission:</p>
+                                <p>CO2 lasers emit light at a wavelength of approximately 10.6 micrometers, falling within the mid-infrared region. This wavelength is crucial for the laser’s effectiveness in various applications, such as cutting, welding, and medical procedures.</p>
+                            </div>
+                            <div class="bg-white border rounded p-4 mb-4">
+                                <h4 class="h6 text-uppercase text-muted mb-3">Fiber Laser vs. Diode Laser (Gweike Cloud)</h4>
+                                <p>
+                                    When students start comparing equipment, they often confuse fiber, diode, and CO<sub>2</sub> systems. The Gweike Cloud expert guide clarifies that fiber lasers emit around 1064&nbsp;nm, which metals absorb efficiently, whereas diode lasers operate between 550–950&nbsp;nm and struggle to couple energy into raw metals. This wavelength difference explains why a 20&nbsp;W fiber laser routinely outperforms a 20&nbsp;W diode for stainless steel engraving even though the nameplate wattage matches.
+                                </p>
+                                <p>
+                                    Laser power also matters: diodes typically offer 2–20&nbsp;W modules suited to engraving wood, leather, coated metals, and opaque acrylic, while fiber platforms span 20&nbsp;W to 15&nbsp;kW and can slice carbon steel, brass, copper, and even marble with ease. For the same power rating, fiber cutters have roughly ten times the metal cutting capacity of diode units and can run up to 15% faster. Cutting thickness follows the same trend—fiber lasers dominate whenever the brief calls for structural metal.
+                                </p>
+                                <p>
+                                    Material flexibility differs too. Diode engravers handle hobby materials and can leave shallow marks on anodized or coated metal, but they rarely cut bare metal cleanly. Fiber lasers, in contrast, specialize in metallic substrates (aluminum, gold, copper, stainless, etc.) and sacrifice performance on clear acrylic or wood. Service life and price also diverge: fiber sources last ~100,000 hours but cost five times more than comparable diode modules, whereas diodes clock 20–50,000 hours and are cheaper upfront yet limited to light-duty work.
+                                </p>
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Parameter</th>
+                                                <th>Fiber Laser</th>
+                                                <th>Diode Laser</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Typical wavelength</td>
+                                                <td>~1064&nbsp;nm (IR)</td>
+                                                <td>550–950&nbsp;nm (visible/NIR)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Power range</td>
+                                                <td>20&nbsp;W to 15&nbsp;kW</td>
+                                                <td>2–20&nbsp;W (common)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Best materials</td>
+                                                <td>Steel, copper, brass, gold, ceramics, marble</td>
+                                                <td>Wood, plywood, leather, opaque acrylic, coated metals</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cutting speed</td>
+                                                <td>Fast; ~15% faster at same power</td>
+                                                <td>Slower; better suited to engraving</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Service life</td>
+                                                <td>≈100,000 hours</td>
+                                                <td>≈20–50,000 hours</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Typical price</td>
+                                                <td>$1,500–$3,000 (20&nbsp;W units) and up</td>
+                                                <td>$500–$1,000 (10&nbsp;W units)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <small class="text-muted d-block text-end">Reference: <a href="https://www.gweikecloud.com/blogs/news/fiber-laser-vs-diode-laser?srsltid=AfmBOopZUK6frkHIdZemsUsh4GcI2m6jkLiA72QB4iilrJgy-1QkDAyJ" target="_blank" rel="noopener">Gweike Cloud — Fiber Laser vs Diode Laser</a></small>
+                            </div>
 
                             <h3 class="h5 text-secondary mt-4">2. Materials &amp; Laser Settings</h3>
                             <p>
-                                Laser jobs fall into three modes: vector cutting slices all the way through, vector scoring creates shallow grooves, and raster engraving fills an area line by line. I show you a color-coded Illustrator file where red lines cut, blue lines score, and black fills engrave, then we send it to the machine so you can witness the order of operations.
+                                Laser jobs fall into three modes: vector cutting slices all the way through, vector marking creates shallow grooves, and raster engraving fills an area line by line. I show you a color-coded Illustrator file where red lines cut, blue lines mark, and black fills engrave, then we send it to the machine so you can witness the order of operations.
                             </p>
                             <p>
                                 We move through a materials show-and-tell. You hold MDF, birch plywood, cast acrylic, leather, cardboard, and EVA foam to notice weight and smell differences. I also pass around a steel dog tag marked on the fiber laser. We talk honestly about what we exclude—PVC releases chlorine gas—so you understand the “never cut” list.
@@ -89,7 +193,7 @@
                                 Many first-time designers are surprised that the laser only understands vectors for cutting even if the artwork looks like a photograph. We open Inkscape and I demonstrate how Bézier curves define the motion of the head, while raster data creates scanlines. You trace a bitmap logo to convert it into smooth vectors, learning to simplify nodes so the machine does not jitter.
                             </p>
                             <p>
-                                We standardize our colors and stroke weights. Cuts are red with a 0.001 in stroke, scores are blue, and engraves are black fills. I show how each software—Illustrator, CorelDRAW, LightBurn—stores these settings and how to copy them into our lab-provided templates so that anyone else can open your file and run it without guesswork.
+                                We standardize our colors and stroke weights. Cuts are red with a 0.001 in stroke, marks are blue, and engraves are black fills. I show how each software—Illustrator, CorelDRAW, LightBurn—stores these settings and how to copy them into our lab-provided templates so that anyone else can open your file and run it without guesswork.
                             </p>
                             <p>
                                 To practice, you design a luggage tag. This mini project forces you to align text, use boolean operations to subtract a slot for the strap, and set a raster area for your name. I circulate with tips on kerning and engraving depth so the text reads clearly.
