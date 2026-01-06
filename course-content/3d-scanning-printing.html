@@ -46,166 +46,749 @@
 
             <div class="row mb-4">
                 <div class="col-lg-10 mx-auto">
+                    <!-- Overview -->
                     <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-header bg-dark text-white">
-                            <h3 class="mb-0">
-                                <i class="fas fa-cubes me-2"></i>
-                                Overview — 3D Scanning &amp; Printing
-                            </h3>
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-chalkboard-teacher me-2"></i>Overview</h3>
                         </div>
                         <div class="card-body">
-                            <p class="mb-3">
-                                Welcome to 3D Scanning and Printing! This week, you'll learn to capture real‑world objects using low‑cost tools (phones, 
-                                webcams, handheld scanners) and turn them into printable 3D models. You'll also learn to design for 3D printing and 
+                            <p class="lead">
+                                Welcome to 3D Scanning and Printing! This week, you'll learn to capture real‑world objects using low‑cost tools—especially 
+                                your phone for photogrammetry—and turn them into printable 3D models. You'll also learn to design for 3D printing and 
                                 operate FDM printers safely to create complex geometries that would be difficult with traditional manufacturing.
                             </p>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Learning Objectives</h4>
-                                    <ul class="mb-0">
-                                        <li>Compare at least two 3D scanning workflows (e.g. photogrammetry vs. handheld scanner or phone app).</li>
-                                        <li>Process scans into clean meshes ready for fabrication (repair, simplify, scale).</li>
-                                        <li>Design or adapt a 3D model that respects your printer’s design rules (overhangs, wall thickness, tolerances).</li>
-                                        <li>Document your full pipeline so someone in another African UNIPOD can reproduce your work.</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Assignments</h4>
-                                    <ul class="mb-0">
-                                        <li><strong>Group:</strong> Characterize your 3D printer by printing test pieces that explore overhangs, bridges, clearance and dimensional accuracy on the filament you use most.</li>
-                                        <li><strong>Individual:</strong> 3D scan an object from your environment (e.g. traditional craft, everyday tool, natural form), process the scan into a watertight mesh and prepare it for printing.</li>
-                                        <li><strong>Individual:</strong> Design and print a small object that cannot be made subtractively (e.g. internal channels, captive parts, complex organic shape).</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Scanning Workflows -->
-                    <div class="card mb-4">
-                        <div class="card-header bg-primary text-white">
-                            <h3 class="mb-0">
-                                <i class="fas fa-camera me-2"></i>
-                                1. 3D Scanning Workflows
-                            </h3>
-                        </div>
-                        <div class="card-body">
-                            <p class="mb-3">
-                                Start with tools you already have. Many African labs and UNIPODs may not have expensive industrial scanners,
-                                but you can still do powerful work using phones, webcams, or low‑cost depth sensors.
+                            <p>
+                                In African contexts, where expensive 3D scanners may not be available, phone-based photogrammetry opens powerful possibilities. 
+                                Using just your smartphone camera, you can scan cultural artifacts, everyday objects, natural forms, and more. This technique 
+                                is perfect for preserving traditional crafts, creating custom-fit parts, or digitizing objects for reproduction.
                             </p>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Photogrammetry (Images → 3D)</h4>
-                                    <ul>
-                                        <li>Take 30–80 photos of your object from all around, keeping lighting as constant as possible.</li>
-                                        <li>Use a photogrammetry tool (desktop or cloud) to generate a dense point cloud and then a mesh.</li>
-                                        <li>Clean up the mesh by cropping the ground plane and removing noise.</li>
-                                    </ul>
-                                    <p class="mb-1"><strong>Best for:</strong> Cultural artifacts, organic shapes, surfaces with good texture.</p>
-                                    <p class="mb-0"><strong>Tip:</strong> Avoid shiny or fully black objects; add tape or powder if needed.</p>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Depth / Handheld Scanners</h4>
-                                    <ul>
-                                        <li>Follow your device’s recommended scanning path (circle around, move steadily).</li>
-                                        <li>Ensure enough overlap between frames so the software can track surfaces reliably.</li>
-                                        <li>Export as <code>.obj</code> or <code>.stl</code> for further cleanup.</li>
-                                    </ul>
-                                    <p class="mb-1"><strong>Best for:</strong> People, large objects, quick captures when you have access to a scanner.</p>
-                                    <p class="mb-0"><strong>Tip:</strong> Practice with simple shapes first (bottles, boxes) to learn how your scanner behaves.</p>
-                                </div>
-                            </div>
+                            <p>
+                                This week builds on Computer-Aided Design (where you learned 3D modeling) and prepares you for Final Project (where you might 
+                                need to scan reference objects or print custom parts). By the end of the week, you'll understand how to scan objects with 
+                                your phone, process scans into printable models, and design parts that leverage 3D printing's unique capabilities.
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Mesh Cleanup & Preparation -->
-                    <div class="card mb-4">
+                    <!-- Learning Outcomes -->
+                    <div class="card border-0 shadow-sm mb-4">
                         <div class="card-header bg-success text-white">
-                            <h3 class="mb-0">
-                                <i class="fas fa-drafting-compass me-2"></i>
-                                2. Mesh Cleanup &amp; Preparing for Print
-                            </h3>
+                            <h3 class="mb-0"><i class="fas fa-bullseye me-2"></i>Learning Outcomes</h3>
                         </div>
                         <div class="card-body">
-                            <p class="mb-3">
-                                Raw scans are rarely ready to print. This block focuses on transforming noisy meshes into printable geometry.
-                            </p>
+                            <p>By the end of this week, you will be able to:</p>
                             <ul>
-                                <li><strong>Repair:</strong> Close holes, remove floating islands, ensure the mesh is watertight.</li>
-                                <li><strong>Simplify:</strong> Reduce polygon count while preserving important details so slicers and low‑spec laptops can handle your model.</li>
-                                <li><strong>Scale &amp; orient:</strong> Measure the real object and set the correct scale; choose an orientation that reduces supports and preserves key surfaces.</li>
-                                <li><strong>Combine with CAD:</strong> Use your scan as a reference to design add‑ons or enclosures (e.g. a custom phone mount or handle).</li>
+                                <li><strong>Perform photogrammetry scanning</strong> using your phone to capture objects from multiple angles</li>
+                                <li><strong>Process photogrammetry data</strong> into 3D meshes using desktop or cloud software</li>
+                                <li><strong>Compare scanning methods</strong> including photogrammetry, handheld scanners, and phone apps</li>
+                                <li><strong>Clean and repair meshes</strong> to make them watertight and printable</li>
+                                <li><strong>Design for 3D printing</strong> respecting overhangs, wall thickness, tolerances, and support requirements</li>
+                                <li><strong>Characterize 3D printers</strong> through test prints to understand capabilities and limitations</li>
+                                <li><strong>Operate FDM printers safely</strong> including setup, slicing, and troubleshooting</li>
+                                <li><strong>Document scanning and printing workflows</strong> so others can reproduce your process</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- 3D Printing Characterization & Design Rules -->
-                    <div class="card mb-4">
+                    <!-- Core Concepts -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Core Concepts & Theory</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5 mt-3">1. Photogrammetry: 3D Scanning with Your Phone</h4>
+                            <p>
+                                Photogrammetry is a technique that creates 3D models from multiple photographs. It's perfect for African contexts because 
+                                it requires only a smartphone—no expensive equipment needed!
+                            </p>
+                            <p><strong>How it works:</strong></p>
+                            <ul>
+                                <li>Take 30-100 photos of an object from different angles</li>
+                                <li>Software analyzes the photos to find common points (features)</li>
+                                <li>Triangulation calculates 3D positions of these points</li>
+                                <li>Creates a dense point cloud, then a mesh (3D surface)</li>
+                            </ul>
+                            <p><strong>Why photogrammetry is ideal for African contexts:</strong></p>
+                            <ul>
+                                <li><strong>Accessible</strong>: Works with any smartphone camera</li>
+                                <li><strong>Free/affordable</strong>: Many free software options available</li>
+                                <li><strong>Portable</strong>: Can scan objects anywhere</li>
+                                <li><strong>High quality</strong>: Can capture fine details and textures</li>
+                                <li><strong>No special equipment</strong>: No need for structured light scanners or depth cameras</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">2. Photogrammetry Best Practices</h4>
+                            <p>To get good results with phone photogrammetry:</p>
+                            <ul>
+                                <li><strong>Lighting</strong>:
+                                    <ul>
+                                        <li>Use consistent, diffuse lighting (overcast day, or indoor with soft light)</li>
+                                        <li>Avoid harsh shadows and direct sunlight</li>
+                                        <li>Keep lighting constant throughout the photo session</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Object preparation</strong>:
+                                    <ul>
+                                        <li>Choose objects with texture (helps software match features)</li>
+                                        <li>Avoid shiny, reflective, or transparent objects (or add matte spray/powder)</li>
+                                        <li>Avoid pure black or pure white objects (add markers or texture)</li>
+                                        <li>Place object on textured surface or add markers around it</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Photo technique</strong>:
+                                    <ul>
+                                        <li>Take 50-100 photos covering all angles</li>
+                                        <li>Move in a circle around the object, taking photos every 10-15 degrees</li>
+                                        <li>Take photos at different heights (top, middle, bottom views)</li>
+                                        <li>Ensure 60-80% overlap between adjacent photos</li>
+                                        <li>Keep camera focused and steady (avoid blur)</li>
+                                        <li>Use consistent distance from object (1-2 meters for small objects)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Camera settings</strong>:
+                                    <ul>
+                                        <li>Use highest resolution available on your phone</li>
+                                        <li>Turn off flash (creates inconsistent lighting)</li>
+                                        <li>Use manual focus if available (lock focus on object)</li>
+                                        <li>Keep exposure consistent (use manual mode if available)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">3. Photogrammetry Software Options</h4>
+                            <p>Choose software based on your resources:</p>
+                            <ul>
+                                <li><strong>Cloud-based (Requires Internet)</strong>:
+                                    <ul>
+                                        <li><strong>RealityCapture</strong>: Professional quality, free for non-commercial use (limited exports)</li>
+                                        <li><strong>3DF Zephyr</strong>: Good quality, free version available</li>
+                                        <li><strong>Agisoft Metashape</strong>: Professional, paid but has trial</li>
+                                        <li>Pros: Powerful, no local processing needed</li>
+                                        <li>Cons: Requires good internet, may have usage limits</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Desktop Software (Works Offline)</strong>:
+                                    <ul>
+                                        <li><strong>Meshroom</strong>: Free, open-source, works offline</li>
+                                        <li><strong>COLMAP</strong>: Free, open-source, command-line based</li>
+                                        <li><strong>OpenMVG + OpenMVS</strong>: Free, open-source pipeline</li>
+                                        <li>Pros: Works offline, no usage limits, full control</li>
+                                        <li>Cons: Requires powerful computer, more complex setup</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Phone Apps (Direct Scanning)</strong>:
+                                    <ul>
+                                        <li><strong>Polycam</strong>: iOS/Android, uses LiDAR (if available) or photogrammetry</li>
+                                        <li><strong>Scaniverse</strong>: iOS, photogrammetry-based</li>
+                                        <li><strong>3D Scanner App</strong>: Android, various methods</li>
+                                        <li>Pros: Very easy, works directly on phone</li>
+                                        <li>Cons: May have quality limitations, some apps are paid</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">4. Other 3D Scanning Methods</h4>
+                            <p>Alternative methods if photogrammetry isn't suitable:</p>
+                            <ul>
+                                <li><strong>Handheld 3D Scanners</strong>:
+                                    <ul>
+                                        <li>Structured light or laser scanners</li>
+                                        <li>Pros: Fast, real-time feedback, good for people/large objects</li>
+                                        <li>Cons: Expensive, may not be available in all labs</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Depth Cameras</strong>:
+                                    <ul>
+                                        <li>Intel RealSense, Microsoft Kinect</li>
+                                        <li>Pros: Real-time scanning, good for large objects</li>
+                                        <li>Cons: Limited resolution, may not be available</li>
+                                    </ul>
+                                </li>
+                                <li><strong>LiDAR (on newer phones)</strong>:
+                                    <ul>
+                                        <li>iPhone 12 Pro and later, some Android phones</li>
+                                        <li>Pros: Very fast, good for rooms/large objects</li>
+                                        <li>Cons: Limited to phones with LiDAR, lower detail than photogrammetry</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">5. Mesh Processing and Cleanup</h4>
+                            <p>Raw scans need processing before printing:</p>
+                            <ul>
+                                <li><strong>Repair</strong>:
+                                    <ul>
+                                        <li>Close holes (meshlab, Blender, MeshMixer)</li>
+                                        <li>Remove floating islands (unconnected geometry)</li>
+                                        <li>Ensure mesh is watertight (no gaps, closed surface)</li>
+                                        <li>Fix non-manifold edges (edges shared by more than 2 faces)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Simplify</strong>:
+                                    <ul>
+                                        <li>Reduce polygon count (decimation)</li>
+                                        <li>Keep important details, remove noise</li>
+                                        <li>Target: 50,000-200,000 triangles for printing (depends on object size)</li>
+                                        <li>Too many polygons: Slow slicing, large files</li>
+                                        <li>Too few polygons: Loss of detail</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Scale and Orient</strong>:
+                                    <ul>
+                                        <li>Measure real object dimensions</li>
+                                        <li>Scale mesh to match real size</li>
+                                        <li>Orient for printing (minimize supports, preserve important surfaces)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Combine with CAD</strong>:
+                                    <ul>
+                                        <li>Import scan into CAD software</li>
+                                        <li>Use as reference to design custom parts</li>
+                                        <li>Example: Scan a phone, design a custom case that fits perfectly</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">6. Design for 3D Printing (DFAM)</h4>
+                            <p>3D printing has unique capabilities and constraints:</p>
+                            <ul>
+                                <li><strong>Additive Manufacturing Advantages</strong>:
+                                    <ul>
+                                        <li>Complex internal structures (channels, lattices)</li>
+                                        <li>Organic shapes difficult to machine</li>
+                                        <li>Customization (parametric designs)</li>
+                                        <li>Assembly-free parts (captive joints, hinges)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Design Constraints</strong>:
+                                    <ul>
+                                        <li><strong>Overhangs</strong>: Angles >45° need supports (test your printer's limit)</li>
+                                        <li><strong>Bridging</strong>: Horizontal spans need supports if too long (test your printer)</li>
+                                        <li><strong>Wall thickness</strong>: Minimum 2× nozzle diameter (typically 0.8-1.2mm)</li>
+                                        <li><strong>Clearance</strong>: Moving parts need gap (typically 0.2-0.5mm, test your printer)</li>
+                                        <li><strong>Hole size</strong>: Small holes may close up (test minimum size)</li>
+                                        <li><strong>Layer height</strong>: Affects surface quality and print time</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mini-Lab -->
+                    <div class="card border-0 shadow-sm mb-4">
                         <div class="card-header bg-warning text-dark">
-                            <h3 class="mb-0">
-                                <i class="fas fa-print me-2"></i>
-                                3. 3D Printer Characterization &amp; Design Rules
-                            </h3>
+                            <h3 class="mb-0"><i class="fas fa-flask me-2"></i>Mini-Lab: Phone Photogrammetry Scanning</h3>
                         </div>
                         <div class="card-body">
-                            <p class="mb-3">
-                                As a group, you will run printer characterization tests to understand what your machines can do:
-                            </p>
-                            <ul>
-                                <li>Print an overhang/bridge test and record the maximum angle/length that prints cleanly.</li>
-                                <li>Print a clearance test (moving parts, gaps) and note the smallest gap that moves freely.</li>
-                                <li>Measure real dimensions vs. CAD (X, Y, Z) and document any systematic errors.</li>
-                            </ul>
-                            <p class="mb-0">
-                                Use these results to define “design rules” for your UNIPOD (minimum wall thickness, minimum hole size, recommended layer height) and publish them for future cohorts.
-                            </p>
+                            <p class="lead">Let's scan an object using your phone and photogrammetry—no expensive equipment needed!</p>
+                            
+                            <h4 class="h5 mt-3">Step 1: Choose and Prepare Your Object</h4>
+                            <ol>
+                                <li><strong>Select an object</strong>:
+                                    <ul>
+                                        <li>Start with something small (10-30cm) and textured</li>
+                                        <li>Good choices: Traditional craft, tool, toy, decorative object, natural form</li>
+                                        <li>Avoid: Shiny metal, glass, transparent objects, pure black/white</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Prepare the object</strong>:
+                                    <ul>
+                                        <li>If shiny: Add matte spray, powder, or tape to reduce reflections</li>
+                                        <li>If smooth/featureless: Add texture markers (small stickers, tape)</li>
+                                        <li>Clean the object (remove dust, fingerprints)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Set up environment</strong>:
+                                    <ul>
+                                        <li>Place object on textured surface (wood, fabric, paper with pattern)</li>
+                                        <li>Use diffuse lighting (overcast day, or indoor with soft light from multiple directions)</li>
+                                        <li>Remove background clutter or add markers around object</li>
+                                    </ul>
+                                </li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 2: Take Photos with Your Phone</h4>
+                            <ol>
+                                <li><strong>Camera settings</strong>:
+                                    <ul>
+                                        <li>Use highest resolution available</li>
+                                        <li>Turn off flash</li>
+                                        <li>Use manual focus if available (lock focus on object)</li>
+                                        <li>Keep exposure consistent</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Photo technique</strong>:
+                                    <ul>
+                                        <li>Take 50-100 photos total</li>
+                                        <li>Move in a circle around object, taking photos every 10-15 degrees</li>
+                                        <li>Take photos at 3-4 different heights:
+                                            <ul>
+                                                <li>Top view (looking down)</li>
+                                                <li>Eye level (horizontal)</li>
+                                                <li>Low angle (looking up)</li>
+                                                <li>Bottom view (if accessible)</li>
+                                            </ul>
+                                        </li>
+                                        <li>Ensure 60-80% overlap between adjacent photos</li>
+                                        <li>Keep consistent distance (1-2 meters for small objects)</li>
+                                        <li>Keep camera steady, avoid blur</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Check your photos</strong>:
+                                    <ul>
+                                        <li>Review photos to ensure they're in focus</li>
+                                        <li>Ensure good coverage (all angles captured)</li>
+                                        <li>Delete blurry or poorly lit photos</li>
+                                    </ul>
+                                </li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 3: Process Photos with Photogrammetry Software</h4>
+                            <p><strong>Option A: Cloud-based (Requires Internet)</strong></p>
+                            <ol>
+                                <li>Upload photos to cloud service (RealityCapture, 3DF Zephyr, etc.)</li>
+                                <li>Software automatically:
+                                    <ul>
+                                        <li>Detects features in photos</li>
+                                        <li>Matches features between photos</li>
+                                        <li>Calculates camera positions</li>
+                                        <li>Creates point cloud</li>
+                                        <li>Generates mesh</li>
+                                    </ul>
+                                </li>
+                                <li>Wait for processing (can take 30 minutes to several hours depending on number of photos)</li>
+                                <li>Download resulting mesh</li>
+                            </ol>
+                            <p><strong>Option B: Desktop Software (Works Offline)</strong></p>
+                            <ol>
+                                <li>Install Meshroom (free, open-source) or similar</li>
+                                <li>Import photos into software</li>
+                                <li>Run processing pipeline:
+                                    <ul>
+                                        <li>Feature detection</li>
+                                        <li>Feature matching</li>
+                                        <li>Structure from motion</li>
+                                        <li>Dense reconstruction</li>
+                                        <li>Mesh generation</li>
+                                    </ul>
+                                </li>
+                                <li>Export mesh as OBJ or STL</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 4: Clean and Repair Mesh</h4>
+                            <ol>
+                                <li><strong>Import into mesh editing software</strong> (Meshlab, Blender, MeshMixer)</li>
+                                <li><strong>Remove unwanted parts</strong>:
+                                    <ul>
+                                        <li>Delete ground plane</li>
+                                        <li>Remove background objects</li>
+                                        <li>Crop to object of interest</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Repair mesh</strong>:
+                                    <ul>
+                                        <li>Close holes (Fill Holes tool)</li>
+                                        <li>Remove floating islands</li>
+                                        <li>Fix non-manifold edges</li>
+                                        <li>Ensure watertight mesh</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Simplify if needed</strong>:
+                                    <ul>
+                                        <li>Reduce polygon count (decimation)</li>
+                                        <li>Target: 50,000-200,000 triangles</li>
+                                        <li>Preserve important details</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Scale to real size</strong>:
+                                    <ul>
+                                        <li>Measure real object dimensions</li>
+                                        <li>Scale mesh to match</li>
+                                    </ul>
+                                </li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 5: Prepare for 3D Printing</h4>
+                            <ol>
+                                <li><strong>Import into slicer</strong> (Cura, PrusaSlicer, etc.)</li>
+                                <li><strong>Orient model</strong>:
+                                    <ul>
+                                        <li>Minimize overhangs</li>
+                                        <li>Reduce support material</li>
+                                        <li>Preserve important surfaces</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Check for issues</strong>:
+                                    <ul>
+                                        <li>Verify model is watertight</li>
+                                        <li>Check for thin walls (may need to thicken)</li>
+                                        <li>Ensure minimum feature size is printable</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Slice and print</strong>:
+                                    <ul>
+                                        <li>Generate G-code</li>
+                                        <li>Review layer preview</li>
+                                        <li>Print and observe results</li>
+                                    </ul>
+                                </li>
+                            </ol>
                         </div>
                     </div>
 
-                    <!-- Documentation & Tutorials -->
-                    <div class="card mb-4">
+                    <!-- Recommended Software Tools -->
+                    <div class="card border-0 shadow-sm mb-4">
                         <div class="card-header bg-secondary text-white">
-                            <h3 class="mb-0">
-                                <i class="fas fa-book me-2"></i>
-                                4. Documentation &amp; Recommended Tutorials
-                            </h3>
+                            <h3 class="mb-0"><i class="fas fa-tools me-2"></i>Recommended Software Tools</h3>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">What You Must Document</h4>
+                                    <h5>Photogrammetry Software</h5>
                                     <ul>
-                                        <li>Your scanning setup (device, lighting, number of photos or scan time).</li>
-                                        <li>Screenshots from each major step: raw scan, cleaned mesh, print in slicer, final print.</li>
-                                        <li>Printer settings table (material, nozzle temp, bed temp, layer height, infill, speed).</li>
-                                        <li>Reflections: what failed, what you changed, and how you would improve next time.</li>
+                                        <li><strong>Meshroom</strong> (Free, Desktop):
+                                            <ul>
+                                                <li>Open-source, works offline</li>
+                                                <li>Requires powerful computer</li>
+                                                <li>Download: <a href="https://alicevision.org/#meshroom" target="_blank">alicevision.org</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>RealityCapture</strong> (Free for non-commercial, Cloud):
+                                            <ul>
+                                                <li>High quality, easy to use</li>
+                                                <li>Requires internet</li>
+                                                <li>Website: <a href="https://www.capturingreality.com/" target="_blank">capturingreality.com</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Polycam</strong> (Phone App):
+                                            <ul>
+                                                <li>iOS/Android app</li>
+                                                <li>Very easy, works on phone</li>
+                                                <li>Some features require paid subscription</li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Recommended Video Tutorials</h4>
-                                    <p class="mb-2">
-                                        Watch these tutorials to learn 3D printing and scanning:
-                                    </p>
-                                    <ul class="mb-0">
-                                        <li>
-                                            <a href="https://www.youtube.com/results?search_query=3d+printing+tutorial+beginner" target="_blank" rel="noopener">
-                                                3D Printing Tutorials
-                                            </a>
-                                            - Search for beginner-friendly tutorials on slicing, printer setup, and troubleshooting.
+                                    <h5>Mesh Editing Software</h5>
+                                    <ul>
+                                        <li><strong>Meshlab</strong> (Free):
+                                            <ul>
+                                                <li>Powerful mesh processing</li>
+                                                <li>Repair, simplify, clean meshes</li>
+                                                <li>Download: <a href="https://www.meshlab.net/" target="_blank">meshlab.net</a></li>
+                                            </ul>
                                         </li>
-                                        <li>
-                                            <a href="https://www.youtube.com/results?search_query=photogrammetry+tutorial" target="_blank" rel="noopener">
-                                                3D Scanning &amp; Photogrammetry Tutorials
-                                            </a>
-                                            - Learn to scan objects using your phone or camera.
+                                        <li><strong>Blender</strong> (Free):
+                                            <ul>
+                                                <li>Full 3D modeling suite</li>
+                                                <li>Good for mesh editing and combining with CAD</li>
+                                                <li>Download: <a href="https://www.blender.org/" target="_blank">blender.org</a></li>
+                                            </ul>
                                         </li>
-                                        <li>
-                                            Identify at least one tutorial that works well with your hardware and internet conditions, and link it from your personal documentation page.
+                                        <li><strong>MeshMixer</strong> (Free):
+                                            <ul>
+                                                <li>Easy mesh editing</li>
+                                                <li>Good for beginners</li>
+                                                <li>Download: <a href="https://www.meshmixer.com/" target="_blank">meshmixer.com</a></li>
+                                            </ul>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <h5>Slicing Software</h5>
+                                    <ul>
+                                        <li><strong>Cura</strong> (Free):
+                                            <ul>
+                                                <li>Most popular, easy to use</li>
+                                                <li>Supports many printers</li>
+                                                <li>Download: <a href="https://ultimaker.com/software/ultimaker-cura" target="_blank">ultimaker.com</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>PrusaSlicer</strong> (Free):
+                                            <ul>
+                                                <li>Advanced features</li>
+                                                <li>Good for complex prints</li>
+                                                <li>Download: <a href="https://www.prusa3d.com/page/prusaslicer_424/" target="_blank">prusa3d.com</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- YouTube & Learning Resources -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="mb-0"><i class="fab fa-youtube me-2"></i>Video Tutorials & Learning Resources</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Watch these videos to learn photogrammetry and 3D printing. <strong>If your internet is slow</strong>, prioritize phone photogrammetry tutorials.</p>
+                            
+                            <h4 class="h5 mt-3">Phone Photogrammetry</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X37" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Photogrammetry with Your Phone - Complete Guide</h6>
+                                        <small class="text-muted">~30 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Complete walkthrough of scanning objects with your phone camera.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to take photos, process with software, and create 3D models from phone photos.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X38" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Meshroom Photogrammetry Tutorial</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to use free Meshroom software for photogrammetry.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to process photos in Meshroom, from import to final mesh export.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X39" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Polycam App Tutorial - 3D Scanning on iPhone</h6>
+                                        <small class="text-muted">~15 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to use Polycam app for direct 3D scanning on your phone.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to scan objects directly on your phone without processing photos separately.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">Mesh Processing</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X40" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Meshlab Tutorial - Cleaning and Repairing 3D Scans</h6>
+                                        <small class="text-muted">~20 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to clean and repair photogrammetry meshes in Meshlab.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to close holes, remove noise, simplify meshes, and prepare for printing.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">3D Printing</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X41" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>3D Printing for Beginners - Complete Guide</h6>
+                                        <small class="text-muted">~45 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Comprehensive introduction to 3D printing, slicing, and troubleshooting.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How 3D printing works, how to use slicers, and common issues and solutions.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">Written Resources</h4>
+                            <ul>
+                                <li><a href="https://alicevision.org/" target="_blank" rel="noopener">AliceVision (Meshroom)</a> - Open-source photogrammetry</li>
+                                <li><a href="https://www.meshlab.net/" target="_blank" rel="noopener">Meshlab Documentation</a> - Mesh processing tutorials</li>
+                                <li><a href="https://www.thingiverse.com/" target="_blank" rel="noopener">Thingiverse</a> - 3D models and printing resources</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Assignments & Documentation -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>Assignments & Documentation Requirements</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5">Group Assignment</h4>
+                            <p><strong>Characterize your 3D printer</strong>:</p>
+                            <ul>
+                                <li>Print test pieces exploring:
+                                    <ul>
+                                        <li>Overhangs (test angles from 30° to 90°)</li>
+                                        <li>Bridges (test spans of different lengths)</li>
+                                        <li>Clearance (test gaps between moving parts: 0.1mm, 0.2mm, 0.3mm, etc.)</li>
+                                        <li>Dimensional accuracy (print calibration cube, measure X, Y, Z dimensions)</li>
+                                    </ul>
+                                </li>
+                                <li>Document results:
+                                    <ul>
+                                        <li>Create table showing: test type, settings used, results, best values</li>
+                                        <li>Photos of test prints</li>
+                                        <li>Define "design rules" for your UNIPOD:
+                                            <ul>
+                                                <li>Maximum overhang angle</li>
+                                                <li>Maximum bridge length</li>
+                                                <li>Minimum clearance for moving parts</li>
+                                                <li>Minimum wall thickness</li>
+                                                <li>Recommended layer height</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Share findings with your UNIPOD for future reference</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Individual Assignment 1: Phone Photogrammetry Scan</h4>
+                            <p><strong>3D scan an object using phone photogrammetry, process it, and prepare for printing</strong>:</p>
+                            <ul>
+                                <li>Choose an object from your environment:
+                                    <ul>
+                                        <li>Traditional craft, everyday tool, natural form, cultural artifact</li>
+                                        <li>Something meaningful to you or your community</li>
+                                    </ul>
+                                </li>
+                                <li>Scan using phone photogrammetry:
+                                    <ul>
+                                        <li>Take 50-100 photos following best practices</li>
+                                        <li>Process photos using photogrammetry software (Meshroom, RealityCapture, or phone app)</li>
+                                        <li>Document your photo-taking process (lighting, setup, technique)</li>
+                                    </ul>
+                                </li>
+                                <li>Process the scan:
+                                    <ul>
+                                        <li>Clean and repair mesh (close holes, remove noise)</li>
+                                        <li>Simplify if needed</li>
+                                        <li>Scale to real size</li>
+                                        <li>Export as STL or OBJ</li>
+                                    </ul>
+                                </li>
+                                <li>Prepare for printing:
+                                    <ul>
+                                        <li>Import into slicer</li>
+                                        <li>Orient for printing</li>
+                                        <li>Generate G-code (you don't need to print it, but show it's ready)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Individual Assignment 2: Design and Print Non-Subtractive Object</h4>
+                            <p><strong>Design and print a small object that cannot be made subtractively</strong>:</p>
+                            <ul>
+                                <li>Design requirements:
+                                    <ul>
+                                        <li>Must have features impossible with subtractive manufacturing:
+                                            <ul>
+                                                <li>Internal channels or cavities</li>
+                                                <li>Captive parts (parts trapped inside)</li>
+                                                <li>Complex organic shapes</li>
+                                                <li>Overhangs or undercuts</li>
+                                            </ul>
+                                        </li>
+                                        <li>Respect your printer's design rules (from group characterization)</li>
+                                        <li>Keep it small (to save material and time)</li>
+                                    </ul>
+                                </li>
+                                <li>Print the object:
+                                    <ul>
+                                        <li>Slice with appropriate settings</li>
+                                        <li>Print successfully</li>
+                                        <li>Document any failures and how you fixed them</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Documentation Checklist</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Photogrammetry Setup</strong></td>
+                                            <td>Document your scanning setup:
+                                                <ul>
+                                                    <li>Phone model and camera specs</li>
+                                                    <li>Lighting conditions</li>
+                                                    <li>Number of photos taken</li>
+                                                    <li>Photo-taking technique (how you moved around object)</li>
+                                                    <li>Object preparation (if any)</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Photogrammetry Process</strong></td>
+                                            <td>Screenshots from each step:
+                                                <ul>
+                                                    <li>Raw photos (sample of 5-10 photos)</li>
+                                                    <li>Point cloud or feature matching view</li>
+                                                    <li>Raw mesh from photogrammetry</li>
+                                                    <li>Cleaned/repaired mesh</li>
+                                                    <li>Final mesh ready for printing</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Mesh Files</strong></td>
+                                            <td>Upload mesh files: raw scan, cleaned mesh, final STL/OBJ for printing.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>3D Printing Characterization</strong></td>
+                                            <td>Document group test results:
+                                                <ul>
+                                                    <li>Table of test results (overhangs, bridges, clearance, accuracy)</li>
+                                                    <li>Photos of test prints</li>
+                                                    <li>Design rules defined for your UNIPOD</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Design Files</strong></td>
+                                            <td>CAD files for your non-subtractive design (source files and STL).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Print Settings</strong></td>
+                                            <td>Table showing printer settings:
+                                                <ul>
+                                                    <li>Material (PLA, PETG, etc.)</li>
+                                                    <li>Nozzle temperature</li>
+                                                    <li>Bed temperature</li>
+                                                    <li>Layer height</li>
+                                                    <li>Infill percentage</li>
+                                                    <li>Print speed</li>
+                                                    <li>Support settings (if used)</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Final Prints</strong></td>
+                                            <td>Photos of:
+                                                <ul>
+                                                    <li>Printed photogrammetry scan (if printed)</li>
+                                                    <li>Printed non-subtractive design</li>
+                                                    <li>Close-ups showing details</li>
+                                                    <li>Comparison with original (for scan)</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Reflection</strong></td>
+                                            <td>What worked? What didn't? What would you change? How accurate was your scan? 
+                                                What challenges did you face with printing?</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Tips for Success</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Start simple:</strong> Begin with textured, matte objects before trying challenging materials.</li>
+                                <li><strong>Take many photos:</strong> More photos = better results. 50-100 photos is a good target.</li>
+                                <li><strong>Ensure overlap:</strong> Adjacent photos should share 60-80% of their content.</li>
+                                <li><strong>Watch lighting:</strong> Consistent, diffuse lighting is crucial for good photogrammetry.</li>
+                                <li><strong>Test your printer:</strong> Do characterization tests before designing complex parts.</li>
+                                <li><strong>Design for your printer:</strong> Use the design rules from your characterization tests.</li>
+                                <li><strong>Clean meshes well:</strong> Spend time repairing and cleaning—it makes printing much easier.</li>
+                                <li><strong>Scale accurately:</strong> Measure real objects and scale meshes to match.</li>
+                                <li><strong>Orient wisely:</strong> Choose print orientation to minimize supports and preserve important surfaces.</li>
+                                <li><strong>Document everything:</strong> Record settings, techniques, and results—you'll need this for future projects.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
