@@ -43,68 +43,389 @@
 
             <div class="row">
                 <div class="col-lg-10 mx-auto">
+                    <!-- Overview -->
                     <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-header bg-dark text-white">
-                            <h3 class="mb-0">
-                                <i class="fas fa-network-wired me-2"></i>
-                                Overview — Networking and Communications
-                            </h3>
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-chalkboard-teacher me-2"></i>Overview</h3>
                         </div>
                         <div class="card-body">
-                            <p class="lead mb-3">
+                            <p class="lead">
                                 Welcome to Networking and Communications! This week, you'll learn to connect multiple devices together, enabling your 
                                 projects to share data and work together. From simple serial communication to wireless networks, connectivity opens up 
                                 powerful possibilities.
                             </p>
-                            <p class="mb-3">
-                                We'll explore wired protocols (UART, I2C, SPI) and wireless options (Wi-Fi, Bluetooth, LoRa where available). By the end 
-                                of the week, you'll understand how to build networks of devices that can monitor environments, share data, and coordinate 
-                                actions—essential for IoT applications in agriculture, health, and infrastructure monitoring.
+                            <p>
+                                In African contexts, networking enables critical applications: distributed sensor networks for agriculture, remote monitoring 
+                                for health systems, coordinated irrigation systems, and shared data displays. We'll explore wired protocols (UART, I2C, SPI) 
+                                and wireless options (Wi-Fi, Bluetooth, LoRa where available).
                             </p>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Learning Objectives</h4>
-                                    <ul class="mb-0">
-                                        <li>Understand basic protocols such as UART, I2C, SPI, and simple wireless options (e.g. Wi‑Fi, Bluetooth, LoRa where available).</li>
-                                        <li>Implement at least one board‑to‑board or board‑to‑computer communication channel.</li>
-                                        <li>Visualize or log exchanged data.</li>
+                            <p>
+                                This week builds on Input Devices and Output Devices (where you learned to read sensors and control actuators) and prepares 
+                                you for Interface and Application Programming (where you'll create UIs that communicate with hardware). By the end of the 
+                                week, you'll understand how to build networks of devices that can monitor environments, share data, and coordinate actions—essential 
+                                for IoT applications in agriculture, health, and infrastructure monitoring.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Learning Outcomes -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="fas fa-bullseye me-2"></i>Learning Outcomes</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>By the end of this week, you will be able to:</p>
+                            <ul>
+                                <li><strong>Understand communication protocols</strong> including UART (serial), I2C, SPI, and wireless options (Wi-Fi, Bluetooth, LoRa)</li>
+                                <li><strong>Implement wired communication</strong> between multiple microcontrollers or between microcontroller and computer</li>
+                                <li><strong>Implement wireless communication</strong> using Wi-Fi or Bluetooth modules (ESP32, HC-05, etc.)</li>
+                                <li><strong>Design network topologies</strong> for distributed systems (star, mesh, bus configurations)</li>
+                                <li><strong>Handle data exchange</strong> including packet formatting, error checking, and synchronization</li>
+                                <li><strong>Document network designs</strong> including connection diagrams, protocols used, and power considerations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Core Concepts -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Core Concepts & Theory</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5 mt-3">1. Wired Communication Protocols</h4>
+                            <p>Wired protocols are reliable and don't require radio hardware:</p>
+                            <ul>
+                                <li><strong>UART (Serial)</strong>:
+                                    <ul>
+                                        <li>Simple two-wire communication (TX, RX)</li>
+                                        <li>Asynchronous (no clock signal needed)</li>
+                                        <li>Common baud rates: 9600, 115200</li>
+                                        <li>Use: Microcontroller-to-computer, simple board-to-board</li>
+                                        <li>In Arduino: <code>Serial.begin(9600)</code>, <code>Serial.print()</code>, <code>Serial.read()</code></li>
                                     </ul>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Assignments</h4>
-                                    <ul class="mb-0">
-                                        <li><strong>Group:</strong> Build and document a simple network of at least two boards exchanging data.</li>
-                                        <li><strong>Individual:</strong> Implement a communication example that fits your local context (e.g. remote sensor, shared display, lab monitoring).</li>
+                                </li>
+                                <li><strong>I2C (Inter-Integrated Circuit)</strong>:
+                                    <ul>
+                                        <li>Two-wire bus (SDA, SCL) for multiple devices</li>
+                                        <li>Each device has unique address (7-bit or 10-bit)</li>
+                                        <li>Master-slave architecture</li>
+                                        <li>Use: Connecting multiple sensors/displays to one microcontroller</li>
+                                        <li>In Arduino: <code>Wire.begin()</code>, <code>Wire.beginTransmission(address)</code>, <code>Wire.write()</code></li>
                                     </ul>
-                                </div>
+                                </li>
+                                <li><strong>SPI (Serial Peripheral Interface)</strong>:
+                                    <ul>
+                                        <li>Four-wire bus (MOSI, MISO, SCK, SS/CS)</li>
+                                        <li>Faster than I2C, full-duplex</li>
+                                        <li>Master-slave with chip select for multiple devices</li>
+                                        <li>Use: High-speed communication with displays, SD cards, sensors</li>
+                                        <li>In Arduino: <code>SPI.begin()</code>, <code>SPI.transfer()</code></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">2. Wireless Communication Options</h4>
+                            <p>Wireless enables remote monitoring and control:</p>
+                            <ul>
+                                <li><strong>Wi-Fi</strong>:
+                                    <ul>
+                                        <li>High data rate, internet connectivity</li>
+                                        <li>Requires access point/router</li>
+                                        <li>Modules: ESP32, ESP8266</li>
+                                        <li>Use: IoT projects, web-based interfaces, cloud connectivity</li>
+                                        <li>Power: Higher consumption, needs good power supply</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Bluetooth</strong>:
+                                    <ul>
+                                        <li>Short-range (10-100m), low power</li>
+                                        <li>Direct device-to-device pairing</li>
+                                        <li>Modules: HC-05, HC-06, ESP32 (built-in)</li>
+                                        <li>Use: Mobile app connectivity, short-range sensor networks</li>
+                                        <li>Power: Lower than Wi-Fi, good for battery-powered devices</li>
+                                    </ul>
+                                </li>
+                                <li><strong>LoRa (Long Range)</strong>:
+                                    <ul>
+                                        <li>Very long range (1-10km), very low power</li>
+                                        <li>Low data rate, good for sensor networks</li>
+                                        <li>Modules: SX1278, LoRaWAN modules</li>
+                                        <li>Use: Remote monitoring, agricultural sensor networks</li>
+                                        <li>Power: Very low, excellent for battery-powered devices</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">3. Network Topologies</h4>
+                            <p>How devices connect in a network:</p>
+                            <ul>
+                                <li><strong>Point-to-Point</strong>: Two devices directly connected (simplest, UART)</li>
+                                <li><strong>Bus</strong>: Multiple devices on shared bus (I2C, CAN bus)</li>
+                                <li><strong>Star</strong>: Central hub connects to multiple devices (Wi-Fi access point)</li>
+                                <li><strong>Mesh</strong>: Devices relay messages to each other (complex, requires routing)</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">4. Data Exchange Considerations</h4>
+                            <p>When designing communication:</p>
+                            <ul>
+                                <li><strong>Packet Format</strong>: Define structure (header, data, checksum)</li>
+                                <li><strong>Error Detection</strong>: Use checksums or CRC to detect corrupted data</li>
+                                <li><strong>Synchronization</strong>: Ensure sender and receiver are in sync (start/stop bits, framing)</li>
+                                <li><strong>Addressing</strong>: Identify which device should receive message (I2C addresses, IP addresses)</li>
+                                <li><strong>Flow Control</strong>: Prevent data loss when receiver is busy (handshaking, buffers)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mini-Lab -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0"><i class="fas fa-flask me-2"></i>Mini-Lab: Two-Board I2C Communication</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">Let's create a simple network where one board (master) reads a sensor and sends data to another board (slave) that displays it.</p>
+                            
+                            <h4 class="h5 mt-3">Step 1: Gather Components</h4>
+                            <ul>
+                                <li>Two microcontroller boards (Arduino Uno or your custom boards)</li>
+                                <li>Temperature sensor (TMP36 or similar) for master board</li>
+                                <li>LCD display (I2C) or LED for slave board</li>
+                                <li>Two 4.7kΩ pull-up resistors (for I2C bus)</li>
+                                <li>Jumper wires</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Step 2: Wire the I2C Bus</h4>
+                            <ol>
+                                <li>Connect SDA (data) lines together on both boards</li>
+                                <li>Connect SCL (clock) lines together on both boards</li>
+                                <li>Add 4.7kΩ pull-up resistors from SDA to 5V and SCL to 5V</li>
+                                <li>Connect all grounds together (common ground is essential!)</li>
+                                <li>Connect VCC together (both boards need power)</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 3: Master Board Code (Sender)</h4>
+                            <pre class="bg-light p-3 rounded"><code>// Master board - reads sensor and sends data
+#include &lt;Wire.h&gt;
+
+#define SLAVE_ADDRESS 0x08
+#define TEMP_PIN A0
+
+void setup() {
+  Wire.begin();        // Master joins I2C bus
+  Serial.begin(9600);
+  Serial.println("Master: I2C Communication");
+}
+
+void loop() {
+  // Read temperature sensor
+  int tempRaw = analogRead(TEMP_PIN);
+  float voltage = (tempRaw / 1024.0) * 5.0;
+  float temperature = (voltage - 0.5) * 100;
+  
+  // Send data to slave
+  Wire.beginTransmission(SLAVE_ADDRESS);
+  Wire.write((byte)(temperature * 10));  // Send as integer (multiply by 10 for 0.1°C precision)
+  Wire.endTransmission();
+  
+  Serial.print("Sent temperature: ");
+  Serial.println(temperature);
+  
+  delay(1000);
+}</code></pre>
+
+                            <h4 class="h5 mt-3">Step 4: Slave Board Code (Receiver)</h4>
+                            <pre class="bg-light p-3 rounded"><code>// Slave board - receives data and displays
+#include &lt;Wire.h&gt;
+
+#define SLAVE_ADDRESS 0x08
+
+void setup() {
+  Wire.begin(SLAVE_ADDRESS);  // Join I2C bus with address
+  Wire.onReceive(receiveEvent); // Register event handler
+  Serial.begin(9600);
+  Serial.println("Slave: Ready to receive");
+}
+
+void loop() {
+  delay(100);
+}
+
+// Function that executes when data is received
+void receiveEvent(int howMany) {
+  if (Wire.available()) {
+    int tempValue = Wire.read();
+    float temperature = tempValue / 10.0;  // Convert back to float
+    
+    Serial.print("Received temperature: ");
+    Serial.println(temperature);
+    
+    // Here you could display on LCD, control LED, etc.
+  }
+}</code></pre>
+
+                            <h4 class="h5 mt-3">Step 5: Test and Expand</h4>
+                            <ol>
+                                <li>Upload master code to one board, slave code to other</li>
+                                <li>Open Serial Monitors for both boards</li>
+                                <li>Observe data being sent and received</li>
+                                <li>Experiment: Add more sensors to master, send multiple values</li>
+                                <li>Experiment: Add display to slave to show received data</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- YouTube & Learning Resources -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="mb-0"><i class="fab fa-youtube me-2"></i>Video Tutorials & Learning Resources</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Watch these videos to learn about networking and communications. <strong>If your internet is slow</strong>, prioritize the I2C/SPI tutorials.</p>
+                            
+                            <h4 class="h5 mt-3">I2C and SPI Communication</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=6IAkYpmA1DQ" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino I2C Communication Tutorial</h6>
+                                        <small class="text-muted">~30 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Complete guide to I2C communication between Arduino boards and sensors.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How I2C works, master-slave communication, addressing, and using Wire library.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X7" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino SPI Communication Tutorial</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn SPI for high-speed communication with displays and SD cards.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> SPI wiring, chip select, and using SPI library for fast data transfer.</small>
+                                </a>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Documentation &amp; Evidence</h4>
-                                    <ul class="mb-0">
-                                        <li>Connection diagrams and code for both ends of the communication.</li>
-                                        <li>Logs/screenshots showing data successfully sent and received.</li>
-                                        <li>Notes on range, reliability, and power constraints in your lab or community.</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6 mb-0">
-                                    <h4 class="h6 text-uppercase text-muted">Recommended Video Tutorials</h4>
-                                    <ul class="mb-0">
-                                        <li>
-                                            <a href="https://www.youtube.com/results?search_query=arduino+i2c+spi+tutorial" target="_blank" rel="noopener">
-                                                I2C and SPI Communication Tutorials
-                                            </a>
-                                            - Learn to use I2C and SPI buses to connect multiple devices.
-                                        </li>
-                                        <li>
-                                            <a href="https://www.youtube.com/results?search_query=esp32+wifi+tutorial" target="_blank" rel="noopener">
-                                                ESP32 Wi-Fi Tutorials
-                                            </a>
-                                            - Learn to add Wi-Fi connectivity to your projects using ESP32 microcontrollers.
-                                        </li>
-                                    </ul>
-                                </div>
+
+                            <h4 class="h5 mt-4">Wireless Communication</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X8" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>ESP32 Wi-Fi Tutorial - Complete Guide</h6>
+                                        <small class="text-muted">~45 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to add Wi-Fi connectivity to projects using ESP32.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Wi-Fi setup, connecting to networks, creating web servers, and IoT applications.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X9" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino Bluetooth Communication (HC-05)</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to use Bluetooth modules for short-range wireless communication.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> HC-05 setup, pairing, serial communication over Bluetooth, and mobile app connectivity.</small>
+                                </a>
                             </div>
+
+                            <h4 class="h5 mt-4">Written Resources</h4>
+                            <ul>
+                                <li><a href="https://learn.sparkfun.com/tutorials/i2c" target="_blank" rel="noopener">SparkFun I2C Tutorial</a> - Comprehensive I2C guide</li>
+                                <li><a href="https://www.arduino.cc/en/Reference/Wire" target="_blank" rel="noopener">Arduino Wire Library Reference</a> - Official I2C library documentation</li>
+                                <li><a href="https://randomnerdtutorials.com/esp32-wi-fi/" target="_blank" rel="noopener">ESP32 Wi-Fi Guide</a> - Complete ESP32 networking tutorials</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Assignments & Documentation -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>Assignments & Documentation Requirements</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5">Group Assignment</h4>
+                            <p><strong>Build and document a simple network of at least two boards exchanging data</strong>:</p>
+                            <ul>
+                                <li>Choose a communication protocol (I2C, SPI, UART, or wireless)</li>
+                                <li>Connect at least two microcontroller boards</li>
+                                <li>Implement bidirectional or unidirectional data exchange</li>
+                                <li>Demonstrate meaningful data transfer (sensor readings, control commands, status updates)</li>
+                                <li>Document the network topology, wiring, and protocol used</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Individual Assignment</h4>
+                            <p><strong>Implement a communication example that fits your local context</strong>:</p>
+                            <ul>
+                                <li>Remote sensor: Sensor board sends data wirelessly to a central display</li>
+                                <li>Shared display: Multiple sensor boards send data to one display board</li>
+                                <li>Lab monitoring: Network of sensors monitoring lab conditions (temperature, humidity, power)</li>
+                                <li>Agricultural monitoring: Distributed sensor network for field monitoring</li>
+                                <li>Choose a real application that would be useful in your community</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Documentation Checklist</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Network Diagram</strong></td>
+                                            <td>Clear diagram showing all devices, connections, and communication paths. Label protocols used (I2C, SPI, Wi-Fi, etc.).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Wiring Diagram</strong></td>
+                                            <td>Detailed wiring showing pin connections, pull-up resistors, power connections, and ground connections.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Code Repository</strong></td>
+                                            <td>Upload code for all devices in the network. Include comments explaining communication protocol, addressing, and data format.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Communication Protocol Documentation</strong></td>
+                                            <td>Document the data format: How is data structured? What addresses are used? What baud rates or speeds?</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Data Exchange Logs</strong></td>
+                                            <td>Screenshots or logs showing data being sent and received. Serial monitor output showing successful communication.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Range/Reliability Testing</strong></td>
+                                            <td>For wireless: Test range, reliability at different distances, power consumption. For wired: Test with different cable lengths.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Application Context</strong></td>
+                                            <td>Explain how this network would be used in a real African application. What problem does it solve?</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Reflection</strong></td>
+                                            <td>What did you learn? What challenges did you face (synchronization, addressing, power)? How would you improve the network?</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="alert alert-info mt-3">
+                                <strong>Tip:</strong> Start with simple wired communication (I2C or UART) before attempting wireless. 
+                                Once you understand the basics, wireless becomes easier to implement.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Tips for Success</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Start with wired:</strong> Master I2C or UART before attempting wireless—it's simpler and more reliable for learning.</li>
+                                <li><strong>Common ground is essential:</strong> All devices must share a common ground for communication to work.</li>
+                                <li><strong>Use pull-up resistors:</strong> I2C requires pull-up resistors (typically 4.7kΩ) on SDA and SCL lines.</li>
+                                <li><strong>Check addresses:</strong> For I2C, ensure each device has a unique address. Use I2C scanner sketch to find addresses.</li>
+                                <li><strong>Test incrementally:</strong> Test communication with simple data first (send "Hello"), then add complexity.</li>
+                                <li><strong>Document data format:</strong> Clearly define how data is structured (byte order, data types, packet format).</li>
+                                <li><strong>Consider power:</strong> Wireless modules consume more power. Plan power supply accordingly.</li>
+                                <li><strong>Test range:</strong> For wireless, test at different distances and document maximum reliable range.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -113,8 +434,5 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
 </body>
 </html>
-
-

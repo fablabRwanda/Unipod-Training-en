@@ -43,67 +43,407 @@
 
             <div class="row">
                 <div class="col-lg-10 mx-auto">
+                    <!-- Overview -->
                     <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-header bg-dark text-white">
-                            <h3 class="mb-0">
-                                <i class="fas fa-broadcast-tower me-2"></i>
-                                Overview — Output Devices
-                            </h3>
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-chalkboard-teacher me-2"></i>Overview</h3>
                         </div>
                         <div class="card-body">
-                            <p class="lead mb-3">
+                            <p class="lead">
                                 Welcome to Output Devices! This week, you'll learn to control actuators and displays—the "hands and voice" of your projects. 
                                 From LEDs and motors to relays and displays, outputs let your microcontroller interact with the physical world.
                             </p>
-                            <p class="mb-3">
-                                We'll explore different types of outputs, learn to drive them safely (especially high-power devices like motors), and create 
-                                meaningful behaviors. By the end of the week, you'll understand how to choose and control outputs for applications like 
-                                irrigation systems, safety alarms, educational tools, and more.
+                            <p>
+                                In African contexts, output devices enable powerful applications: automated irrigation systems for agriculture, safety alarms 
+                                for security, educational displays for schools, and more. We'll explore different types of outputs, learn to drive them safely 
+                                (especially high-power devices like motors), and create meaningful behaviors.
                             </p>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Learning Objectives</h4>
-                                    <ul class="mb-0">
-                                        <li>Understand different types of outputs: LEDs, motors, buzzers, relays, displays, etc.</li>
-                                        <li>Interface at least one power output (e.g. motor or relay) safely.</li>
-                                        <li>Create simple feedback or actuation behaviors driven by code.</li>
+                            <p>
+                                This week builds on Embedded Programming (where you learned to control outputs) and Input Devices (where you learned to read 
+                                sensors). By the end of the week, you'll understand how to choose and control outputs for applications that solve real 
+                                problems in your community.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Learning Outcomes -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="fas fa-bullseye me-2"></i>Learning Outcomes</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>By the end of this week, you will be able to:</p>
+                            <ul>
+                                <li><strong>Understand different output types</strong> including LEDs, motors (DC, stepper, servo), relays, buzzers, displays, and their characteristics</li>
+                                <li><strong>Drive low-power outputs</strong> directly from microcontroller pins (LEDs, small buzzers)</li>
+                                <li><strong>Drive high-power outputs safely</strong> using transistors, motor drivers, and relays with proper protection circuits</li>
+                                <li><strong>Control outputs with PWM</strong> for variable speed, brightness, or position control</li>
+                                <li><strong>Create meaningful behaviors</strong> by combining outputs with sensor inputs and programming logic</li>
+                                <li><strong>Document output circuits</strong> including power requirements, protection components, and safety considerations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Core Concepts -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Core Concepts & Theory</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5 mt-3">1. Types of Output Devices</h4>
+                            <p>Output devices can be categorized by their function and power requirements:</p>
+                            <ul>
+                                <li><strong>Visual Outputs</strong>:
+                                    <ul>
+                                        <li><strong>LEDs</strong>: Simple, low-power indicators. Can be driven directly from GPIO pins (with current-limiting resistor).</li>
+                                        <li><strong>LED Strips</strong>: Multiple LEDs in series/parallel. Often require external power supply and PWM control.</li>
+                                        <li><strong>LCD Displays</strong>: Text or graphics displays. Usually communicate via I2C or SPI.</li>
+                                        <li><strong>OLED Displays</strong>: High-contrast displays. Often I2C or SPI.</li>
                                     </ul>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Assignments</h4>
-                                    <ul class="mb-0">
-                                        <li><strong>Individual:</strong> Design or reuse a board to drive an output device and demonstrate a meaningful behavior.</li>
-                                        <li><strong>Group:</strong> Document good practices for power, protection (diodes, transistors), and local component sourcing.</li>
+                                </li>
+                                <li><strong>Mechanical Outputs</strong>:
+                                    <ul>
+                                        <li><strong>DC Motors</strong>: Simple rotation. Require motor driver (H-bridge) and external power supply.</li>
+                                        <li><strong>Stepper Motors</strong>: Precise position control. Require stepper driver (like A4988, DRV8825).</li>
+                                        <li><strong>Servo Motors</strong>: Position control via PWM. Can be driven directly from PWM-capable pins.</li>
+                                        <li><strong>Solenoids</strong>: Linear actuation. Require high current, need transistor/relay driver.</li>
                                     </ul>
-                                </div>
+                                </li>
+                                <li><strong>Audio Outputs</strong>:
+                                    <ul>
+                                        <li><strong>Buzzers</strong>: Simple beeps. Can be driven directly (piezo) or via transistor (active buzzer).</li>
+                                        <li><strong>Speakers</strong>: Audio output. Require amplifier circuit.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Switching Outputs</strong>:
+                                    <ul>
+                                        <li><strong>Relays</strong>: Switch high-voltage/high-current devices (lights, pumps, appliances). Require transistor driver.</li>
+                                        <li><strong>Solid-State Relays (SSR)</strong>: Electronic switching, faster than mechanical relays.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">2. Driving Outputs Safely</h4>
+                            <p>Microcontroller pins can only supply limited current (typically 20-40mA). For higher-power devices, you need driver circuits:</p>
+                            <ul>
+                                <li><strong>Current-Limiting Resistors</strong>: For LEDs. Calculate: R = (VCC - V_LED) / I_LED. Example: (5V - 2V) / 20mA = 150Ω (use 220Ω standard).</li>
+                                <li><strong>Transistors (BJT or MOSFET)</strong>: Switch higher currents. Use NPN BJT or N-channel MOSFET for low-side switching. 
+                                    Add base/gate resistor to limit current from microcontroller.</li>
+                                <li><strong>Motor Drivers</strong>: H-bridge circuits (L293D, L298N, TB6612FNG) allow bidirectional motor control and handle high currents.</li>
+                                <li><strong>Protection Diodes</strong>: Flyback diodes across motors/relays prevent voltage spikes from damaging circuits when devices turn off.</li>
+                                <li><strong>Optocouplers</strong>: Isolate high-voltage circuits from microcontroller for safety.</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">3. PWM (Pulse Width Modulation)</h4>
+                            <p>PWM allows you to control output intensity by rapidly switching between HIGH and LOW:</p>
+                            <ul>
+                                <li><strong>Duty Cycle</strong>: Percentage of time signal is HIGH (0% = off, 100% = fully on, 50% = half intensity).</li>
+                                <li><strong>Frequency</strong>: How fast the signal switches (typically 500Hz-20kHz). Too slow = visible flicker, too fast = inefficiency.</li>
+                                <li><strong>Applications</strong>:
+                                    <ul>
+                                        <li>LED brightness control (dimming)</li>
+                                        <li>Motor speed control</li>
+                                        <li>Servo position control (specific pulse widths correspond to angles)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>In Arduino</strong>: Use <code>analogWrite(pin, value)</code> where value is 0-255 (8-bit PWM).</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">4. Power Considerations</h4>
+                            <p>Always consider power requirements:</p>
+                            <ul>
+                                <li><strong>Voltage</strong>: Match output device voltage to your power supply (3.3V, 5V, 12V, etc.).</li>
+                                <li><strong>Current</strong>: Ensure power supply can provide enough current. Motors can draw 100mA-2A+.</li>
+                                <li><strong>Separate Power Supplies</strong>: Use separate power for motors/relays and microcontroller. Connect grounds together.</li>
+                                <li><strong>Voltage Regulators</strong>: Step down higher voltages (12V → 5V) for microcontroller. Use capacitors for filtering.</li>
+                                <li><strong>Battery Considerations</strong>: Motors drain batteries quickly. Consider power management for portable projects.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mini-Lab -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0"><i class="fas fa-flask me-2"></i>Mini-Lab: Motor Control with Speed Control</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">Let's build a circuit to control a DC motor with variable speed—essential for applications like fans, pumps, or automated systems.</p>
+                            
+                            <h4 class="h5 mt-3">Step 1: Gather Components</h4>
+                            <ul>
+                                <li>Microcontroller board (Arduino Uno or your custom board)</li>
+                                <li>Small DC motor (5-12V, low current for safety)</li>
+                                <li>Motor driver (L293D or simple NPN transistor + diode)</li>
+                                <li>Potentiometer (10kΩ) for speed control</li>
+                                <li>Flyback diode (1N4007 or similar)</li>
+                                <li>External power supply (9V battery or 12V adapter) for motor</li>
+                                <li>Breadboard and jumper wires</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Step 2: Wire the Circuit</h4>
+                            <ol>
+                                <li><strong>Motor Driver (L293D)</strong>:
+                                    <ul>
+                                        <li>VCC1 (pin 16) → 5V (logic power)</li>
+                                        <li>VCC2 (pin 8) → External 9V/12V (motor power)</li>
+                                        <li>GND → Common ground (connect all grounds together!)</li>
+                                        <li>Input 1 (pin 2) → Digital pin 9 (PWM)</li>
+                                        <li>Input 2 (pin 7) → GND (for one direction)</li>
+                                        <li>Enable 1 (pin 1) → Digital pin 10</li>
+                                        <li>Output 1 (pin 3) → Motor terminal 1</li>
+                                        <li>Output 2 (pin 6) → Motor terminal 2</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Potentiometer</strong>:
+                                    <ul>
+                                        <li>One end → 5V</li>
+                                        <li>Other end → GND</li>
+                                        <li>Wiper (middle) → Analog pin A0</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Flyback Diode</strong>: Connect across motor terminals (cathode to positive, anode to negative) to protect circuit.</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 3: Write the Code</h4>
+                            <pre class="bg-light p-3 rounded"><code>// Pin definitions
+#define MOTOR_PWM 9      // PWM pin for motor speed
+#define MOTOR_ENABLE 10  // Enable pin
+#define POT_PIN A0       // Potentiometer for speed control
+
+void setup() {
+  pinMode(MOTOR_PWM, OUTPUT);
+  pinMode(MOTOR_ENABLE, OUTPUT);
+  
+  // Enable motor driver
+  digitalWrite(MOTOR_ENABLE, HIGH);
+  
+  Serial.begin(9600);
+  Serial.println("Motor Control with Speed Control");
+}
+
+void loop() {
+  // Read potentiometer (0-1023)
+  int potValue = analogRead(POT_PIN);
+  
+  // Convert to PWM value (0-255)
+  int motorSpeed = map(potValue, 0, 1023, 0, 255);
+  
+  // Set motor speed
+  analogWrite(MOTOR_PWM, motorSpeed);
+  
+  // Print speed percentage
+  Serial.print("Motor Speed: ");
+  Serial.print((motorSpeed * 100) / 255);
+  Serial.println("%");
+  
+  delay(100);
+}</code></pre>
+
+                            <h4 class="h5 mt-3">Step 4: Test and Experiment</h4>
+                            <ol>
+                                <li>Upload code and open Serial Monitor</li>
+                                <li>Turn potentiometer to see motor speed change</li>
+                                <li>Experiment: Add a button to reverse motor direction</li>
+                                <li>Experiment: Control motor based on sensor input (e.g., temperature sensor controls fan speed)</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- YouTube & Learning Resources -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="mb-0"><i class="fab fa-youtube me-2"></i>Video Tutorials & Learning Resources</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Watch these videos to learn about output devices. <strong>If your internet is slow</strong>, prioritize the motor control tutorials.</p>
+                            
+                            <h4 class="h5 mt-3">Motor Control Tutorials</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=5b3d2l0hJ6Y" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino DC Motor Control Tutorial</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to control DC motors safely with motor drivers and PWM speed control.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to use L293D motor driver, PWM for speed control, and protection circuits.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=0qwrnUeSpYQ" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino Stepper Motor Tutorial</h6>
+                                        <small class="text-muted">~30 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to control stepper motors for precise position control.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How stepper motors work, using A4988 driver, and controlling position/ speed.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=k2vQe6z8yTk" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino Servo Motor Control</h6>
+                                        <small class="text-muted">~20 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to control servo motors for precise angular positioning.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How servos work, PWM control, and using Servo library in Arduino.</small>
+                                </a>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Documentation &amp; Evidence</h4>
-                                    <ul class="mb-0">
-                                        <li>Diagrams and code showing how you drive the output device.</li>
-                                        <li>Photos or videos of the device in action.</li>
-                                        <li>Short reflection on where such outputs could be useful locally (e.g. irrigation control, safety alarms, educational tools).</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6 mb-0">
-                                    <h4 class="h6 text-uppercase text-muted">Recommended Video Tutorials</h4>
-                                    <ul class="mb-0">
-                                        <li>
-                                            <a href="https://www.youtube.com/results?search_query=arduino+motor+control+tutorial" target="_blank" rel="noopener">
-                                                Arduino Motor Control Tutorials
-                                            </a>
-                                            - Learn to control DC motors, stepper motors, and servos safely with proper drivers.
-                                        </li>
-                                        <li>
-                                            <a href="https://www.youtube.com/results?search_query=arduino+led+display+tutorial" target="_blank" rel="noopener">
-                                                LED and Display Control
-                                            </a>
-                                            - Tutorials on controlling LEDs, LCD displays, and other visual outputs.
-                                        </li>
-                                    </ul>
-                                </div>
+
+                            <h4 class="h5 mt-4">Display Control Tutorials</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X4" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino LCD Display Tutorial</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to use LCD displays to show text and sensor data.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Wiring LCD displays, using LiquidCrystal library, and displaying dynamic data.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X5" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino OLED Display Tutorial</h6>
+                                        <small class="text-muted">~20 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to use OLED displays for graphics and text.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> I2C OLED displays, using U8g2 library, and creating simple graphics.</small>
+                                </a>
                             </div>
+
+                            <h4 class="h5 mt-4">Relay and High-Power Control</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X6" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino Relay Control Tutorial</h6>
+                                        <small class="text-muted">~15 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to safely control high-voltage/high-current devices with relays.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How relays work, transistor drivers, and safety considerations for high-voltage circuits.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">Written Resources</h4>
+                            <ul>
+                                <li><a href="https://learn.adafruit.com/adafruit-arduino-lesson-13-dc-motors" target="_blank" rel="noopener">Adafruit Motor Control Tutorial</a> - Comprehensive guide to motor control</li>
+                                <li><a href="https://www.sparkfun.com/tutorials/289" target="_blank" rel="noopener">SparkFun Motor Driver Guide</a> - Understanding motor drivers</li>
+                                <li><a href="https://www.allaboutcircuits.com/textbook/semiconductors/chpt-4/bipolar-junction-transistors/" target="_blank" rel="noopener">Transistor Basics</a> - Understanding transistors for output driving</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Assignments & Documentation -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>Assignments & Documentation Requirements</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5">Individual Assignment</h4>
+                            <p><strong>Design or reuse a board to drive an output device</strong>:</p>
+                            <ul>
+                                <li>Interface at least <strong>one output device</strong> (motor, relay, display, LED strip, buzzer, etc.)</li>
+                                <li>Demonstrate a <strong>meaningful behavior</strong>:
+                                    <ul>
+                                        <li>Motor that responds to sensor input (e.g., fan that turns on when temperature is high)</li>
+                                        <li>Display that shows sensor readings</li>
+                                        <li>Relay that controls a device based on conditions</li>
+                                        <li>LED pattern that indicates system state</li>
+                                    </ul>
+                                </li>
+                                <li>If using high-power devices (motors, relays), include proper driver circuits and protection components</li>
+                                <li>Use PWM for variable control (speed, brightness, position) where applicable</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Group Assignment (Optional but Recommended)</h4>
+                            <p>As a UNIPOD team, <strong>document best practices for output devices</strong>:</p>
+                            <ul>
+                                <li>Create a guide for power considerations:
+                                    <ul>
+                                        <li>How to calculate power requirements</li>
+                                        <li>When to use separate power supplies</li>
+                                        <li>How to choose appropriate voltage regulators</li>
+                                    </ul>
+                                </li>
+                                <li>Document protection circuits:
+                                    <ul>
+                                        <li>When and how to use flyback diodes</li>
+                                        <li>Transistor selection for different current requirements</li>
+                                        <li>Optocoupler use for high-voltage isolation</li>
+                                    </ul>
+                                </li>
+                                <li>Create a component sourcing guide:
+                                    <ul>
+                                        <li>Where to buy motors, relays, displays locally</li>
+                                        <li>Cost comparisons and alternatives</li>
+                                        <li>Compatibility notes (voltage levels, current ratings)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Documentation Checklist</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Schematic/Wiring Diagram</strong></td>
+                                            <td>Clear diagram showing output device, driver circuit (if needed), power connections, and microcontroller connections. Include component values.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Code Repository</strong></td>
+                                            <td>Upload complete code with comments explaining output control logic, PWM usage, and any sensor integration.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Circuit Photos</strong></td>
+                                            <td>Photos of your circuit showing connections, driver boards, and protection components.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Working Demonstration</strong></td>
+                                            <td>Video or animated GIF showing output device in action—motor spinning at different speeds, display showing data, relay switching, etc.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Power Analysis</strong></td>
+                                            <td>Document power requirements: voltage, current draw, power supply used. If using separate supplies, explain why.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Protection Circuit Explanation</strong></td>
+                                            <td>If using transistors, diodes, or other protection components, explain why they're needed and how they work.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Application Reflection</strong></td>
+                                            <td>2-3 paragraphs: How could this output device be used in a real African application? What problem would it solve? 
+                                                What other components would you combine with it?</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Reflection</strong></td>
+                                            <td>What did you learn? What challenges did you face (power, protection, control)? How would you improve your design?</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="alert alert-warning mt-3">
+                                <strong>Safety Note:</strong> When working with high-power devices (motors, relays controlling AC), always be careful. 
+                                Double-check connections, use proper protection circuits, and never touch high-voltage circuits. If unsure, ask your lab manager for help.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Tips for Success</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Start with low-power devices:</strong> Begin with LEDs and buzzers before moving to motors and relays.</li>
+                                <li><strong>Always use protection:</strong> Add flyback diodes across motors/relays to prevent voltage spikes.</li>
+                                <li><strong>Check power requirements:</strong> Ensure your power supply can provide enough current. Motors can draw much more than you expect!</li>
+                                <li><strong>Use separate power supplies:</strong> Power motors/relays separately from microcontroller. Connect grounds together.</li>
+                                <li><strong>Test incrementally:</strong> Test output device with simple code first, then add complexity (sensor integration, PWM control).</li>
+                                <li><strong>Read datasheets:</strong> Check output device datasheet for voltage, current, and control requirements.</li>
+                                <li><strong>Start with low speed/voltage:</strong> When testing motors, start slow and increase gradually to avoid damage.</li>
+                                <li><strong>Document everything:</strong> Record power consumption, component choices, and any issues you encounter.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
