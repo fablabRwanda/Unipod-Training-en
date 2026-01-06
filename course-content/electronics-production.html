@@ -35,13 +35,408 @@
 
     <section class="py-5 mt-5">
         <div class="container">
-            <h1 class="text-center display-4 mb-4">Electronics Production</h1>
+            <h1 class="text-center display-4 mb-3">Electronics Production</h1>
+            <p class="text-center text-muted mb-4">
+                Empowering Africa's Future with the UNIPOD Digital Fabrication Program.<br>
+                In partnership with Timbuktoo, UNDP, FabLab Rwanda and UNIPODS, we're delivering cutting-edge technology education across Africa.
+            </p>
+
             <div class="row">
-                <div class="col-md-8 mx-auto">
-                    <div class="card">
+                <div class="col-lg-10 mx-auto">
+                    <!-- Overview -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-chalkboard-teacher me-2"></i>Overview</h3>
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">Overview</h5>
-                            <p class="card-text">Fabricating PCBs and assembling electronics safely and efficiently.</p>
+                            <p class="lead">
+                                Welcome to Electronics Production! This week, you'll learn to fabricate printed circuit boards (PCBs) using tools available in your UNIPOD lab. 
+                                Whether you're milling boards with a CNC machine, cutting them with a vinyl cutter, or using chemical etching, understanding PCB production 
+                                is essential for creating custom electronics that solve local problems.
+                            </p>
+                            <p>
+                                In many African contexts, importing ready-made PCBs can be expensive and slow. By learning to produce boards in your lab, you gain the ability 
+                                to rapidly prototype and iterate on designs. This week builds directly on Electronics Design (where you learned to design boards) and prepares 
+                                you for Embedded Programming (where you'll write code for your custom hardware).
+                            </p>
+                            <p>
+                                You'll learn safe operation of milling machines, proper soldering techniques, and how to test and debug your boards. By the end of the week, 
+                                you'll have fabricated, assembled, and verified a working PCB—a skill that opens doors to creating custom electronics for agriculture, health, 
+                                education, and more.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Learning Outcomes -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="fas fa-bullseye me-2"></i>Learning Outcomes</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>By the end of this week, you will be able to:</p>
+                            <ul>
+                                <li><strong>Understand PCB production methods</strong> and choose the right approach for your project (milling, vinyl cutting, etching, or outsourcing)</li>
+                                <li><strong>Operate milling machines safely</strong> to fabricate PCBs with appropriate trace widths and clearances</li>
+                                <li><strong>Practice surface-mount soldering</strong> techniques for small components (0603, 0805, SOIC packages)</li>
+                                <li><strong>Inspect and test boards</strong> using multimeters, continuity tests, and visual inspection</li>
+                                <li><strong>Debug common fabrication issues</strong> (broken traces, shorts, misaligned drills) and fix them</li>
+                                <li><strong>Source components locally</strong> and document suppliers, costs, and availability in your region</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Core Concepts -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Core Concepts & Production Methods</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5 mt-3">1. PCB Production Methods</h4>
+                            <p>There are several ways to make PCBs in a lab. Each has trade-offs:</p>
+                            <ul>
+                                <li><strong>CNC Milling</strong> (Most common in UNIPODs): Uses a small end mill to cut away copper, leaving traces. 
+                                    Pros: Fast, no chemicals, reusable. Cons: Limited resolution (~0.2mm traces), tool wear, requires good machine calibration.</li>
+                                <li><strong>Vinyl Cutting</strong>: Uses a vinyl cutter to create a mask, then etches with chemicals. 
+                                    Pros: Simple, works for large traces. Cons: Lower resolution, requires chemicals.</li>
+                                <li><strong>Chemical Etching</strong>: Uses photoresist and etchant (ferric chloride or similar) to remove unwanted copper. 
+                                    Pros: High resolution possible. Cons: Requires chemicals, disposal concerns, more steps.</li>
+                                <li><strong>Outsourcing</strong>: Send Gerber files to a PCB manufacturer. 
+                                    Pros: Professional quality, multi-layer boards, solder mask. Cons: Cost, shipping time, requires internet/credit card.</li>
+                            </ul>
+                            <p>For most UNIPOD labs, <strong>CNC milling is the primary method</strong> because it's fast, safe, and doesn't require chemicals.</p>
+
+                            <h4 class="h5 mt-4">2. CNC Milling Workflow</h4>
+                            <p>The typical workflow for milling a PCB:</p>
+                            <ol>
+                                <li><strong>Prepare design files</strong>: Export your board layout as PNG (monochrome, high resolution) or Gerber files</li>
+                                <li><strong>Generate toolpaths</strong>: Use software (MODS, FlatCAM, or machine-specific tools) to create G-code</li>
+                                <li><strong>Secure the board</strong>: Tape or clamp a copper-clad board to the machine bed</li>
+                                <li><strong>Set zero point</strong>: Establish X, Y, Z origin (critical for accuracy!)</li>
+                                <li><strong>Mill traces</strong>: Use a 1/64" (0.4mm) end mill to cut isolation paths around traces</li>
+                                <li><strong>Drill holes</strong>: Use a 1/32" (0.8mm) drill bit for component holes and vias</li>
+                                <li><strong>Cut outline</strong>: Optionally cut the board outline with a larger bit</li>
+                                <li><strong>Clean and inspect</strong>: Remove dust, check for broken traces or shorts</li>
+                            </ol>
+
+                            <h4 class="h5 mt-4">3. Soldering Surface-Mount Components</h4>
+                            <p>Surface-mount (SMD) components are smaller and cheaper than through-hole parts. Common sizes:</p>
+                            <ul>
+                                <li><strong>0603</strong>: 1.6mm x 0.8mm (resistors, capacitors)—good for beginners</li>
+                                <li><strong>0805</strong>: 2.0mm x 1.25mm (slightly easier to handle)</li>
+                                <li><strong>SOIC</strong>: Small Outline Integrated Circuit (microcontrollers, ICs)</li>
+                                <li><strong>QFN/QFP</strong>: Very small, many pins—advanced soldering</li>
+                            </ul>
+                            <p><strong>Soldering technique:</strong></p>
+                            <ol>
+                                <li>Apply flux to the pads (helps solder flow)</li>
+                                <li>Place component with tweezers (align carefully!)</li>
+                                <li>Hold component in place, touch one pad with soldering iron</li>
+                                <li>Apply small amount of solder to create a "tack"</li>
+                                <li>Check alignment, then solder remaining pads</li>
+                                <li>Inspect for bridges (shorts between pads) and cold joints</li>
+                            </ol>
+
+                            <h4 class="h5 mt-4">4. Testing and Debugging</h4>
+                            <p>Always test your board before programming:</p>
+                            <ul>
+                                <li><strong>Visual inspection</strong>: Look for broken traces, shorts, missing components, reversed polarity</li>
+                                <li><strong>Continuity test</strong>: Use a multimeter to check that traces connect correctly (no breaks, no shorts to ground)</li>
+                                <li><strong>Power test</strong>: Apply power carefully, check for correct voltages at key points (VCC, GND)</li>
+                                <li><strong>Component test</strong>: Verify components are oriented correctly (diodes, capacitors, ICs)</li>
+                            </ul>
+                            <p><strong>Common issues and fixes:</strong></p>
+                            <ul>
+                                <li><strong>Broken trace</strong>: Bridge with wire or re-mill the board</li>
+                                <li><strong>Short circuit</strong>: Use a knife or re-mill to cut the short</li>
+                                <li><strong>Cold solder joint</strong>: Reheat with iron, add flux if needed</li>
+                                <li><strong>Missing component</strong>: Solder it in place</li>
+                                <li><strong>Reversed component</strong>: Desolder, flip, resolder</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mini-Lab -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0"><i class="fas fa-flask me-2"></i>Mini-Lab: Fabricate and Assemble a Simple Programmer Board</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">Let's fabricate a simple USB programmer board (like a FabTinyISP or similar) step-by-step.</p>
+                            
+                            <h4 class="h5 mt-3">Step 1: Prepare Design Files</h4>
+                            <ol>
+                                <li>Export your board layout as PNG (monochrome, 1000 DPI) or use Gerber files</li>
+                                <li>You need two images: traces (copper to keep) and outline (board shape)</li>
+                                <li>Invert colors if needed: traces should be white on black background</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 2: Generate Toolpaths</h4>
+                            <ol>
+                                <li>Open MODS (or your lab's CAM software)</li>
+                                <li>Load your trace PNG</li>
+                                <li>Set parameters:
+                                    <ul>
+                                        <li>Tool diameter: 0.4mm (1/64")</li>
+                                        <li>Cut depth: 0.1mm (just enough to remove copper)</li>
+                                        <li>Offset number: 4 (creates isolation paths around traces)</li>
+                                        <li>Speed: Follow your machine's recommendations</li>
+                                    </ul>
+                                </li>
+                                <li>Generate G-code and save</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 3: Mill the Board</h4>
+                            <ol>
+                                <li>Secure copper-clad board to machine bed (double-sided tape works well)</li>
+                                <li>Set X, Y zero (usually front-left corner of board)</li>
+                                <li>Set Z zero (touch tool to board surface, then raise slightly)</li>
+                                <li>Run trace milling job</li>
+                                <li>Inspect: Are all traces isolated? Are there any shorts?</li>
+                                <li>If good, run drill job (1/32" bit for holes)</li>
+                                <li>If needed, run outline cut</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 4: Clean and Inspect</h4>
+                            <ol>
+                                <li>Remove board from machine</li>
+                                <li>Clean with isopropyl alcohol and soft brush</li>
+                                <li>Inspect under good light: check for broken traces, shorts, burrs</li>
+                                <li>Use multimeter continuity test to verify connections</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 5: Solder Components</h4>
+                            <ol>
+                                <li>Gather all components (check your BOM)</li>
+                                <li>Start with smallest components (resistors, capacitors)</li>
+                                <li>Apply flux, place component, tack one pad, check alignment, solder remaining pads</li>
+                                <li>Move to larger components (microcontroller, connectors)</li>
+                                <li>Double-check orientation of polarized components (diodes, capacitors, ICs)</li>
+                                <li>Inspect for solder bridges—fix with desoldering braid if needed</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 6: Test and Program</h4>
+                            <ol>
+                                <li>Visual inspection: All components in place? No obvious shorts?</li>
+                                <li>Continuity test: Check power and ground connections</li>
+                                <li>Power test: Apply power carefully, check voltages</li>
+                                <li>If all good, proceed to programming (next week's topic!)</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- YouTube & Learning Resources -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="mb-0"><i class="fab fa-youtube me-2"></i>Video Tutorials & Learning Resources</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Watch these videos to learn PCB production techniques. <strong>If your internet is slow</strong>, prioritize the milling and soldering tutorials.</p>
+                            
+                            <h4 class="h5 mt-3">PCB Milling Tutorials</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=vaCVH2NHuF4" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>PCB Milling with MODS - Complete Tutorial</h6>
+                                        <small class="text-muted">~30 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Step-by-step guide to using MODS for PCB milling, from design files to G-code.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to set up toolpaths, generate G-code, and operate the milling machine safely.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=3D5V6Xk6jZ4" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>SRM-20 PCB Milling Setup and Operation</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Specific to Roland SRM-20, but principles apply to other milling machines.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Machine setup, zeroing, tool changes, and troubleshooting common issues.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">SMD Soldering Tutorials</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=Q4m7XyB8v-k" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>SMD Soldering Basics - 0603 Components</h6>
+                                        <small class="text-muted">~20 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn proper technique for soldering small surface-mount components.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Flux, tweezers, temperature settings, and how to avoid bridges.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=Y6r8H4Z4v-k" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Soldering SOIC Packages - Step by Step</h6>
+                                        <small class="text-muted">~15 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Techniques for soldering integrated circuits with multiple pins.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Drag soldering, inspection, and fixing bridges.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">PCB Testing and Debugging</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=Q4m7XyB8v-k" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>PCB Debugging - Finding and Fixing Problems</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn systematic approaches to finding and fixing PCB issues.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to use multimeters, identify shorts, and repair broken traces.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">Written Resources</h4>
+                            <ul>
+                                <li><a href="https://mods.cba.mit.edu/" target="_blank" rel="noopener">MODS Project</a> - Web-based CAM software for PCB milling</li>
+                                <li><a href="https://learn.sparkfun.com/tutorials/how-to-solder-through-hole-soldering" target="_blank" rel="noopener">SparkFun Soldering Tutorial</a> - Great reference for soldering techniques</li>
+                                <li><a href="https://www.allaboutcircuits.com/technical-articles/pcb-debugging/" target="_blank" rel="noopener">All About Circuits - PCB Debugging</a> - Troubleshooting guide</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Assignments & Documentation -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>Assignments & Documentation Requirements</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5">Group Assignment: Characterize Your Production Process</h4>
+                            <p>As a lab team, create a <strong>process characterization document</strong>:</p>
+                            <ul>
+                                <li>Test different trace widths (0.1mm, 0.2mm, 0.3mm) and clearances (0.1mm, 0.2mm, 0.3mm)</li>
+                                <li>Document which combinations work reliably with your machine</li>
+                                <li>Measure actual trace widths vs. designed widths (account for tool wear)</li>
+                                <li>Test alignment between top and bottom layers (if doing double-sided boards)</li>
+                                <li>Document tool life: How many boards can you mill before the bit dulls?</li>
+                                <li>Create a "design rules" document that future students can follow</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Individual Assignment</h4>
+                            <p><strong>Fabricate and assemble a working PCB</strong>:</p>
+                            <ul>
+                                <li>Choose a board design (programmer, sensor board, or your own design from Electronics Design week)</li>
+                                <li>Mill the board using your lab's process</li>
+                                <li>Solder all components correctly</li>
+                                <li>Test the board (continuity, power, functionality)</li>
+                                <li>If it doesn't work, debug and fix it—document your troubleshooting process</li>
+                                <li>Program the board (if it's a programmer or microcontroller board)</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Documentation Checklist</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Design Files</strong></td>
+                                            <td>Upload your board layout files (PNG, Gerber, or source files) that you used for milling.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Milling Process Photos</strong></td>
+                                            <td>Photos showing: board secured to bed, zeroing process, milling in progress, finished milled board before cleaning.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Component List (BOM)</strong></td>
+                                            <td>Table with all components: part name, value, package, quantity, supplier, cost. Note any substitutions you made.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Soldering Process</strong></td>
+                                            <td>Photos showing: components laid out, soldering in progress, close-ups of finished solder joints (especially SMD components).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Testing Results</strong></td>
+                                            <td>Screenshots or photos of: multimeter readings, continuity tests, power measurements, any test code output.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Debugging Documentation</strong></td>
+                                            <td>If you had problems: What went wrong? How did you identify the issue? How did you fix it? Photos of before/after fixes.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Final Working Board</strong></td>
+                                            <td>Photos of completed board (top and bottom), video or photo showing it working (LEDs blinking, serial output, etc.).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Reflection</strong></td>
+                                            <td>What did you learn? What was hardest? What would you do differently? How could this process be improved for your lab?</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="alert alert-warning mt-3">
+                                <strong>Important:</strong> Document your process clearly enough that another student could reproduce your work. Include enough detail about 
+                                machine settings, tool choices, and troubleshooting that future students can learn from your experience.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Tips for Success</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Start simple:</strong> Don't try to mill a complex board on your first attempt. Begin with a simple design with large traces.</li>
+                                <li><strong>Check your files twice:</strong> Before milling, verify that your PNG/Gerber files are correct. Broken traces in the file = broken traces on the board.</li>
+                                <li><strong>Zero carefully:</strong> Accurate X, Y, Z zeroing is critical. Take your time, double-check, and document your zero point.</li>
+                                <li><strong>Inspect as you go:</strong> After milling traces, inspect before drilling. After drilling, inspect before soldering.</li>
+                                <li><strong>Use flux:</strong> Flux makes soldering much easier, especially for SMD components. Don't skip it!</li>
+                                <li><strong>Test incrementally:</strong> After soldering power components, test power before soldering sensitive ICs.</li>
+                                <li><strong>Keep spare components:</strong> Components are small and easy to lose. Have extras on hand.</li>
+                                <li><strong>Document problems:</strong> If something goes wrong, document it. Your mistakes help others learn.</li>
+                            </ul>
+                        </div>
+                    </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <h4 class="h6 text-uppercase text-muted">Learning Objectives</h4>
+                                    <ul class="mb-0">
+                                        <li>Understand PCB production options (CNC milling, vinyl cutting, chemical etching, outsourcing).</li>
+                                        <li>Safely use milling machines or other equipment to fabricate a board.</li>
+                                        <li>Practice SMD soldering and basic inspection/testing.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <h4 class="h6 text-uppercase text-muted">Assignments</h4>
+                                    <ul class="mb-0">
+                                        <li><strong>Group:</strong> Characterize your PCB production process (trace/space limits, tool wear, alignment).</li>
+                                        <li><strong>Individual:</strong> Fabricate and solder a working board (for example, a programmer or simple microcontroller board).</li>
+                                        <li><strong>Individual:</strong> Program and verify that your board works, documenting tests.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6 mb-3">
+                                    <h4 class="h6 text-uppercase text-muted">Documentation &amp; Evidence</h4>
+                                    <ul class="mb-0">
+                                        <li>Board layout files, milling files, and photos of production steps.</li>
+                                        <li>Close-up photos of solder joints and debugging steps.</li>
+                                        <li>Notes about sourcing components in your city or region.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 mb-0">
+                                    <h4 class="h6 text-uppercase text-muted">Additional Resources</h4>
+                                    <ul class="mb-0">
+                                        <li>
+                                            <a href="https://learn.sparkfun.com/tutorials/how-to-solder-through-hole-soldering" target="_blank" rel="noopener">
+                                                SparkFun Soldering Tutorial
+                                            </a>
+                                            - Comprehensive guide to soldering techniques.
+                                        </li>
+                                        <li>
+                                            <a href="https://www.allaboutcircuits.com/technical-articles/pcb-debugging/" target="_blank" rel="noopener">
+                                                PCB Debugging Guide
+                                            </a>
+                                            - Troubleshooting common PCB fabrication issues.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

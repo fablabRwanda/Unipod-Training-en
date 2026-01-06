@@ -38,19 +38,174 @@
 
     <section class="py-5 mt-5">
         <div class="container">
-            <h1 class="text-center display-4 mb-4">3D Scanning and Printing</h1>
-            <div class="row">
-                <div class="col-md-8 mx-auto">
-                    <div class="card">
+            <h1 class="text-center display-4 mb-3">3D Scanning and Printing</h1>
+            <p class="text-center text-muted mb-4">
+                Empowering Africa's Future with the UNIPOD Digital Fabrication Program.<br>
+                In partnership with Timbuktoo, UNDP, FabLab Rwanda and UNIPODS, we're delivering cutting-edge technology education across Africa.
+            </p>
+
+            <div class="row mb-4">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="mb-0">
+                                <i class="fas fa-cubes me-2"></i>
+                                Overview — 3D Scanning &amp; Printing
+                            </h3>
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">Resources</h5>
-                            <p class="card-text">This section will contain resources, tutorials, and materials for 3D Scanning and Printing.</p>
-                            <!-- Add resources here -->
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Resource 1: <a href="#" target="_blank">Link</a></li>
-                                <li class="list-group-item">Resource 2: <a href="#" target="_blank">Link</a></li>
-                                <li class="list-group-item">Resource 3: <a href="#" target="_blank">Link</a></li>
+                            <p class="mb-3">
+                                Welcome to 3D Scanning and Printing! This week, you'll learn to capture real‑world objects using low‑cost tools (phones, 
+                                webcams, handheld scanners) and turn them into printable 3D models. You'll also learn to design for 3D printing and 
+                                operate FDM printers safely to create complex geometries that would be difficult with traditional manufacturing.
+                            </p>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <h4 class="h6 text-uppercase text-muted">Learning Objectives</h4>
+                                    <ul class="mb-0">
+                                        <li>Compare at least two 3D scanning workflows (e.g. photogrammetry vs. handheld scanner or phone app).</li>
+                                        <li>Process scans into clean meshes ready for fabrication (repair, simplify, scale).</li>
+                                        <li>Design or adapt a 3D model that respects your printer’s design rules (overhangs, wall thickness, tolerances).</li>
+                                        <li>Document your full pipeline so someone in another African UNIPOD can reproduce your work.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <h4 class="h6 text-uppercase text-muted">Assignments</h4>
+                                    <ul class="mb-0">
+                                        <li><strong>Group:</strong> Characterize your 3D printer by printing test pieces that explore overhangs, bridges, clearance and dimensional accuracy on the filament you use most.</li>
+                                        <li><strong>Individual:</strong> 3D scan an object from your environment (e.g. traditional craft, everyday tool, natural form), process the scan into a watertight mesh and prepare it for printing.</li>
+                                        <li><strong>Individual:</strong> Design and print a small object that cannot be made subtractively (e.g. internal channels, captive parts, complex organic shape).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scanning Workflows -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0">
+                                <i class="fas fa-camera me-2"></i>
+                                1. 3D Scanning Workflows
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">
+                                Start with tools you already have. Many African labs and UNIPODs may not have expensive industrial scanners,
+                                but you can still do powerful work using phones, webcams, or low‑cost depth sensors.
+                            </p>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <h4 class="h6 text-uppercase text-muted">Photogrammetry (Images → 3D)</h4>
+                                    <ul>
+                                        <li>Take 30–80 photos of your object from all around, keeping lighting as constant as possible.</li>
+                                        <li>Use a photogrammetry tool (desktop or cloud) to generate a dense point cloud and then a mesh.</li>
+                                        <li>Clean up the mesh by cropping the ground plane and removing noise.</li>
+                                    </ul>
+                                    <p class="mb-1"><strong>Best for:</strong> Cultural artifacts, organic shapes, surfaces with good texture.</p>
+                                    <p class="mb-0"><strong>Tip:</strong> Avoid shiny or fully black objects; add tape or powder if needed.</p>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <h4 class="h6 text-uppercase text-muted">Depth / Handheld Scanners</h4>
+                                    <ul>
+                                        <li>Follow your device’s recommended scanning path (circle around, move steadily).</li>
+                                        <li>Ensure enough overlap between frames so the software can track surfaces reliably.</li>
+                                        <li>Export as <code>.obj</code> or <code>.stl</code> for further cleanup.</li>
+                                    </ul>
+                                    <p class="mb-1"><strong>Best for:</strong> People, large objects, quick captures when you have access to a scanner.</p>
+                                    <p class="mb-0"><strong>Tip:</strong> Practice with simple shapes first (bottles, boxes) to learn how your scanner behaves.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mesh Cleanup & Preparation -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0">
+                                <i class="fas fa-drafting-compass me-2"></i>
+                                2. Mesh Cleanup &amp; Preparing for Print
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">
+                                Raw scans are rarely ready to print. This block focuses on transforming noisy meshes into printable geometry.
+                            </p>
+                            <ul>
+                                <li><strong>Repair:</strong> Close holes, remove floating islands, ensure the mesh is watertight.</li>
+                                <li><strong>Simplify:</strong> Reduce polygon count while preserving important details so slicers and low‑spec laptops can handle your model.</li>
+                                <li><strong>Scale &amp; orient:</strong> Measure the real object and set the correct scale; choose an orientation that reduces supports and preserves key surfaces.</li>
+                                <li><strong>Combine with CAD:</strong> Use your scan as a reference to design add‑ons or enclosures (e.g. a custom phone mount or handle).</li>
                             </ul>
+                        </div>
+                    </div>
+
+                    <!-- 3D Printing Characterization & Design Rules -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0">
+                                <i class="fas fa-print me-2"></i>
+                                3. 3D Printer Characterization &amp; Design Rules
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">
+                                As a group, you will run printer characterization tests to understand what your machines can do:
+                            </p>
+                            <ul>
+                                <li>Print an overhang/bridge test and record the maximum angle/length that prints cleanly.</li>
+                                <li>Print a clearance test (moving parts, gaps) and note the smallest gap that moves freely.</li>
+                                <li>Measure real dimensions vs. CAD (X, Y, Z) and document any systematic errors.</li>
+                            </ul>
+                            <p class="mb-0">
+                                Use these results to define “design rules” for your UNIPOD (minimum wall thickness, minimum hole size, recommended layer height) and publish them for future cohorts.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Documentation & Tutorials -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-secondary text-white">
+                            <h3 class="mb-0">
+                                <i class="fas fa-book me-2"></i>
+                                4. Documentation &amp; Recommended Tutorials
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <h4 class="h6 text-uppercase text-muted">What You Must Document</h4>
+                                    <ul>
+                                        <li>Your scanning setup (device, lighting, number of photos or scan time).</li>
+                                        <li>Screenshots from each major step: raw scan, cleaned mesh, print in slicer, final print.</li>
+                                        <li>Printer settings table (material, nozzle temp, bed temp, layer height, infill, speed).</li>
+                                        <li>Reflections: what failed, what you changed, and how you would improve next time.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <h4 class="h6 text-uppercase text-muted">Recommended Video Tutorials</h4>
+                                    <p class="mb-2">
+                                        Watch these tutorials to learn 3D printing and scanning:
+                                    </p>
+                                    <ul class="mb-0">
+                                        <li>
+                                            <a href="https://www.youtube.com/results?search_query=3d+printing+tutorial+beginner" target="_blank" rel="noopener">
+                                                3D Printing Tutorials
+                                            </a>
+                                            - Search for beginner-friendly tutorials on slicing, printer setup, and troubleshooting.
+                                        </li>
+                                        <li>
+                                            <a href="https://www.youtube.com/results?search_query=photogrammetry+tutorial" target="_blank" rel="noopener">
+                                                3D Scanning &amp; Photogrammetry Tutorials
+                                            </a>
+                                            - Learn to scan objects using your phone or camera.
+                                        </li>
+                                        <li>
+                                            Identify at least one tutorial that works well with your hardware and internet conditions, and link it from your personal documentation page.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

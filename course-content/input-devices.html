@@ -35,13 +35,366 @@
 
     <section class="py-5 mt-5">
         <div class="container">
-            <h1 class="text-center display-4 mb-4">Input Devices</h1>
+            <h1 class="text-center display-4 mb-3">Input Devices</h1>
+            <p class="text-center text-muted mb-4">
+                Empowering Africa's Future with the UNIPOD Digital Fabrication Program.<br>
+                In partnership with Timbuktoo, UNDP, FabLab Rwanda and UNIPODS, we're delivering cutting-edge technology education across Africa.
+            </p>
+
             <div class="row">
-                <div class="col-md-8 mx-auto">
-                    <div class="card">
+                <div class="col-lg-10 mx-auto">
+                    <!-- Overview -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-chalkboard-teacher me-2"></i>Overview</h3>
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">Overview</h5>
-                            <p class="card-text">Sensors and methods for acquiring data from physical systems.</p>
+                            <p class="lead">
+                                Welcome to Input Devices! This week, you'll learn to connect sensors to your microcontroller boards and read data from the physical world. 
+                                Sensors are the "eyes and ears" of your projects—they measure light, temperature, distance, motion, and more.
+                            </p>
+                            <p>
+                                In African contexts, sensors enable powerful applications: monitoring soil moisture for agriculture, detecting water quality for health, 
+                                measuring energy consumption for efficiency. We'll explore different types of sensors (digital vs. analog), learn to interface them 
+                                with microcontrollers, and visualize the data they produce.
+                            </p>
+                            <p>
+                                This week builds on Embedded Programming (where you learned to read inputs) and prepares you for Output Devices (where you'll control 
+                                actuators based on sensor readings). By the end of the week, you'll understand how to choose sensors for your projects and read reliable 
+                                data even in challenging African environments (heat, dust, variable power).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Learning Outcomes -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="fas fa-bullseye me-2"></i>Learning Outcomes</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>By the end of this week, you will be able to:</p>
+                            <ul>
+                                <li><strong>Understand sensor types</strong> including digital, analog, I2C, SPI, and their characteristics (range, accuracy, response time)</li>
+                                <li><strong>Interface sensors</strong> with microcontrollers using appropriate circuits (voltage dividers, pull-ups, amplifiers)</li>
+                                <li><strong>Read sensor data</strong> using digitalRead(), analogRead(), or communication protocols (I2C, SPI)</li>
+                                <li><strong>Calibrate sensors</strong> to account for environmental conditions and improve accuracy</li>
+                                <li><strong>Visualize sensor data</strong> using serial plots, basic UIs, or data logging</li>
+                                <li><strong>Document sensor behavior</strong> including noise, drift, and environmental sensitivity</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Core Concepts -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Core Concepts & Theory</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5 mt-3">1. Digital vs. Analog Sensors</h4>
+                            <p>
+                                Sensors can be categorized by their output type:
+                            </p>
+                            <ul>
+                                <li><strong>Digital Sensors</strong>: Output HIGH/LOW signals. Examples: buttons, switches, PIR motion sensors, magnetic hall sensors.
+                                    <ul>
+                                        <li>Pros: Simple to read, immune to noise, fast response</li>
+                                        <li>Cons: Less information (just on/off)</li>
+                                        <li>Use: When you only need to detect presence/absence or threshold crossings</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Analog Sensors</strong>: Output continuous voltage proportional to measured quantity. Examples: temperature (LM35, TMP36), 
+                                    light (LDR, phototransistor), distance (ultrasonic), flex sensors.
+                                    <ul>
+                                        <li>Pros: Provide detailed measurements, can detect gradual changes</li>
+                                        <li>Cons: Susceptible to noise, requires ADC, needs calibration</li>
+                                        <li>Use: When you need precise measurements or continuous monitoring</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Digital Communication Sensors</strong>: Use I2C, SPI, or UART protocols. Examples: accelerometers, gyroscopes, environmental sensors (BME280).
+                                    <ul>
+                                        <li>Pros: Multiple sensors on few wires, built-in processing, high precision</li>
+                                        <li>Cons: More complex code, requires libraries</li>
+                                        <li>Use: When you need multiple sensors or high-precision measurements</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">2. Interfacing Sensors</h4>
+                            <p>Different sensors require different interface circuits:</p>
+                            <ul>
+                                <li><strong>Voltage Divider</strong>: For resistive sensors (LDR, flex sensor, thermistor). Two resistors create a voltage proportional to resistance.</li>
+                                <li><strong>Pull-up/Pull-down Resistors</strong>: For digital sensors to ensure clean HIGH/LOW signals. Usually 10kΩ.</li>
+                                <li><strong>Amplifiers</strong>: For weak signals (like from thermocouples). Op-amps boost signal before ADC.</li>
+                                <li><strong>Current Limiting Resistors</strong>: For sensors that need specific current (like LEDs used as light sensors).</li>
+                                <li><strong>Filtering Capacitors</strong>: Reduce noise in analog signals. 100nF ceramic capacitor near sensor helps.</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">3. Reading Sensor Data</h4>
+                            <p>In Arduino, you read sensors using:</p>
+                            <ul>
+                                <li><strong>digitalRead(pin)</strong>: Returns HIGH or LOW for digital sensors</li>
+                                <li><strong>analogRead(pin)</strong>: Returns 0-1023 (10-bit ADC) or 0-4095 (12-bit ADC) for analog sensors</li>
+                                <li><strong>Wire library</strong>: For I2C sensors (like BME280, MPU6050)</li>
+                                <li><strong>SPI library</strong>: For SPI sensors</li>
+                            </ul>
+                            <p><strong>Important:</strong> Always check sensor datasheets for voltage requirements, pin connections, and communication protocols!</p>
+
+                            <h4 class="h5 mt-4">4. Calibration and Environmental Considerations</h4>
+                            <p>In African environments, sensors face unique challenges:</p>
+                            <ul>
+                                <li><strong>Temperature</strong>: High ambient temperatures can affect sensor accuracy. Some sensors need temperature compensation.</li>
+                                <li><strong>Dust and Humidity</strong>: Can interfere with optical sensors (light, distance). Protect sensors with enclosures.</li>
+                                <li><strong>Power Variability</strong>: Voltage fluctuations can affect analog readings. Use voltage regulators and filtering.</li>
+                                <li><strong>Calibration</strong>: Always calibrate sensors in the environment where they'll be used. Take multiple readings and average them.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mini-Lab -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0"><i class="fas fa-flask me-2"></i>Mini-Lab: Temperature and Light Monitoring System</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">Let's build a simple monitoring system that reads temperature and light levels, perfect for agricultural or environmental applications.</p>
+                            
+                            <h4 class="h5 mt-3">Step 1: Gather Components</h4>
+                            <ul>
+                                <li>Microcontroller board (Arduino Uno, ATmega328P, or your custom board)</li>
+                                <li>Temperature sensor (TMP36 or LM35 - analog output)</li>
+                                <li>Light sensor (LDR/photoresistor - analog output)</li>
+                                <li>Two 10kΩ resistors (for voltage dividers)</li>
+                                <li>100nF capacitor (for filtering)</li>
+                                <li>Breadboard and jumper wires</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Step 2: Wire the Circuit</h4>
+                            <ol>
+                                <li><strong>Temperature Sensor (TMP36)</strong>:
+                                    <ul>
+                                        <li>VCC → 5V (or 3.3V)</li>
+                                        <li>GND → GND</li>
+                                        <li>Output → Analog pin A0</li>
+                                        <li>Add 100nF capacitor between VCC and GND near sensor</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Light Sensor (LDR)</strong>:
+                                    <ul>
+                                        <li>One leg → 5V</li>
+                                        <li>Other leg → 10kΩ resistor → GND</li>
+                                        <li>Connection point (between LDR and resistor) → Analog pin A1</li>
+                                    </ul>
+                                </li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 3: Write the Code</h4>
+                            <pre class="bg-light p-3 rounded"><code>// Pin definitions
+#define TEMP_PIN A0
+#define LIGHT_PIN A1
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Temperature and Light Monitor");
+  Serial.println("-----------------------------");
+}
+
+void loop() {
+  // Read temperature sensor (TMP36: 10mV per degree C, 500mV offset)
+  int tempRaw = analogRead(TEMP_PIN);
+  float voltage = (tempRaw / 1024.0) * 5.0;  // Convert to voltage
+  float temperature = (voltage - 0.5) * 100;  // Convert to Celsius
+  
+  // Read light sensor (0 = dark, 1023 = bright)
+  int lightRaw = analogRead(LIGHT_PIN);
+  float lightPercent = (lightRaw / 1024.0) * 100;  // Convert to percentage
+  
+  // Print readings
+  Serial.print("Temperature: ");
+  Serial.print(temperature);
+  Serial.print("°C | Light: ");
+  Serial.print(lightPercent);
+  Serial.println("%");
+  
+  // Wait before next reading
+  delay(1000);
+}</code></pre>
+
+                            <h4 class="h5 mt-3">Step 4: Test and Calibrate</h4>
+                            <ol>
+                                <li>Upload code and open Serial Monitor</li>
+                                <li>Compare temperature reading with a known thermometer</li>
+                                <li>Adjust calibration if needed (add offset, scale factor)</li>
+                                <li>Test light sensor by covering/uncovering it</li>
+                                <li>Document the range of values you see in your environment</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- YouTube & Learning Resources -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="mb-0"><i class="fab fa-youtube me-2"></i>Video Tutorials & Learning Resources</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Watch these videos to learn about sensors and input devices. <strong>If your internet is slow</strong>, prioritize the Arduino sensor tutorials.</p>
+                            
+                            <h4 class="h5 mt-3">Arduino Sensor Tutorials</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=09zfRaLEasY" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino Temperature Sensor Tutorial</h6>
+                                        <small class="text-muted">~20 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to interface temperature sensors (TMP36, LM35) and read accurate temperature data.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to read analog sensors, convert ADC values to real-world units, and calibrate sensors.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=js4TK0UvgJS" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino Light Sensor (LDR) Tutorial</h6>
+                                        <small class="text-muted">~15 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to use photoresistors and create light-responsive projects.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Voltage divider circuits, reading analog values, and using sensors for automation.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=6F1B_N6Luok" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino Ultrasonic Distance Sensor</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to use HC-SR04 ultrasonic sensors for distance measurement.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How digital sensors work, timing measurements, and distance calculations.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">I2C and SPI Sensors</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=8jEr3L5nW-s" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino I2C Sensors Tutorial</h6>
+                                        <small class="text-muted">~30 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to use I2C sensors like BME280 (temperature, humidity, pressure) and accelerometers.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How I2C communication works, using Wire library, and reading multiple sensors on one bus.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">Written Resources</h4>
+                            <ul>
+                                <li><a href="https://learn.adafruit.com/adafruit-arduino-lesson-4-eight-leds" target="_blank" rel="noopener">Adafruit Sensor Tutorials</a> - Comprehensive guides for various sensors</li>
+                                <li><a href="https://www.sparkfun.com/sensors" target="_blank" rel="noopener">SparkFun Sensor Guide</a> - Overview of different sensor types</li>
+                                <li><a href="https://www.allaboutcircuits.com/textbook/semiconductors/chpt-2/voltage-dividers/" target="_blank" rel="noopener">Voltage Divider Circuits</a> - Understanding voltage dividers for sensors</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Assignments & Documentation -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>Assignments & Documentation Requirements</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5">Individual Assignment</h4>
+                            <p><strong>Design or use an existing board to read a sensor</strong>:</p>
+                            <ul>
+                                <li>Interface at least <strong>one sensor</strong> (temperature, light, distance, motion, touch, etc.)</li>
+                                <li>Read and display sensor values (via serial monitor, LED display, or simple UI)</li>
+                                <li>Document how sensor readings change with environment:
+                                    <ul>
+                                        <li>Take readings at different times of day</li>
+                                        <li>Test in different conditions (indoor/outdoor, hot/cool, bright/dark)</li>
+                                        <li>Record noise levels and stability</li>
+                                    </ul>
+                                </li>
+                                <li>Write a short reflection on how this sensing could be used in a real African application (agriculture, health, energy, infrastructure)</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Group Assignment (Optional but Recommended)</h4>
+                            <p>As a UNIPOD team, <strong>compare multiple sensors</strong>:</p>
+                            <ul>
+                                <li>Test at least 3 different sensors (e.g., different temperature sensors, or temperature + light + distance)</li>
+                                <li>Record and compare:
+                                    <ul>
+                                        <li>Noise levels (how much do readings fluctuate?)</li>
+                                        <li>Range (minimum and maximum values)</li>
+                                        <li>Stability (do readings drift over time?)</li>
+                                        <li>Response time (how quickly do they react to changes?)</li>
+                                    </ul>
+                                </li>
+                                <li>Test in your local environment (account for heat, dust, power variability)</li>
+                                <li>Create a shared document comparing sensor performance and cost/availability in your region</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Documentation Checklist</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Schematic/Wiring Diagram</strong></td>
+                                            <td>Clear diagram showing how sensor connects to microcontroller. Include resistor values, pin numbers, power connections.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Setup Photos</strong></td>
+                                            <td>Photos of your sensor connected to the board, with labels showing connections.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Code Repository</strong></td>
+                                            <td>Upload your complete code with comments explaining sensor reading, calibration, and data processing.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Sensor Data Plots</strong></td>
+                                            <td>Graphs or plots showing sensor values over time. Use Serial Plotter in Arduino IDE or export data to spreadsheet.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Calibration Documentation</strong></td>
+                                            <td>How did you calibrate the sensor? What offset or scaling factors did you use? How accurate is it?</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Environmental Testing</strong></td>
+                                            <td>Table or notes showing sensor readings in different conditions (time of day, temperature, light level, etc.).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Application Reflection</strong></td>
+                                            <td>2-3 paragraphs: How could this sensor be used in a real African application? What problem would it solve? 
+                                                What other sensors would you combine with it?</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Reflection</strong></td>
+                                            <td>What did you learn? What challenges did you face (noise, calibration, environmental factors)? 
+                                                How would you improve your sensor setup?</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="alert alert-warning mt-3">
+                                <strong>Important:</strong> Your documentation should help others understand not just what sensor you used, but how to interface it, 
+                                calibrate it, and interpret the data. Include enough detail that another student could reproduce your setup.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Tips for Success</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Start with simple sensors:</strong> Begin with basic analog sensors (temperature, light) before trying complex I2C sensors.</li>
+                                <li><strong>Read the datasheet:</strong> Always check sensor datasheet for voltage requirements, pin connections, and output characteristics.</li>
+                                <li><strong>Use filtering:</strong> Add capacitors near sensors to reduce noise. Average multiple readings for stability.</li>
+                                <li><strong>Calibrate in your environment:</strong> Sensor readings depend on environment. Calibrate where the sensor will actually be used.</li>
+                                <li><strong>Test thoroughly:</strong> Test sensors in different conditions (day/night, hot/cool, indoor/outdoor) to understand their behavior.</li>
+                                <li><strong>Document everything:</strong> Record sensor readings, calibration values, and environmental conditions. This data is valuable!</li>
+                                <li><strong>Consider power consumption:</strong> Some sensors draw significant current. Plan power supply accordingly.</li>
+                                <li><strong>Protect sensors:</strong> In dusty or humid environments, protect sensors with enclosures or covers.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

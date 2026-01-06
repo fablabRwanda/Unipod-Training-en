@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Embedded Programming - UNIPOD Training</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -34,18 +35,431 @@
 
     <section class="py-5 mt-5">
         <div class="container">
-            <h1 class="text-center display-4 mb-4">Embedded Programming</h1>
+            <h1 class="text-center display-4 mb-3">Embedded Programming</h1>
+            <p class="text-center text-muted mb-4">
+                Empowering Africa's Future with the UNIPOD Digital Fabrication Program.<br>
+                In partnership with Timbuktoo, UNDP, FabLab Rwanda and UNIPODS, we're delivering cutting-edge technology education across Africa.
+            </p>
+
             <div class="row">
-                <div class="col-md-8 mx-auto">
-                    <div class="card">
+                <div class="col-lg-10 mx-auto">
+                    <!-- Overview -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-chalkboard-teacher me-2"></i>Overview</h3>
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">Resources</h5>
-                            <p class="card-text">This section will contain resources, tutorials, and materials for Embedded Programming.</p>
-                            <!-- Add resources here -->
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Resource 1: <a href="#" target="_blank">Link</a></li>
-                                <li class="list-group-item">Resource 2: <a href="#" target="_blank">Link</a></li>
-                                <li class="list-group-item">Resource 3: <a href="#" target="_blank">Link</a></li>
+                            <p class="lead">
+                                Welcome to Embedded Programming! This week, you'll learn to write code for microcontrollers—the tiny computers that power 
+                                everything from sensors to robots. Whether you're programming a board you designed last week or using a development board, 
+                                you'll learn to read inputs, control outputs, and create interactive behaviors.
+                            </p>
+                            <p>
+                                In many African contexts, being able to program custom hardware opens doors to creating solutions for local challenges—from 
+                                agricultural monitoring systems to water quality sensors. We'll explore multiple programming approaches: Arduino (beginner-friendly), 
+                                PlatformIO (more powerful), and plain C (maximum control). By the end of the week, you'll understand how to set up toolchains, 
+                                write and debug code, and upload programs to your hardware.
+                            </p>
+                            <p>
+                                This week builds directly on Electronics Design and Electronics Production (where you designed and fabricated your board) and 
+                                prepares you for Input Devices and Output Devices (where you'll connect sensors and actuators). By the end, you'll have a 
+                                working microcontroller board that responds to inputs and controls outputs—the foundation of any interactive project.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Learning Outcomes -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="fas fa-bullseye me-2"></i>Learning Outcomes</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>By the end of this week, you will be able to:</p>
+                            <ul>
+                                <li><strong>Understand microcontroller architecture</strong> including pins, clock sources, memory types, and I/O capabilities</li>
+                                <li><strong>Set up programming toolchains</strong> (Arduino IDE, PlatformIO, or AVR-GCC) on your computer</li>
+                                <li><strong>Write embedded programs</strong> that read digital and analog inputs, control outputs, and use timers</li>
+                                <li><strong>Upload and debug code</strong> using programmers (ISP, USB-to-serial) and serial monitors</li>
+                                <li><strong>Compare programming approaches</strong> and choose the right tool for your project needs</li>
+                                <li><strong>Document your code</strong> with clear comments and explanations so others can understand and modify it</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Core Concepts -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Core Concepts & Theory</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5 mt-3">1. Understanding Microcontroller Architecture</h4>
+                            <p>
+                                A microcontroller is a complete computer on a single chip. Unlike your laptop, it's designed for real-time control of physical 
+                                systems. Key components:
+                            </p>
+                            <ul>
+                                <li><strong>CPU (Central Processing Unit)</strong>: Executes your program instructions. Most UNIPOD boards use AVR (ATtiny, ATmega) 
+                                    or ARM (ESP32, STM32) processors running at 8-16 MHz.</li>
+                                <li><strong>Memory</strong>:
+                                    <ul>
+                                        <li><strong>Flash</strong>: Stores your program code (non-volatile, persists when power is off)</li>
+                                        <li><strong>SRAM</strong>: Stores variables while program runs (volatile, cleared on power loss)</li>
+                                        <li><strong>EEPROM</strong>: Stores data that persists (like settings)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>GPIO Pins</strong>: General Purpose Input/Output pins that can read sensors or control outputs. Can be configured as 
+                                    digital (HIGH/LOW) or analog (ADC for reading, PWM for controlling brightness/speed).</li>
+                                <li><strong>Clock</strong>: Determines how fast the CPU runs. External crystals provide accurate timing; internal oscillators are 
+                                    simpler but less precise.</li>
+                                <li><strong>Peripherals</strong>: Built-in hardware like timers, UART (serial communication), SPI, I2C buses.</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">2. Digital vs. Analog I/O</h4>
+                            <p>
+                                Understanding the difference between digital and analog is crucial:
+                            </p>
+                            <ul>
+                                <li><strong>Digital I/O</strong>: Pins can be HIGH (usually 5V or 3.3V) or LOW (0V). Perfect for buttons, LEDs, switches. 
+                                    Use <code>digitalRead()</code> and <code>digitalWrite()</code> in Arduino, or direct port manipulation in C.</li>
+                                <li><strong>Analog Input (ADC)</strong>: Reads voltage levels between 0V and VCC (e.g., 0-1023 on 10-bit ADC). Used for sensors 
+                                    like potentiometers, light sensors, temperature sensors. Use <code>analogRead()</code> in Arduino.</li>
+                                <li><strong>Analog Output (PWM)</strong>: Simulates analog output by rapidly switching between HIGH and LOW. Duty cycle 
+                                    (percentage of time HIGH) controls brightness of LEDs or speed of motors. Use <code>analogWrite()</code> in Arduino.</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">3. Programming Approaches</h4>
+                            <p>You have several options for programming microcontrollers:</p>
+                            <ul>
+                                <li><strong>Arduino IDE</strong> (Recommended for beginners):
+                                    <ul>
+                                        <li>Pros: Simple, lots of libraries, huge community, works on any OS</li>
+                                        <li>Cons: Less control over low-level details, can be slower</li>
+                                        <li>Best for: Rapid prototyping, learning, projects that don't need precise timing</li>
+                                    </ul>
+                                </li>
+                                <li><strong>PlatformIO</strong> (Recommended for intermediate users):
+                                    <ul>
+                                        <li>Pros: More powerful, better code organization, supports multiple platforms</li>
+                                        <li>Cons: Steeper learning curve, requires more setup</li>
+                                        <li>Best for: Larger projects, professional development, when you need more control</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Plain C with AVR-GCC</strong> (Advanced):
+                                    <ul>
+                                        <li>Pros: Maximum control, smallest code size, precise timing</li>
+                                        <li>Cons: Complex, requires understanding of hardware registers, more error-prone</li>
+                                        <li>Best for: When you need every bit of performance or memory</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">4. Programming Interfaces</h4>
+                            <p>To upload code to your microcontroller, you need a programmer:</p>
+                            <ul>
+                                <li><strong>ISP (In-System Programmer)</strong>: 6-pin header that connects directly to microcontroller. Works with any AVR chip. 
+                                    You can use an Arduino as an ISP, or dedicated programmers like USBasp.</li>
+                                <li><strong>USB-to-Serial</strong>: Many boards (like Arduino Uno) have built-in USB-to-serial chips (FTDI, CH340, CP2102). 
+                                    These allow direct programming via USB cable.</li>
+                                <li><strong>Bootloader</strong>: Some boards come with bootloaders that allow programming without a separate programmer. 
+                                    Convenient but uses flash memory.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mini-Lab -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0"><i class="fas fa-flask me-2"></i>Mini-Lab: Blink an LED and Read a Button</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">Let's start with the classic "Hello World" of embedded programming: blinking an LED and reading a button.</p>
+                            
+                            <h4 class="h5 mt-3">Step 1: Set Up Your Development Environment</h4>
+                            <ol>
+                                <li><strong>Install Arduino IDE</strong>:
+                                    <ul>
+                                        <li>Download from <a href="https://www.arduino.cc/en/software" target="_blank">arduino.cc</a></li>
+                                        <li>Install drivers for your programmer (USBasp, CH340, etc.)</li>
+                                        <li>Open Arduino IDE and go to Tools → Board → Select your board (e.g., "ATtiny24/44/84" or "Arduino Uno")</li>
+                                        <li>Select the correct programmer under Tools → Programmer</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Connect your board</strong>:
+                                    <ul>
+                                        <li>If using ISP: Connect 6 wires (VCC, GND, MISO, MOSI, SCK, RST) between programmer and board</li>
+                                        <li>If using USB: Simply connect USB cable</li>
+                                    </ul>
+                                </li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 2: Write the Blink Program</h4>
+                            <p>Open a new sketch in Arduino IDE and write:</p>
+                            <pre class="bg-light p-3 rounded"><code>// Pin definitions
+#define LED_PIN 0      // Change to match your board's LED pin
+#define BUTTON_PIN 1  // Change to match your button pin
+
+void setup() {
+  // Initialize serial communication (for debugging)
+  Serial.begin(9600);
+  
+  // Configure LED pin as output
+  pinMode(LED_PIN, OUTPUT);
+  
+  // Configure button pin as input with pull-up resistor
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  
+  Serial.println("Program started!");
+}
+
+void loop() {
+  // Read button state (LOW when pressed due to pull-up)
+  int buttonState = digitalRead(BUTTON_PIN);
+  
+  if (buttonState == LOW) {
+    // Button is pressed - turn LED on
+    digitalWrite(LED_PIN, HIGH);
+    Serial.println("Button pressed - LED ON");
+  } else {
+    // Button not pressed - turn LED off
+    digitalWrite(LED_PIN, LOW);
+    Serial.println("Button released - LED OFF");
+  }
+  
+  // Small delay to avoid reading too fast
+  delay(50);
+}</code></pre>
+
+                            <h4 class="h5 mt-3">Step 3: Upload and Test</h4>
+                            <ol>
+                                <li>Click "Verify" (checkmark icon) to compile your code. Fix any errors.</li>
+                                <li>Click "Upload" (arrow icon) to program your board.</li>
+                                <li>Open Serial Monitor (Tools → Serial Monitor) to see debug messages.</li>
+                                <li>Press the button and watch the LED turn on/off!</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 4: Experiment</h4>
+                            <ul>
+                                <li>Change the delay value - what happens?</li>
+                                <li>Add a second LED and make them blink alternately</li>
+                                <li>Use <code>analogRead()</code> to read a potentiometer and control LED brightness with <code>analogWrite()</code></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Recommended Software Tools -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-secondary text-white">
+                            <h3 class="mb-0"><i class="fas fa-tools me-2"></i>Recommended Software Tools</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <h5>Arduino IDE (Recommended for Beginners)</h5>
+                                    <ul>
+                                        <li><strong>Free and simple</strong>: Perfect for learning embedded programming</li>
+                                        <li><strong>Cross-platform</strong>: Works on Windows, Mac, Linux</li>
+                                        <li><strong>Huge library ecosystem</strong>: Thousands of libraries for sensors, displays, communication</li>
+                                        <li><strong>Built-in serial monitor</strong>: Easy debugging</li>
+                                        <li>Download: <a href="https://www.arduino.cc/en/software" target="_blank">arduino.cc</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <h5>PlatformIO (For Advanced Users)</h5>
+                                    <ul>
+                                        <li><strong>More powerful</strong>: Better code organization, dependency management</li>
+                                        <li><strong>Multi-platform</strong>: Supports Arduino, ESP32, STM32, and more</li>
+                                        <li><strong>Professional features</strong>: Unit testing, code linting, version control integration</li>
+                                        <li>Install: Extension for VS Code or standalone IDE</li>
+                                        <li>Website: <a href="https://platformio.org/" target="_blank">platformio.org</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="alert alert-info mt-3">
+                                <strong>Recommendation for UNIPOD labs:</strong> Start with <strong>Arduino IDE</strong>. It's free, simple, well-documented, 
+                                and works on any computer. Once you're comfortable, you can explore PlatformIO for more advanced projects.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- YouTube & Learning Resources -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="mb-0"><i class="fab fa-youtube me-2"></i>Video Tutorials & Learning Resources</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Watch these videos to learn embedded programming. <strong>If your internet is slow</strong>, prioritize the Arduino basics tutorials.</p>
+                            
+                            <h4 class="h5 mt-3">Arduino Programming Basics</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=zJ-LqeX_fLU" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino Tutorial 1: Getting Started</h6>
+                                        <small class="text-muted">~15 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Complete introduction to Arduino IDE, board setup, and your first program.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to install Arduino IDE, select your board, upload code, and use the serial monitor.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=09zfRaLEasY" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino Tutorial: Digital Inputs and Outputs</h6>
+                                        <small class="text-muted">~20 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to read buttons and control LEDs—the foundation of all embedded projects.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Understanding pinMode(), digitalRead(), digitalWrite(), and pull-up resistors.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=js4TK0UvgJS" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino Tutorial: Analog Inputs and PWM</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to read sensors and control brightness/speed using analog functions.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How analogRead() and analogWrite() work, and when to use them.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">AVR Microcontroller Programming (Advanced)</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=4Se0ZH3FX3A" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>AVR Microcontroller Programming with C</h6>
+                                        <small class="text-muted">~30 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> If you want to program AVR chips directly without Arduino libraries.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Understanding AVR registers, bit manipulation, and direct hardware control.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=7Bc5e9i6mEo" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Programming ATtiny with Arduino IDE</h6>
+                                        <small class="text-muted">~20 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to program small, cheap ATtiny microcontrollers using Arduino IDE.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to add ATtiny support to Arduino IDE and program them via ISP.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">Debugging and Troubleshooting</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=2e-dGd7vW6s" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Arduino Debugging Tips</h6>
+                                        <small class="text-muted">~15 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn systematic approaches to finding and fixing bugs in embedded code.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Using Serial.print() for debugging, common mistakes, and how to fix them.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">Written Resources</h4>
+                            <ul>
+                                <li><a href="https://www.arduino.cc/reference/en/" target="_blank" rel="noopener">Arduino Language Reference</a> - Complete reference for all Arduino functions</li>
+                                <li><a href="https://learn.adafruit.com/adafruit-arduino-lesson-2-leds" target="_blank" rel="noopener">Adafruit Arduino Tutorials</a> - Excellent beginner-friendly tutorials</li>
+                                <li><a href="https://www.avrfreaks.net/" target="_blank" rel="noopener">AVR Freaks</a> - Community forum for AVR microcontroller programming</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Assignments & Documentation -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>Assignments & Documentation Requirements</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5">Individual Assignment</h4>
+                            <p><strong>Program your microcontroller board</strong> to:</p>
+                            <ul>
+                                <li>Read at least <strong>one input device</strong> (button, switch, sensor, etc.)</li>
+                                <li>Control at least <strong>one output device</strong> (LED, buzzer, motor, display, etc.)</li>
+                                <li>Demonstrate a <strong>meaningful behavior</strong> (e.g., button press changes LED pattern, sensor reading controls motor speed)</li>
+                            </ul>
+                            <p><strong>Requirements:</strong></p>
+                            <ul>
+                                <li>Use at least <strong>two different programming environments</strong> (e.g., Arduino IDE and PlatformIO, or Arduino and plain C)</li>
+                                <li>Compare the two approaches: Which was easier? Which gave you more control? Which would you use for future projects?</li>
+                                <li>Document any errors you encountered (wrong port, driver issues, clock settings, etc.) and how you fixed them</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Group Assignment (Optional but Recommended)</h4>
+                            <p>As a UNIPOD team, create a <strong>shared toolchain setup guide</strong>:</p>
+                            <ul>
+                                <li>Document step-by-step installation instructions for Arduino IDE or PlatformIO</li>
+                                <li>List required drivers for common programmers (USBasp, CH340, FTDI, etc.)</li>
+                                <li>Note any OS-specific issues (Windows vs. Mac vs. Linux)</li>
+                                <li>Create a troubleshooting guide for common problems (port not found, upload failed, etc.)</li>
+                                <li>Share this guide so future students can set up their environment quickly</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Documentation Checklist</h4>
+                            <p>On your personal documentation page, include:</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Code Repository</strong></td>
+                                            <td>Upload your complete code to GitHub, GitLab, or similar. Include clear comments explaining what each section does.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Program Screenshots</strong></td>
+                                            <td>Screenshots of your code in the IDE, showing key functions and logic.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Hardware Setup Photos</strong></td>
+                                            <td>Photos showing your board connected to inputs/outputs, with clear labels showing what connects where.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Serial Monitor Output</strong></td>
+                                            <td>Screenshots of serial monitor showing debug messages, sensor readings, or program state.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Working Demonstration</strong></td>
+                                            <td>Video or animated GIF showing your program running—button press triggers LED, sensor reading changes output, etc.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Programming Environment Comparison</strong></td>
+                                            <td>Table or written comparison of the two programming environments you tried. Include: ease of use, features, 
+                                                code size, performance, which you prefer and why.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Troubleshooting Documentation</strong></td>
+                                            <td>List of errors you encountered (wrong port, driver issues, clock frequency, etc.) and exactly how you fixed them. 
+                                                This helps future students!</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Reflection</strong></td>
+                                            <td>What did you learn? What was hardest? What would you do differently? How will you use embedded programming 
+                                                in your final project?</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="alert alert-warning mt-3">
+                                <strong>Important:</strong> Your documentation should be clear enough that another student could reproduce your program. 
+                                Include enough detail about pin connections, code logic, and troubleshooting that future students can learn from your experience.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Tips for Success</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Start simple:</strong> Don't try to write complex code on your first attempt. Begin with blink, then add one feature at a time.</li>
+                                <li><strong>Use Serial.print() liberally:</strong> Print variable values, program state, and debug messages. It's your best friend for finding bugs.</li>
+                                <li><strong>Check your pin numbers:</strong> Make sure your code uses the correct pin numbers for your board. ATtiny pin numbers are different from Arduino Uno!</li>
+                                <li><strong>Verify connections:</strong> Before blaming your code, double-check that wires are connected correctly. Use a multimeter if needed.</li>
+                                <li><strong>Read datasheets:</strong> When in doubt, check the microcontroller datasheet for pin functions, voltage levels, and capabilities.</li>
+                                <li><strong>Test incrementally:</strong> Don't write all your code at once. Test each function separately, then combine them.</li>
+                                <li><strong>Save working versions:</strong> Before making big changes, save a copy of working code. You can always go back!</li>
+                                <li><strong>Ask for help:</strong> If you're stuck, ask your lab manager or classmates. Programming has many "gotchas" that experienced developers know about.</li>
                             </ul>
                         </div>
                     </div>

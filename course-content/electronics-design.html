@@ -35,13 +35,435 @@
 
     <section class="py-5 mt-5">
         <div class="container">
-            <h1 class="text-center display-4 mb-4">Electronics Design</h1>
+            <h1 class="text-center display-4 mb-3">Electronics Design</h1>
+            <p class="text-center text-muted mb-4">
+                Empowering Africa's Future with the UNIPOD Digital Fabrication Program.<br>
+                In partnership with Timbuktoo, UNDP, FabLab Rwanda and UNIPODS, we're delivering cutting-edge technology education across Africa.
+            </p>
+
             <div class="row">
-                <div class="col-md-8 mx-auto">
-                    <div class="card">
+                <div class="col-lg-10 mx-auto">
+                    <!-- Overview -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-chalkboard-teacher me-2"></i>Overview</h3>
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">Overview</h5>
-                            <p class="card-text">Designing electronic circuits and boards using modern EDA tools.</p>
+                            <p class="lead">
+                                Welcome to Electronics Design! This week, you'll learn to design your own printed circuit boards (PCBs) using Electronic Design Automation (EDA) software. 
+                                Whether you're building a sensor node for agriculture, a controller for a water pump, or a custom board for your final project, understanding PCB design 
+                                is essential for creating reliable, professional electronics.
+                            </p>
+                            <p>
+                                In many African contexts, importing ready-made development boards can be expensive and slow. By learning to design your own boards, you gain independence 
+                                to create exactly what you need, using components available locally. We'll focus on practical skills: drawing schematics, routing traces, and preparing 
+                                files for fabrication in your UNIPOD lab.
+                            </p>
+                            <p>
+                                This week builds directly on Electronics Production (where you learned to mill and solder boards) and prepares you for Embedded Programming (where you'll 
+                                write code for your custom hardware). By the end, you'll have designed a microcontroller board with at least one input and one output device, ready for 
+                                fabrication and programming.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Learning Outcomes -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="fas fa-bullseye me-2"></i>Learning Outcomes</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>By the end of this week, you will be able to:</p>
+                            <ul>
+                                <li><strong>Draw schematics</strong> using EDA software, connecting microcontrollers, power supplies, and peripheral components correctly</li>
+                                <li><strong>Route PCB layouts</strong> with appropriate trace widths, clearances, and via placement for reliable fabrication</li>
+                                <li><strong>Use design rules</strong> (DRC) and electrical rules (ERC) to catch errors before sending files to production</li>
+                                <li><strong>Export fabrication files</strong> (Gerber, drill files, or PNG) compatible with your lab's PCB milling or production workflow</li>
+                                <li><strong>Select components</strong> based on availability, cost, and performance requirements in your local market</li>
+                                <li><strong>Document your design process</strong> so others can understand your choices and reproduce your work</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Core Concepts -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Core Concepts & Theory</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5 mt-3">1. Understanding Schematics</h4>
+                            <p>
+                                A schematic is a symbolic representation of your circuit. Unlike a physical layout, it shows <em>what</em> connects to <em>what</em>, not <em>where</em> 
+                                components sit. Think of it as a map of electrical relationships. Common symbols include:
+                            </p>
+                            <ul>
+                                <li><strong>Microcontrollers</strong>: Represented as rectangles with labeled pins (VCC, GND, GPIO pins, etc.)</li>
+                                <li><strong>Resistors</strong>: Zigzag lines or rectangles with values (e.g., 10kΩ, 220Ω)</li>
+                                <li><strong>Capacitors</strong>: Parallel lines (polarized) or curved lines (non-polarized)</li>
+                                <li><strong>Power symbols</strong>: VCC (positive), GND (ground), often shown as labels or symbols</li>
+                                <li><strong>Connectors</strong>: Headers, USB ports, or other interfaces your board will use</li>
+                            </ul>
+                            <p>
+                                When drawing schematics, always include a power supply section (voltage regulator, decoupling capacitors), a microcontroller section, and your 
+                                input/output peripherals. Label everything clearly—future you will thank present you!
+                            </p>
+
+                            <h4 class="h5 mt-4">2. From Schematic to PCB Layout</h4>
+                            <p>
+                                Once your schematic is complete and passes ERC (Electrical Rule Check), you move to the board layout. Here, you place physical components and route 
+                                copper traces between them. Key considerations:
+                            </p>
+                            <ul>
+                                <li><strong>Component placement</strong>: Group related components together. Keep power components away from sensitive analog circuits. Place connectors 
+                                    near board edges for easy access.</li>
+                                <li><strong>Trace width</strong>: Power traces (VCC, GND) should be wider (e.g., 0.5mm) than signal traces (0.2mm). This reduces resistance and 
+                                    prevents voltage drops.</li>
+                                <li><strong>Clearances</strong>: Maintain minimum spacing between traces (typically 0.2mm for 1/64" end mills). This prevents short circuits during 
+                                    milling.</li>
+                                <li><strong>Vias</strong>: Small holes plated with copper, used to route traces between layers. For single-layer boards (common in labs), avoid vias 
+                                    or use wire jumpers.</li>
+                                <li><strong>Ground planes</strong>: Large areas of copper connected to GND improve signal integrity and make routing easier. Fill unused space with 
+                                    ground planes when possible.</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">3. Design Rules for Lab Fabrication</h4>
+                            <p>
+                                When designing for in-lab PCB milling (using machines like the SRM-20 or similar), you must account for the tool's limitations:
+                            </p>
+                            <ul>
+                                <li><strong>Minimum trace width</strong>: Typically 0.2mm (8 mils) for 1/64" end mills. Thinner traces may break during milling.</li>
+                                <li><strong>Minimum clearance</strong>: 0.2mm between traces. Tighter spacing risks shorts.</li>
+                                <li><strong>Via size</strong>: If using vias, make them at least 0.3mm diameter. Smaller vias are hard to drill reliably.</li>
+                                <li><strong>Component spacing</strong>: Leave room for hand-soldering. SMD components need space for your iron tip.</li>
+                                <li><strong>Text and labels</strong>: Use large, clear text (at least 1mm height) for component labels and board names.</li>
+                            </ul>
+                            <p>
+                                Most EDA tools have Design Rule Check (DRC) settings where you can configure these limits. Always run DRC before exporting fabrication files!
+                            </p>
+
+                            <h4 class="h5 mt-4">4. Component Selection for African Markets</h4>
+                            <p>
+                                When choosing components, consider:
+                            </p>
+                            <ul>
+                                <li><strong>Availability</strong>: Can you source this component locally or from regional suppliers? Check with your lab manager or local electronics 
+                                    shops.</li>
+                                <li><strong>Cost</strong>: Microcontrollers like ATtiny44/45 or ATmega328P are affordable and widely available. Avoid exotic or very new parts 
+                                    unless necessary.</li>
+                                <li><strong>Package type</strong>: Through-hole components are easier to solder by hand, but SMD (Surface Mount) parts are smaller and cheaper. 
+                                    Start with through-hole if you're new to soldering.</li>
+                                <li><strong>Voltage compatibility</strong>: Many African power systems use 12V or 24V. Design your board to accept a range of input voltages with 
+                                    appropriate regulators (e.g., LM7805 for 5V, AMS1117 for 3.3V).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Worked Example / Mini-Lab -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0"><i class="fas fa-flask me-2"></i>Mini-Lab: Design a Simple LED Controller Board</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">Let's design a practical board step-by-step: a microcontroller-based LED controller that can dim LEDs using PWM (Pulse Width Modulation).</p>
+                            
+                            <h4 class="h5 mt-3">Step 1: Define Requirements</h4>
+                            <ul>
+                                <li>Microcontroller: ATtiny44 (8 pins, enough for this project)</li>
+                                <li>Input: One button to cycle through brightness levels</li>
+                                <li>Output: Three LEDs with current-limiting resistors</li>
+                                <li>Power: 5V via USB or external supply</li>
+                                <li>Programming: ISP header for programming (6 pins)</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Step 2: Draw the Schematic</h4>
+                            <ol>
+                                <li>Open your EDA tool (KiCad, Eagle, or Fusion 360 Electronics).</li>
+                                <li>Add the ATtiny44 component. Place it in the center of your schematic.</li>
+                                <li>Add power components:
+                                    <ul>
+                                        <li>Voltage regulator (e.g., AMS1117-5.0) with input capacitor (10µF) and output capacitor (10µF)</li>
+                                        <li>Connect VCC to pin 1 (VCC) and pin 14 (AVCC) of ATtiny44</li>
+                                        <li>Connect GND to pin 4 (GND) and pin 8 (AGND)</li>
+                                    </ul>
+                                </li>
+                                <li>Add programming header (6-pin ISP):
+                                    <ul>
+                                        <li>Connect MISO, MOSI, SCK, RST, VCC, GND to corresponding ATtiny44 pins</li>
+                                    </ul>
+                                </li>
+                                <li>Add button input:
+                                    <ul>
+                                        <li>Button connected between PA7 (pin 6) and GND</li>
+                                        <li>Pull-up resistor (10kΩ) from PA7 to VCC</li>
+                                    </ul>
+                                </li>
+                                <li>Add LED outputs:
+                                    <ul>
+                                        <li>Three LEDs, each with a 220Ω resistor in series</li>
+                                        <li>Connect to PA0, PA1, PA2 (pins 13, 12, 11)</li>
+                                        <li>LEDs connect: VCC → Resistor → LED anode → LED cathode → GND</li>
+                                    </ul>
+                                </li>
+                                <li>Add decoupling capacitor: 100nF ceramic capacitor between VCC and GND, close to the microcontroller</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 3: Create the Board Layout</h4>
+                            <ol>
+                                <li>Switch to the board editor. Your components will appear as footprints.</li>
+                                <li>Place components:
+                                    <ul>
+                                        <li>Put the ISP header near the edge for easy access</li>
+                                        <li>Group LEDs together on one side</li>
+                                        <li>Place the button on the opposite side</li>
+                                        <li>Keep the voltage regulator and capacitors near the power input</li>
+                                    </ul>
+                                </li>
+                                <li>Route traces:
+                                    <ul>
+                                        <li>Start with power traces (VCC and GND)—make these wider (0.5mm)</li>
+                                        <li>Route signal traces (0.2mm width) for button, LEDs, and programming lines</li>
+                                        <li>Use a ground plane on the bottom layer if your tool supports it</li>
+                                    </ul>
+                                </li>
+                                <li>Add labels: Label the board "LED Controller v1.0", label each LED (LED1, LED2, LED3), and label the button (BTN1)</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 4: Run Design Rules Check</h4>
+                            <ol>
+                                <li>Configure DRC settings:
+                                    <ul>
+                                        <li>Minimum trace width: 0.2mm</li>
+                                        <li>Minimum clearance: 0.2mm</li>
+                                        <li>Minimum via size: 0.3mm (if using vias)</li>
+                                    </ul>
+                                </li>
+                                <li>Run DRC. Fix any errors (overlapping traces, too-narrow traces, etc.)</li>
+                                <li>Run ERC (Electrical Rule Check) on the schematic. Fix unconnected pins, missing power connections, etc.</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 5: Export Fabrication Files</h4>
+                            <p>Export files in the format your lab uses:</p>
+                            <ul>
+                                <li><strong>For milling</strong>: Export as PNG (monochrome, high resolution, 1000 DPI) or Gerber files</li>
+                                <li><strong>For production</strong>: Export Gerber files (copper layers, solder mask, silkscreen) and drill files</li>
+                                <li>Always include a drill file if your board has holes</li>
+                            </ul>
+                            <p><strong>Documentation task</strong>: Take screenshots of your schematic and board layout, annotate them to explain your design choices, and save your design files.</p>
+                        </div>
+                    </div>
+
+                    <!-- Recommended Software Tools -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-secondary text-white">
+                            <h3 class="mb-0"><i class="fas fa-tools me-2"></i>Recommended Software Tools</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <h5>Free & Open Source</h5>
+                                    <ul>
+                                        <li><strong>KiCad</strong> (Recommended): Professional-grade, completely free. Excellent for learning and production. Works on Windows, Mac, Linux.</li>
+                                        <li><strong>Fritzing</strong>: Beginner-friendly, great for breadboard-to-PCB workflows. Limited for complex designs.</li>
+                                        <li><strong>EasyEDA</strong>: Web-based, no installation needed. Good for low-spec computers. Requires internet.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <h5>Commercial (Free for Students/Education)</h5>
+                                    <ul>
+                                        <li><strong>Autodesk Eagle</strong>: Industry standard, free for students and hobbyists. Powerful but has a learning curve.</li>
+                                        <li><strong>Fusion 360 Electronics</strong>: Integrated with 3D CAD. Free for students and makers. Good if you already use Fusion 360.</li>
+                                        <li><strong>Altium Designer</strong>: Professional tool, expensive. Only use if your institution provides a license.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="alert alert-info mt-3">
+                                <strong>Recommendation for UNIPOD labs:</strong> Start with <strong>KiCad</strong>. It's free, powerful, well-documented, and works on any computer. 
+                                Many African labs use KiCad because it doesn't require licenses or subscriptions.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- YouTube & Learning Resources -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="mb-0"><i class="fab fa-youtube me-2"></i>Video Tutorials & Learning Resources</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Watch these videos in order, then practice with your own designs. <strong>If your internet is slow</strong>, prioritize the KiCad tutorials 
+                                (most important) and read the written documentation.</p>
+                            
+                            <h4 class="h5 mt-3">KiCad Tutorials (Recommended Tool)</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=vaCVH2NHuF4" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>KiCad 6.0 Complete Tutorial - From Schematic to PCB</h6>
+                                        <small class="text-muted">~45 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Complete walkthrough from drawing schematics to routing a PCB. Perfect for beginners.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> You'll understand the full workflow: schematic → footprint assignment → board layout → routing → export.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=3D5V6Xk6jZ4" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>KiCad PCB Design Tutorial - Routing Traces</h6>
+                                        <small class="text-muted">~20 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Deep dive into routing techniques, trace widths, and avoiding common mistakes.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Learn how to route power traces, signal traces, and use ground planes effectively.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=Q4m7XyB8v-k" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>KiCad Design Rules Check (DRC) Tutorial</h6>
+                                        <small class="text-muted">~15 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Essential for catching errors before fabrication. Saves time and money!</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to configure DRC settings for lab milling and interpret error messages.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">Eagle CAD Tutorials (Alternative Tool)</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=1AXwjZoyNno" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Eagle CAD Tutorial - Getting Started</h6>
+                                        <small class="text-muted">~30 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> If you prefer Eagle or your lab uses it, this covers the basics.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Understanding Eagle's library system and workflow.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">PCB Design Fundamentals</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=Q4m7XyB8v-k" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>PCB Design Basics - Trace Width, Clearance, Via Size</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Understand the physics behind design rules. Why trace width matters, how clearance prevents shorts.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Design rules aren't arbitrary—they're based on manufacturing constraints and electrical requirements.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=Y6r8H4Z4v-k" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Component Selection for PCB Design</h6>
+                                        <small class="text-muted">~20 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn how to choose components based on availability, cost, and performance.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Strategies for finding components that are available in your region and affordable.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">Written Resources</h4>
+                            <ul>
+                                <li><a href="https://docs.kicad.org/" target="_blank" rel="noopener">KiCad Official Documentation</a> - Comprehensive guides and tutorials</li>
+                                <li><a href="https://learn.sparkfun.com/tutorials/pcb-basics" target="_blank" rel="noopener">SparkFun PCB Basics Tutorial</a> - Great introduction to PCB concepts</li>
+                                <li><a href="https://www.allaboutcircuits.com/technical-articles/pcb-layout/" target="_blank" rel="noopener">All About Circuits - PCB Layout Articles</a> - In-depth technical articles</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Assignments & Documentation -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>Assignments & Documentation Requirements</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5">Individual Assignment</h4>
+                            <p><strong>Design a microcontroller board</strong> that includes:</p>
+                            <ul>
+                                <li>A microcontroller (ATtiny44/45, ATmega328P, or similar)</li>
+                                <li>At least <strong>one input device</strong> (button, switch, sensor, etc.)</li>
+                                <li>At least <strong>one output device</strong> (LED, buzzer, motor driver, etc.)</li>
+                                <li>Power supply section (voltage regulator, capacitors)</li>
+                                <li>Programming interface (ISP header, USB, or similar)</li>
+                                <li>All necessary support components (resistors, capacitors, pull-ups, etc.)</li>
+                            </ul>
+                            <p><strong>Requirements:</strong></p>
+                            <ul>
+                                <li>Run ERC (Electrical Rule Check) on your schematic—fix all errors</li>
+                                <li>Run DRC (Design Rule Check) on your board layout—configure rules for your lab's milling capabilities</li>
+                                <li>Export fabrication files (PNG for milling or Gerber files)</li>
+                                <li>Document your component choices: Why did you choose these parts? Are they available locally? What was the cost?</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Group Assignment (Optional but Recommended)</h4>
+                            <p>As a UNIPOD team, create a <strong>shared component library</strong>:</p>
+                            <ul>
+                                <li>List components that are readily available in your city/country</li>
+                                <li>Include supplier names, approximate costs, and part numbers</li>
+                                <li>Share EDA library files (KiCad libraries, Eagle libraries) for commonly used components</li>
+                                <li>Document any substitutions you made (e.g., "We used LM7805 instead of AMS1117 because it's cheaper here")</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Documentation Checklist</h4>
+                            <p>On your personal documentation page, include:</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Schematic Screenshot</strong></td>
+                                            <td>High-resolution image of your complete schematic with clear labels. Annotate key sections (power, microcontroller, inputs, outputs).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Board Layout Screenshot</strong></td>
+                                            <td>Top and bottom views of your PCB layout. Highlight important features (trace widths, clearances, component placement).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Design Files</strong></td>
+                                            <td>Upload your source files (.kicad_sch, .kicad_pcb, .brd, .sch, etc.) so others can learn from your design.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Fabrication Files</strong></td>
+                                            <td>Export and upload the files you'll send to the milling machine (PNG images or Gerber files).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Component List (BOM)</strong></td>
+                                            <td>Table listing all components: part name, value, package, quantity, supplier, and cost. Explain any substitutions.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Design Rationale</strong></td>
+                                            <td>Write 2-3 paragraphs explaining: Why did you choose this microcontroller? Why these input/output devices? How did you handle power? 
+                                                What design challenges did you face and how did you solve them?</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>DRC/ERC Reports</strong></td>
+                                            <td>Screenshots showing that your design passed all checks. If there were warnings, explain why they're acceptable.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Reflection</strong></td>
+                                            <td>What did you learn? What would you do differently next time? What resources (videos, tutorials, classmates) helped you most?</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="alert alert-warning mt-3">
+                                <strong>Important:</strong> Your documentation should be clear enough that another student could reproduce your board design. Include enough detail 
+                                that someone reading your page understands not just <em>what</em> you did, but <em>why</em> you made each design choice.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Tips -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Tips for Success</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Start simple:</strong> Don't try to design a complex board on your first attempt. Begin with the LED controller example, then add features.</li>
+                                <li><strong>Use existing designs as reference:</strong> Look at open-source PCB designs (on GitHub, Hackaday, etc.) to see how others solved similar problems.</li>
+                                <li><strong>Test your schematic logic:</strong> Before routing, verify that your schematic makes sense. Does power flow correctly? Are all pins connected?</li>
+                                <li><strong>Double-check pin assignments:</strong> Microcontroller pinouts can be confusing. Always verify pin numbers match between schematic and datasheet.</li>
+                                <li><strong>Save frequently:</strong> EDA tools can crash. Save your work often and keep backup copies.</li>
+                                <li><strong>Ask for help:</strong> If you're stuck, ask your lab manager or classmates. PCB design has many "gotchas" that experienced designers know about.</li>
+                                <li><strong>Document as you go:</strong> Don't wait until the end to document. Take screenshots during the design process—they'll help you remember your thinking later.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -49,9 +471,6 @@
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.js"></script>
 </body>
 </html>
-
-
