@@ -43,51 +43,392 @@
 
             <div class="row">
                 <div class="col-lg-10 mx-auto">
+                    <!-- Overview -->
                     <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-header bg-dark text-white">
-                            <h3 class="mb-0">
-                                <i class="fas fa-graduation-cap me-2"></i>
-                                Overview — Final Project Presentations
-                            </h3>
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-chalkboard-teacher me-2"></i>Overview</h3>
                         </div>
                         <div class="card-body">
-                            <p class="lead mb-3">
+                            <p class="lead">
                                 Welcome to Final Project Presentations! This is the culmination of your UNIPOD journey. You'll present your complete 
                                 project, demonstrate that it works, and reflect on everything you've learned.
                             </p>
-                            <p class="mb-3">
-                                Your presentation should clearly show the problem you solved, how your system works, and the impact it could have in 
-                                your community. This is also a time to reflect on your learning journey and plan how you'll continue using digital 
-                                fabrication skills after the program.
+                            <p>
+                                Over the past weeks, you've learned digital fabrication skills, electronics, programming, and design thinking. Now it's 
+                                time to bring it all together and showcase a complete project that solves a real problem in your community. Your presentation 
+                                should clearly show the problem you solved, how your system works, and the impact it could have.
                             </p>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">What You Must Show</h4>
-                                    <ul class="mb-0">
-                                        <li>Clear problem statement and intended users in your African context.</li>
-                                        <li>System diagram and summary of key components (mechanics, electronics, code, interface).</li>
-                                        <li>Live or recorded demo of the project performing its main function.</li>
+                            <p>
+                                This is also a time to reflect on your learning journey and plan how you'll continue using digital fabrication skills after 
+                                the program. Think about how your project could grow with support from Timbuktoo, UNDP, FabLab Rwanda, or UNIPODS, and how 
+                                you'll contribute to the growing community of African makers.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Learning Outcomes -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="fas fa-bullseye me-2"></i>Learning Outcomes</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>By the end of this week, you will be able to:</p>
+                            <ul>
+                                <li><strong>Present your project clearly</strong> explaining the problem, solution, and impact</li>
+                                <li><strong>Demonstrate a working system</strong> that integrates all the skills you've learned</li>
+                                <li><strong>Document comprehensively</strong> so others can understand and reproduce your work</li>
+                                <li><strong>Reflect on your learning journey</strong> and identify key takeaways</li>
+                                <li><strong>Plan next steps</strong> for continuing your digital fabrication journey</li>
+                                <li><strong>Share knowledge</strong> with the UNIPOD community</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Core Concepts -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Presentation Structure</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5 mt-3">1. Problem Statement</h4>
+                            <p>Start by clearly defining the problem:</p>
+                            <ul>
+                                <li><strong>What problem are you solving?</strong> Be specific and concrete</li>
+                                <li><strong>Who is affected?</strong> Define your target users</li>
+                                <li><strong>Why is this important?</strong> Explain the impact and urgency</li>
+                                <li><strong>What is the context?</strong> Describe the African context where this applies</li>
+                                <li><strong>What are existing solutions?</strong> Why aren't they sufficient?</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">2. Solution Overview</h4>
+                            <p>Explain your approach:</p>
+                            <ul>
+                                <li><strong>What is your solution?</strong> High-level description</li>
+                                <li><strong>How does it work?</strong> System architecture and key components</li>
+                                <li><strong>What makes it unique?</strong> What's different about your approach?</li>
+                                <li><strong>Why is it appropriate for your context?</strong> How does it fit local needs and constraints?</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">3. System Details</h4>
+                            <p>Show the technical implementation:</p>
+                            <ul>
+                                <li><strong>System diagram</strong>: Show all subsystems and connections</li>
+                                <li><strong>Key components</strong>:
+                                    <ul>
+                                        <li>Mechanical parts (structure, enclosure, mechanisms)</li>
+                                        <li>Electronics (sensors, microcontrollers, outputs)</li>
+                                        <li>Software (code, interfaces, algorithms)</li>
+                                        <li>Communication (wired, wireless, protocols)</li>
                                     </ul>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Presentation Package</h4>
-                                    <ul class="mb-0">
-                                        <li>5–10 minute talk or video.</li>
-                                        <li>Slides highlighting process, challenges, and impact.</li>
-                                        <li>Links to all design files, code, and documentation pages.</li>
-                                    </ul>
-                                </div>
+                                </li>
+                                <li><strong>Design decisions</strong>: Why did you choose these components/approaches?</li>
+                                <li><strong>Challenges and solutions</strong>: What problems did you face and how did you solve them?</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">4. Demonstration</h4>
+                            <p>Show it working:</p>
+                            <ul>
+                                <li><strong>Live demo</strong>: If possible, demonstrate the system in real-time</li>
+                                <li><strong>Video demo</strong>: If live demo isn't possible, show a recorded demonstration</li>
+                                <li><strong>Show main use case</strong>: Demonstrate the primary function</li>
+                                <li><strong>Show key features</strong>: Highlight important capabilities</li>
+                                <li><strong>Test results</strong>: Show data, measurements, or performance metrics</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">5. Impact and Future</h4>
+                            <p>Discuss the potential:</p>
+                            <ul>
+                                <li><strong>Immediate impact</strong>: How does this help users right now?</li>
+                                <li><strong>Potential scale</strong>: How could this be deployed more widely?</li>
+                                <li><strong>Future improvements</strong>: What would you add or change?</li>
+                                <li><strong>Partnership opportunities</strong>: How could Timbuktoo, UNDP, or UNIPODS support this?</li>
+                                <li><strong>Business/social model</strong>: How could this be sustainable?</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">6. Reflection</h4>
+                            <p>Reflect on your journey:</p>
+                            <ul>
+                                <li><strong>What did you learn?</strong> Key skills, concepts, mindsets</li>
+                                <li><strong>What was most challenging?</strong> What pushed you to grow?</li>
+                                <li><strong>What are you most proud of?</strong> What achievements stand out?</li>
+                                <li><strong>How will you continue?</strong> Plans for using these skills after the program</li>
+                                <li><strong>How will you contribute?</strong> How will you help the UNIPOD community?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mini-Lab -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0"><i class="fas fa-flask me-2"></i>Mini-Lab: Create Your Presentation Slides</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">Let's structure your presentation to tell a compelling story about your project.</p>
+                            
+                            <h4 class="h5 mt-3">Slide 1: Title Slide</h4>
+                            <ul>
+                                <li>Project name</li>
+                                <li>Your name</li>
+                                <li>UNIPOD location</li>
+                                <li>Date</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Slide 2: Problem Statement</h4>
+                            <ul>
+                                <li>Clear problem description</li>
+                                <li>Who is affected</li>
+                                <li>Why it matters</li>
+                                <li>Context (photos help)</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Slide 3: Solution Overview</h4>
+                            <ul>
+                                <li>What your solution does</li>
+                                <li>High-level system diagram</li>
+                                <li>Key innovation</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Slides 4-6: Technical Details</h4>
+                            <ul>
+                                <li>Mechanical design (photos, CAD screenshots)</li>
+                                <li>Electronics (schematics, board photos)</li>
+                                <li>Software (code snippets, interface screenshots)</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Slide 7: System Integration</h4>
+                            <ul>
+                                <li>Complete system diagram</li>
+                                <li>How all components work together</li>
+                                <li>Key integration challenges and solutions</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Slide 8: Demonstration</h4>
+                            <ul>
+                                <li>Embedded video or link to demo</li>
+                                <li>Key features highlighted</li>
+                                <li>Test results or performance data</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Slide 9: Impact and Future</h4>
+                            <ul>
+                                <li>Potential impact</li>
+                                <li>Scaling opportunities</li>
+                                <li>Future improvements</li>
+                                <li>Partnership opportunities</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Slide 10: Reflection</h4>
+                            <ul>
+                                <li>Key learnings</li>
+                                <li>Challenges overcome</li>
+                                <li>Next steps</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Slide 11: Links and Resources</h4>
+                            <ul>
+                                <li>Link to documentation</li>
+                                <li>Link to code repository</li>
+                                <li>Link to design files</li>
+                                <li>Contact information</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- YouTube & Learning Resources -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="mb-0"><i class="fab fa-youtube me-2"></i>Video Tutorials & Learning Resources</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Watch these videos to learn about effective presentations. <strong>If your internet is slow</strong>, prioritize presentation skills tutorials.</p>
+                            
+                            <h4 class="h5 mt-3">Presentation Skills</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X24" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>How to Give a Great Technical Presentation</h6>
+                                        <small class="text-muted">~20 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to present technical projects effectively.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to structure technical presentations, explain complex concepts, and engage your audience.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X25" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Storytelling for Technical Projects</h6>
+                                        <small class="text-muted">~15 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to tell compelling stories about your projects.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to structure your presentation as a story that engages and inspires.</small>
+                                </a>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-12">
-                                    <h4 class="h6 text-uppercase text-muted">Reflection &amp; Next Steps</h4>
-                                    <ul class="mb-0">
-                                        <li>What you learned across all weeks (tools, mindsets, community).</li>
-                                        <li>How you plan to continue using digital fabrication after the program.</li>
-                                        <li>How your project could grow with support from Timbuktoo, UNDP, FabLab Rwanda, or UNIPODS.</li>
-                                    </ul>
-                                </div>
+
+                            <h4 class="h5 mt-4">Video Production</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X26" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>How to Make a Project Demo Video</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to create effective demo videos for your projects.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to film, edit, and present project demonstrations clearly.</small>
+                                </a>
                             </div>
+
+                            <h4 class="h5 mt-4">Written Resources</h4>
+                            <ul>
+                                <li><a href="https://www.ted.com/talks" target="_blank" rel="noopener">TED Talks</a> - Examples of effective presentations</li>
+                                <li><a href="https://www.presentationzen.com/" target="_blank" rel="noopener">Presentation Zen</a> - Tips for better presentations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Assignments & Documentation -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>Assignments & Documentation Requirements</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5">Final Project Presentation</h4>
+                            <p><strong>Create a comprehensive presentation of your final project</strong>:</p>
+                            
+                            <h5 class="h6 mt-3">1. Presentation Package (5-10 minutes)</h5>
+                            <ul>
+                                <li><strong>Slides</strong> covering:
+                                    <ul>
+                                        <li>Problem statement and context</li>
+                                        <li>Solution overview</li>
+                                        <li>System architecture and components</li>
+                                        <li>Technical implementation details</li>
+                                        <li>Demonstration</li>
+                                        <li>Impact and future plans</li>
+                                        <li>Reflection on learning journey</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Video or live demo</strong> showing:
+                                    <ul>
+                                        <li>Complete system running</li>
+                                        <li>Main use case demonstrated</li>
+                                        <li>Key features highlighted</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h5 class="h6 mt-3">2. Complete Documentation</h5>
+                            <p>Your documentation should include:</p>
+                            <ul>
+                                <li><strong>Problem statement</strong>: Clear description of the problem, users, and context</li>
+                                <li><strong>System diagram</strong>: Complete block diagram showing all subsystems</li>
+                                <li><strong>Design files</strong>: All CAD files, schematics, PCB layouts</li>
+                                <li><strong>Code repository</strong>: Complete, well-commented code</li>
+                                <li><strong>Bill of materials</strong>: Complete list of components with sources and costs</li>
+                                <li><strong>Assembly instructions</strong>: How to build the system</li>
+                                <li><strong>Operating instructions</strong>: How to use the system</li>
+                                <li><strong>Testing documentation</strong>: Test results, performance data</li>
+                                <li><strong>License information</strong>: How your work is licensed</li>
+                            </ul>
+
+                            <h5 class="h6 mt-3">3. Reflection and Next Steps</h5>
+                            <p>Write a reflection covering:</p>
+                            <ul>
+                                <li><strong>Learning journey</strong>:
+                                    <ul>
+                                        <li>What did you learn across all weeks?</li>
+                                        <li>What tools, skills, and mindsets did you develop?</li>
+                                        <li>What was most challenging?</li>
+                                        <li>What are you most proud of?</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Future plans</strong>:
+                                    <ul>
+                                        <li>How will you continue using digital fabrication?</li>
+                                        <li>What projects do you want to work on next?</li>
+                                        <li>How will you contribute to the UNIPOD community?</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Project growth</strong>:
+                                    <ul>
+                                        <li>How could your project grow with support from Timbuktoo, UNDP, FabLab Rwanda, or UNIPODS?</li>
+                                        <li>What partnerships or funding opportunities exist?</li>
+                                        <li>How could this scale to help more people?</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Documentation Checklist</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Presentation Slides</strong></td>
+                                            <td>Complete slide deck (10-15 slides) covering all aspects of your project. Upload as PDF or link to online presentation.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Presentation Video</strong></td>
+                                            <td>5-10 minute video of your presentation (can be screen recording of slides + voiceover, or live presentation recording).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Demo Video</strong></td>
+                                            <td>Video showing your complete system working, demonstrating main use case and key features.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Problem Statement</strong></td>
+                                            <td>Clear description of the problem, who it affects, why it matters, and the African context.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>System Documentation</strong></td>
+                                            <td>Complete system diagram, wiring diagrams, software architecture, and all technical documentation.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Design Files</strong></td>
+                                            <td>All CAD files, schematics, PCB layouts, code, and other design files in your repository with clear organization.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Bill of Materials</strong></td>
+                                            <td>Complete BOM with part numbers, quantities, sources, and costs.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Reflection Document</strong></td>
+                                            <td>Written reflection on learning journey, future plans, and project growth opportunities.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Links to All Resources</strong></td>
+                                            <td>Clear links to documentation page, code repository, design files, and any other resources.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="alert alert-success mt-3">
+                                <strong>Congratulations!</strong> You've completed the UNIPOD Digital Fabrication Program. This presentation is your 
+                                opportunity to showcase everything you've learned and created. Make it count!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Tips for Success</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Tell a story:</strong> Structure your presentation as a narrative—problem → solution → impact → future.</li>
+                                <li><strong>Show, don't just tell:</strong> Use photos, diagrams, and videos to illustrate your points.</li>
+                                <li><strong>Practice your presentation:</strong> Rehearse multiple times to ensure smooth delivery.</li>
+                                <li><strong>Keep it clear:</strong> Avoid jargon, explain technical terms, make it accessible.</li>
+                                <li><strong>Highlight the impact:</strong> Emphasize how your project helps people and solves real problems.</li>
+                                <li><strong>Be honest about challenges:</strong> Show what didn't work and how you overcame it—this is valuable learning.</li>
+                                <li><strong>Show your process:</strong> Include photos of your work in progress, not just final results.</li>
+                                <li><strong>Make it reproducible:</strong> Include enough detail that others could build on your work.</li>
+                                <li><strong>Reflect deeply:</strong> Think about what you learned, not just what you made.</li>
+                                <li><strong>Think big:</strong> Consider how your project could scale and create broader impact.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

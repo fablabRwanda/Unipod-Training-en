@@ -43,67 +43,430 @@
 
             <div class="row">
                 <div class="col-lg-10 mx-auto">
+                    <!-- Overview -->
                     <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-header bg-dark text-white">
-                            <h3 class="mb-0">
-                                <i class="fas fa-puzzle-piece me-2"></i>
-                                Overview — System Integration
-                            </h3>
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-chalkboard-teacher me-2"></i>Overview</h3>
                         </div>
                         <div class="card-body">
-                            <p class="lead mb-3">
+                            <p class="lead">
                                 Welcome to System Integration! This week, you'll bring together all the skills you've learned—mechanics, electronics, 
                                 programming, and interfaces—into a complete, working system. This is where your final project comes together.
                             </p>
-                            <p class="mb-3">
-                                We'll focus on mapping all subsystems, planning integration steps, identifying risks, and testing the complete system. 
-                                By the end of the week, you'll have a working prototype that demonstrates how all components work together to solve a 
-                                real problem in your community.
+                            <p>
+                                Throughout the course, you've learned individual skills: CAD design, electronics, programming, networking, interfaces. 
+                                Now it's time to integrate everything into a cohesive system that solves a real problem. We'll focus on mapping all 
+                                subsystems, planning integration steps, identifying risks, and testing the complete system.
                             </p>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Learning Objectives</h4>
-                                    <ul class="mb-0">
-                                        <li>Map all subsystems of your project (power, sensors, outputs, structure, enclosure, interface).</li>
-                                        <li>Plan integration steps and identify risks or dependencies.</li>
-                                        <li>Test the full system and iterate on weak points.</li>
+                            <p>
+                                This week is the culmination of your UNIPOD journey. By the end, you'll have a working prototype that demonstrates 
+                                how all components work together to solve a real problem in your community. You'll also document your system clearly 
+                                so others can understand, reproduce, and build upon your work.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Learning Outcomes -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="fas fa-bullseye me-2"></i>Learning Outcomes</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>By the end of this week, you will be able to:</p>
+                            <ul>
+                                <li><strong>Map all subsystems</strong> of your project including power, sensors, outputs, structure, enclosure, and interface</li>
+                                <li><strong>Create system diagrams</strong> showing how all components connect and communicate</li>
+                                <li><strong>Plan integration steps</strong> and identify dependencies between subsystems</li>
+                                <li><strong>Identify risks</strong> and potential failure points in your system</li>
+                                <li><strong>Test the complete system</strong> end-to-end and verify all components work together</li>
+                                <li><strong>Iterate and improve</strong> based on testing results and peer feedback</li>
+                                <li><strong>Document the system</strong> comprehensively so others can understand and reproduce it</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Core Concepts -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Core Concepts & Theory</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5 mt-3">1. System Architecture</h4>
+                            <p>
+                                A complete system consists of multiple subsystems that must work together:
+                            </p>
+                            <ul>
+                                <li><strong>Power Subsystem</strong>:
+                                    <ul>
+                                        <li>Power source (battery, wall adapter, solar)</li>
+                                        <li>Voltage regulation (convert to required voltages)</li>
+                                        <li>Power distribution (route power to all components)</li>
+                                        <li>Power management (on/off switches, sleep modes)</li>
                                     </ul>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Assignments</h4>
-                                    <ul class="mb-0">
-                                        <li><strong>Individual:</strong> Produce a system diagram for your final project and show that all components are connected and working together.</li>
-                                        <li><strong>Group:</strong> Conduct informal “integration reviews” where peers help you find missing pieces and potential failures.</li>
+                                </li>
+                                <li><strong>Sensor Subsystem</strong>:
+                                    <ul>
+                                        <li>Input devices (temperature, light, distance, etc.)</li>
+                                        <li>Signal conditioning (amplifiers, filters)</li>
+                                        <li>Data acquisition (ADC, digital inputs)</li>
                                     </ul>
-                                </div>
+                                </li>
+                                <li><strong>Processing Subsystem</strong>:
+                                    <ul>
+                                        <li>Microcontroller(s)</li>
+                                        <li>Communication between processors (if multiple)</li>
+                                        <li>Data processing and decision-making logic</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Output Subsystem</strong>:
+                                    <ul>
+                                        <li>Actuators (motors, relays, displays)</li>
+                                        <li>Driver circuits (transistors, motor drivers)</li>
+                                        <li>Feedback mechanisms</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Communication Subsystem</strong>:
+                                    <ul>
+                                        <li>Wired protocols (I2C, SPI, UART)</li>
+                                        <li>Wireless protocols (Wi-Fi, Bluetooth, LoRa)</li>
+                                        <li>Network topology (star, mesh, bus)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Interface Subsystem</strong>:
+                                    <ul>
+                                        <li>User interface (buttons, displays, web interface)</li>
+                                        <li>Data visualization</li>
+                                        <li>Control mechanisms</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Mechanical Subsystem</strong>:
+                                    <ul>
+                                        <li>Structure and enclosure</li>
+                                        <li>Mounting and fastening</li>
+                                        <li>Protection (weather, dust, impact)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">2. Integration Planning</h4>
+                            <p>Successful integration requires careful planning:</p>
+                            <ul>
+                                <li><strong>Identify Dependencies</strong>:
+                                    <ul>
+                                        <li>What must work before other things can work?</li>
+                                        <li>Example: Power must work before sensors can be read</li>
+                                        <li>Example: Communication must work before distributed sensors can send data</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Integration Order</strong>:
+                                    <ul>
+                                        <li>Start with core functionality (power + processing)</li>
+                                        <li>Add inputs (sensors)</li>
+                                        <li>Add outputs (actuators)</li>
+                                        <li>Add communication</li>
+                                        <li>Add interface</li>
+                                        <li>Add enclosure and final assembly</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Testing Strategy</strong>:
+                                    <ul>
+                                        <li>Test each subsystem independently first</li>
+                                        <li>Test subsystems in pairs (e.g., sensor + processing)</li>
+                                        <li>Test complete system end-to-end</li>
+                                        <li>Test under realistic conditions</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">3. Risk Identification and Mitigation</h4>
+                            <p>Identify potential problems before they occur:</p>
+                            <ul>
+                                <li><strong>Power Risks</strong>:
+                                    <ul>
+                                        <li>Insufficient power supply capacity</li>
+                                        <li>Voltage drops under load</li>
+                                        <li>Battery drain too fast</li>
+                                        <li>Mitigation: Calculate power requirements, test with full load, use appropriate power supplies</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Communication Risks</strong>:
+                                    <ul>
+                                        <li>Data loss or corruption</li>
+                                        <li>Timing issues (synchronization)</li>
+                                        <li>Network failures</li>
+                                        <li>Mitigation: Add error checking, timeouts, retry logic, fallback modes</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Mechanical Risks</strong>:
+                                    <ul>
+                                        <li>Components not fitting together</li>
+                                        <li>Vibration or impact damage</li>
+                                        <li>Weather exposure</li>
+                                        <li>Mitigation: Test fits early, design for robustness, use appropriate enclosures</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Software Risks</strong>:
+                                    <ul>
+                                        <li>Bugs causing system crashes</li>
+                                        <li>Memory leaks</li>
+                                        <li>Race conditions</li>
+                                        <li>Mitigation: Test thoroughly, add error handling, use watchdog timers</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">4. System Documentation</h4>
+                            <p>Comprehensive documentation is essential:</p>
+                            <ul>
+                                <li><strong>System Block Diagram</strong>: High-level overview showing all subsystems and connections</li>
+                                <li><strong>Wiring Diagrams</strong>: Detailed connections between all components</li>
+                                <li><strong>Software Architecture</strong>: Code structure, data flow, communication protocols</li>
+                                <li><strong>Power Budget</strong>: Power consumption of each component, total power requirements</li>
+                                <li><strong>Bill of Materials (BOM)</strong>: Complete list of components with part numbers and sources</li>
+                                <li><strong>Assembly Instructions</strong>: Step-by-step guide to building the system</li>
+                                <li><strong>Operating Instructions</strong>: How to use the system, troubleshooting guide</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mini-Lab -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0"><i class="fas fa-flask me-2"></i>Mini-Lab: Create a System Diagram for Your Project</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">Let's create a comprehensive system diagram that maps all components and their connections—essential for integration planning.</p>
+                            
+                            <h4 class="h5 mt-3">Step 1: List All Components</h4>
+                            <p>Create a list of every component in your system:</p>
+                            <ul>
+                                <li>Microcontrollers/processors</li>
+                                <li>Sensors (temperature, light, distance, etc.)</li>
+                                <li>Outputs (motors, LEDs, displays, relays)</li>
+                                <li>Power supplies and regulators</li>
+                                <li>Communication modules (Wi-Fi, Bluetooth, etc.)</li>
+                                <li>Mechanical parts (enclosure, mounts, etc.)</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Step 2: Identify Subsystems</h4>
+                            <p>Group components into subsystems:</p>
+                            <ul>
+                                <li>Power subsystem: battery, regulator, distribution</li>
+                                <li>Sensor subsystem: all input devices</li>
+                                <li>Processing subsystem: microcontrollers</li>
+                                <li>Output subsystem: all actuators</li>
+                                <li>Communication subsystem: networking components</li>
+                                <li>Interface subsystem: displays, buttons, web interface</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Step 3: Map Connections</h4>
+                            <p>For each connection, identify:</p>
+                            <ul>
+                                <li>What connects to what (component A → component B)</li>
+                                <li>Type of connection (power, data, control signal)</li>
+                                <li>Protocol used (I2C, SPI, UART, analog, digital)</li>
+                                <li>Physical connection (wires, PCB traces, wireless)</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Step 4: Create the Diagram</h4>
+                            <p>Use drawing software (Draw.io, Inkscape, or paper):</p>
+                            <ol>
+                                <li>Draw boxes for each subsystem</li>
+                                <li>Draw boxes for major components within subsystems</li>
+                                <li>Draw arrows showing connections (label with protocol/type)</li>
+                                <li>Use different colors for different connection types (power=red, data=blue, etc.)</li>
+                                <li>Add labels and annotations</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 5: Add Power Flow</h4>
+                            <p>Show power distribution:</p>
+                            <ul>
+                                <li>Power source → regulators → components</li>
+                                <li>Label voltages (5V, 3.3V, 12V, etc.)</li>
+                                <li>Show current paths</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Step 6: Add Data Flow</h4>
+                            <p>Show information flow:</p>
+                            <ul>
+                                <li>Sensors → processing → outputs</li>
+                                <li>Communication paths</li>
+                                <li>Interface connections</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- YouTube & Learning Resources -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="mb-0"><i class="fab fa-youtube me-2"></i>Video Tutorials & Learning Resources</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Watch these videos to learn about system integration. <strong>If your internet is slow</strong>, prioritize system design tutorials.</p>
+                            
+                            <h4 class="h5 mt-3">System Design and Integration</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X18" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Hardware System Design - From Concept to Integration</h6>
+                                        <small class="text-muted">~35 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to design complete hardware systems and plan integration.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> System architecture, subsystem design, integration planning, and testing strategies.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X19" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Creating System Block Diagrams</h6>
+                                        <small class="text-muted">~20 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to create clear system diagrams that document your project.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to represent subsystems, connections, and data flow in diagrams.</small>
+                                </a>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Documentation &amp; Evidence</h4>
-                                    <ul class="mb-0">
-                                        <li>Block diagrams or system maps of the full project.</li>
-                                        <li>Photos/videos of the complete system running through its main use case.</li>
-                                        <li>Checklist of open issues and ideas for future improvements beyond the course.</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6 mb-0">
-                                    <h4 class="h6 text-uppercase text-muted">Recommended Resources</h4>
-                                    <ul class="mb-0">
-                                        <li>
-                                            <a href="https://www.youtube.com/results?search_query=system+integration+hardware+project" target="_blank" rel="noopener">
-                                                System Integration Tutorials
-                                            </a>
-                                            - Search for tutorials on integrating multiple subsystems in hardware projects.
-                                        </li>
-                                        <li>
-                                            <a href="https://www.youtube.com/results?search_query=project+documentation+tutorial" target="_blank" rel="noopener">
-                                                Project Documentation Best Practices
-                                            </a>
-                                            - Learn how to document complex projects effectively.
-                                        </li>
-                                    </ul>
-                                </div>
+
+                            <h4 class="h5 mt-4">Project Documentation</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X20" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Technical Documentation Best Practices</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to document complex projects effectively.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> What to include in documentation, how to structure it, and best practices.</small>
+                                </a>
                             </div>
+
+                            <h4 class="h5 mt-4">Written Resources</h4>
+                            <ul>
+                                <li><a href="https://www.draw.io" target="_blank" rel="noopener">Draw.io</a> - Free online tool for creating system diagrams</li>
+                                <li><a href="https://www.allaboutcircuits.com/technical-articles/system-design/" target="_blank" rel="noopener">All About Circuits - System Design</a> - Articles on hardware system design</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Assignments & Documentation -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>Assignments & Documentation Requirements</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5">Individual Assignment</h4>
+                            <p><strong>Produce a system diagram for your final project and show that all components are connected and working together</strong>:</p>
+                            <ul>
+                                <li>Create a comprehensive system block diagram showing:
+                                    <ul>
+                                        <li>All subsystems (power, sensors, processing, outputs, communication, interface, mechanical)</li>
+                                        <li>All major components within each subsystem</li>
+                                        <li>All connections between components (power, data, control signals)</li>
+                                        <li>Communication protocols used (I2C, SPI, UART, Wi-Fi, etc.)</li>
+                                    </ul>
+                                </li>
+                                <li>Demonstrate that all components work together:
+                                    <ul>
+                                        <li>Video showing complete system running through its main use case</li>
+                                        <li>Photos showing all components connected and operating</li>
+                                        <li>Documentation of integration steps and any issues encountered</li>
+                                    </ul>
+                                </li>
+                                <li>Create a power budget:
+                                    <ul>
+                                        <li>List power consumption of each component</li>
+                                        <li>Calculate total power requirements</li>
+                                        <li>Verify power supply is adequate</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Group Assignment (Optional but Recommended)</h4>
+                            <p>As a UNIPOD team, <strong>conduct informal "integration reviews"</strong>:</p>
+                            <ul>
+                                <li>Review each other's system diagrams</li>
+                                <li>Help identify:
+                                    <ul>
+                                        <li>Missing components or connections</li>
+                                        <li>Potential failure points</li>
+                                        <li>Power issues</li>
+                                        <li>Communication problems</li>
+                                        <li>Mechanical issues</li>
+                                    </ul>
+                                </li>
+                                <li>Provide constructive feedback and suggestions</li>
+                                <li>Document common issues and solutions for future reference</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Documentation Checklist</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>System Block Diagram</strong></td>
+                                            <td>High-level diagram showing all subsystems, components, and connections. Use clear labels and colors.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Wiring Diagrams</strong></td>
+                                            <td>Detailed diagrams showing all electrical connections, pin assignments, and component values.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Power Budget</strong></td>
+                                            <td>Table showing power consumption of each component, total power requirements, and power supply specifications.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Software Architecture</strong></td>
+                                            <td>Documentation of code structure, data flow, communication protocols, and software components.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Integration Steps</strong></td>
+                                            <td>Step-by-step guide showing how you integrated subsystems, in what order, and why.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Testing Documentation</strong></td>
+                                            <td>Records of tests performed, results, issues found, and how they were resolved.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Complete System Demo</strong></td>
+                                            <td>Video showing the complete system running through its main use case, demonstrating all functionality.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Bill of Materials (BOM)</strong></td>
+                                            <td>Complete list of all components with part numbers, quantities, sources, and costs.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Open Issues and Future Improvements</strong></td>
+                                            <td>List of known issues, limitations, and ideas for future improvements beyond the course.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="alert alert-info mt-3">
+                                <strong>Tip:</strong> Your system diagram should be clear enough that someone else could understand your project 
+                                and potentially reproduce it. Include enough detail but keep it readable.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Tips for Success</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Start with a plan:</strong> Create system diagram before building—it helps identify issues early.</li>
+                                <li><strong>Test incrementally:</strong> Test each subsystem independently before integrating.</li>
+                                <li><strong>Document as you go:</strong> Don't wait until the end—document integration steps as you do them.</li>
+                                <li><strong>Expect problems:</strong> Integration always reveals issues. Plan time for debugging and iteration.</li>
+                                <li><strong>Get peer feedback:</strong> Others can spot issues you might miss.</li>
+                                <li><strong>Test under realistic conditions:</strong> Test in the environment where the system will actually be used.</li>
+                                <li><strong>Plan for failure:</strong> Add error handling, fallback modes, and graceful degradation.</li>
+                                <li><strong>Keep it simple:</strong> Don't overcomplicate—simple systems are more reliable and easier to debug.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

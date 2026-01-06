@@ -43,68 +43,417 @@
 
             <div class="row">
                 <div class="col-lg-10 mx-auto">
+                    <!-- Overview -->
                     <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-header bg-dark text-white">
-                            <h3 class="mb-0">
-                                <i class="fas fa-shapes me-2"></i>
-                                Overview — Molding and Casting
-                            </h3>
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-chalkboard-teacher me-2"></i>Overview</h3>
                         </div>
                         <div class="card-body">
-                            <p class="lead mb-3">
+                            <p class="lead">
                                 Welcome to Molding and Casting! This week, you'll learn to create molds and cast parts—a powerful technique for 
                                 producing multiple copies of objects. Whether you're making soap, resin keychains, or concrete planters, molding 
                                 and casting enable small-scale production that's perfect for local entrepreneurship.
                             </p>
-                            <p class="mb-3">
-                                We'll explore different mold materials (silicone, 3D-printed molds, machined molds) and casting materials (resin, 
-                                concrete, soap, etc.) that are accessible in African markets. By the end of the week, you'll understand how to 
-                                design molds, mix and pour casting materials safely, and produce repeatable parts.
+                            <p>
+                                In African contexts, molding and casting open opportunities for local manufacturing: creating soap for hygiene, 
+                                concrete products for construction, resin items for crafts, and more. We'll explore different mold materials 
+                                (silicone, 3D-printed molds, machined molds) and casting materials (resin, concrete, soap, etc.) that are 
+                                accessible in African markets.
                             </p>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Learning Objectives</h4>
-                                    <ul class="mb-0">
-                                        <li>Design positive and negative forms for molding.</li>
-                                        <li>Understand materials (silicone, urethane, plaster, concrete, etc.) and safety.</li>
-                                        <li>Produce repeatable cast parts from your mold.</li>
+                            <p>
+                                This week builds on Computer-Controlled Machining and 3D Printing (where you learned to create positive forms) 
+                                and prepares you for Final Project (where you might need to produce multiple parts). By the end of the week, 
+                                you'll understand how to design molds, mix and pour casting materials safely, and produce repeatable parts.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Learning Outcomes -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="fas fa-bullseye me-2"></i>Learning Outcomes</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>By the end of this week, you will be able to:</p>
+                            <ul>
+                                <li><strong>Design positive and negative forms</strong> for molding using CAD software</li>
+                                <li><strong>Understand mold materials</strong> including silicone, urethane, plaster, and their properties</li>
+                                <li><strong>Understand casting materials</strong> including resin, concrete, soap, and their mixing ratios</li>
+                                <li><strong>Create molds</strong> using CNC machining, 3D printing, or hand techniques</li>
+                                <li><strong>Mix and pour casting materials</strong> safely with proper safety equipment</li>
+                                <li><strong>Produce repeatable cast parts</strong> from your mold with consistent quality</li>
+                                <li><strong>Document material choices</strong> considering cost, availability, and safety in African contexts</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Core Concepts -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Core Concepts & Theory</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5 mt-3">1. Understanding Molds: Positive and Negative Forms</h4>
+                            <p>
+                                A mold is a negative impression of the object you want to create. The process involves:
+                            </p>
+                            <ul>
+                                <li><strong>Positive (Master/Pattern)</strong>: The original object you want to replicate. Can be 3D printed, 
+                                    CNC machined, or hand-carved. This is what you'll make a mold of.</li>
+                                <li><strong>Negative (Mold)</strong>: The cavity that will hold the casting material. Made from flexible 
+                                    (silicone) or rigid (machined, 3D printed) materials.</li>
+                                <li><strong>Cast Part</strong>: The final object created by pouring material into the mold.</li>
+                            </ul>
+                            <p>
+                                <strong>Design considerations:</strong>
+                            </p>
+                            <ul>
+                                <li><strong>Draft angles</strong>: Slight tapers (1-3°) help parts release from molds</li>
+                                <li><strong>Undercuts</strong>: Avoid or use flexible molds (silicone) for complex shapes</li>
+                                <li><strong>Venting</strong>: Small channels allow air to escape during pouring</li>
+                                <li><strong>Parting lines</strong>: Where mold halves meet—design to minimize visible seams</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">2. Mold Materials</h4>
+                            <p>Different materials suit different applications:</p>
+                            <ul>
+                                <li><strong>Silicone Rubber</strong>:
+                                    <ul>
+                                        <li>Flexible, captures fine details, reusable many times</li>
+                                        <li>Two-part systems (base + catalyst), cure time 4-24 hours</li>
+                                        <li>Cost: Moderate (check local availability)</li>
+                                        <li>Use: Complex shapes, undercuts, fine detail</li>
+                                        <li>Safety: Wear gloves, work in well-ventilated area</li>
                                     </ul>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Assignments</h4>
-                                    <ul class="mb-0">
-                                        <li><strong>Individual:</strong> Design and mill/print a mold, then cast at least two parts from it.</li>
-                                        <li><strong>Group:</strong> Test different casting materials and document their behavior (strength, surface finish, cure time).</li>
+                                </li>
+                                <li><strong>Urethane Rubber</strong>:
+                                    <ul>
+                                        <li>Similar to silicone but different properties</li>
+                                        <li>Can be harder or softer depending on formulation</li>
+                                        <li>Use: When silicone isn't available or suitable</li>
                                     </ul>
-                                </div>
+                                </li>
+                                <li><strong>Plaster</strong>:
+                                    <ul>
+                                        <li>Rigid, inexpensive, widely available</li>
+                                        <li>One-part system, sets in 30-60 minutes</li>
+                                        <li>Use: Simple shapes, one-time casts, large objects</li>
+                                        <li>Limitation: Brittle, can't handle undercuts</li>
+                                    </ul>
+                                </li>
+                                <li><strong>3D-Printed Molds</strong>:
+                                    <ul>
+                                        <li>Rigid, quick to make, good for prototyping</li>
+                                        <li>Use: Simple shapes, testing designs before making silicone molds</li>
+                                        <li>Limitation: Layer lines transfer to cast parts, limited reusability</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Machined Molds</strong>:
+                                    <ul>
+                                        <li>CNC-milled from wax, wood, or aluminum</li>
+                                        <li>Smooth surfaces, precise dimensions</li>
+                                        <li>Use: Production molds, high-precision parts</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">3. Casting Materials</h4>
+                            <p>Choose materials based on your application:</p>
+                            <ul>
+                                <li><strong>Epoxy Resin</strong>:
+                                    <ul>
+                                        <li>Clear or colored, hard, glossy finish</li>
+                                        <li>Two-part system (resin + hardener), cure time 24-48 hours</li>
+                                        <li>Use: Keychains, jewelry, decorative items</li>
+                                        <li>Safety: Wear gloves, eye protection, work in ventilated area</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Polyurethane Resin</strong>:
+                                    <ul>
+                                        <li>Similar to epoxy, various hardnesses available</li>
+                                        <li>Faster cure time than epoxy</li>
+                                        <li>Use: Functional parts, prototypes</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Concrete</strong>:
+                                    <ul>
+                                        <li>Inexpensive, strong, widely available</li>
+                                        <li>Mix: Cement + sand + water (typical ratio 1:2:0.5)</li>
+                                        <li>Cure time: 24-48 hours for handling, 28 days for full strength</li>
+                                        <li>Use: Planters, construction elements, heavy-duty items</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Soap</strong>:
+                                    <ul>
+                                        <li>Melt-and-pour or cold-process soap</li>
+                                        <li>Use: Hygiene products, local entrepreneurship</li>
+                                        <li>Safety: Handle hot soap carefully</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Wax</strong>:
+                                    <ul>
+                                        <li>For lost-wax casting (advanced technique)</li>
+                                        <li>Use: Metal casting processes</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">4. Safety Considerations</h4>
+                            <p><strong>Always prioritize safety when working with casting materials:</strong></p>
+                            <ul>
+                                <li><strong>Ventilation</strong>: Work in well-ventilated area or use fume hood</li>
+                                <li><strong>Personal Protective Equipment (PPE)</strong>:
+                                    <ul>
+                                        <li>Nitrile gloves (not latex—some materials degrade latex)</li>
+                                        <li>Safety glasses or goggles</li>
+                                        <li>Apron or old clothes</li>
+                                        <li>Respirator if working with strong fumes</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Mixing</strong>: Follow manufacturer's instructions exactly. Wrong ratios = failed casts</li>
+                                <li><strong>Temperature</strong>: Some materials are exothermic (generate heat). Monitor temperature</li>
+                                <li><strong>Cleanup</strong>: Clean tools immediately after use. Cured materials are hard to remove</li>
+                                <li><strong>Storage</strong>: Store materials in cool, dry place, away from direct sunlight</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mini-Lab -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0"><i class="fas fa-flask me-2"></i>Mini-Lab: Create a Simple Silicone Mold and Cast Resin Parts</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">Let's create a simple two-part silicone mold and cast resin keychains—a perfect project for local entrepreneurship.</p>
+                            
+                            <h4 class="h5 mt-3">Step 1: Design and Create the Master (Positive)</h4>
+                            <ol>
+                                <li><strong>Design in CAD</strong>: Create a simple shape (e.g., logo, geometric pattern, text) that's 5-10mm thick</li>
+                                <li><strong>3D Print or Machine</strong>: Create the master using 3D printer or CNC machine</li>
+                                <li><strong>Finish</strong>: Sand smooth if needed. The better the finish, the better the cast parts</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 2: Build a Mold Box</h4>
+                            <ol>
+                                <li>Create a box around your master using:
+                                    <ul>
+                                        <li>Laser-cut acrylic or cardboard</li>
+                                        <li>Hot glue or tape to seal edges</li>
+                                        <li>Leave 10-15mm clearance around master on all sides</li>
+                                    </ul>
+                                </li>
+                                <li>Secure master to bottom of box (double-sided tape or hot glue)</li>
+                                <li>Apply mold release (if needed) to master and box walls</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 3: Mix and Pour Silicone</h4>
+                            <ol>
+                                <li><strong>Measure</strong>: Calculate volume needed (length × width × height of box minus master volume)</li>
+                                <li><strong>Mix</strong>:
+                                    <ul>
+                                        <li>Wear gloves and safety glasses</li>
+                                        <li>Mix base and catalyst according to manufacturer's ratio (typically 1:1 or 10:1)</li>
+                                        <li>Mix thoroughly for 2-3 minutes, scraping sides of container</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Pour</strong>:
+                                    <ul>
+                                        <li>Pour slowly from one corner to avoid trapping air bubbles</li>
+                                        <li>Pour to cover master by at least 5mm</li>
+                                        <li>Tap box gently to release air bubbles</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Cure</strong>: Let cure according to manufacturer's instructions (typically 4-24 hours)</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 4: Demold and Prepare for Casting</h4>
+                            <ol>
+                                <li>Remove mold from box</li>
+                                <li>Carefully remove master from silicone</li>
+                                <li>Inspect mold for defects (air bubbles, tears)</li>
+                                <li>Clean mold if needed</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 5: Cast Resin Parts</h4>
+                            <ol>
+                                <li><strong>Prepare</strong>: Place mold on level surface, apply mold release if needed</li>
+                                <li><strong>Mix Resin</strong>:
+                                    <ul>
+                                        <li>Measure resin and hardener according to instructions (typically 1:1 or 2:1)</li>
+                                        <li>Mix slowly for 2-3 minutes to avoid bubbles</li>
+                                        <li>Add colorant or glitter if desired</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Pour</strong>: Pour slowly into mold, fill to top</li>
+                                <li><strong>Cure</strong>: Let cure 24-48 hours (check instructions)</li>
+                                <li><strong>Demold</strong>: Carefully remove cast part from mold</li>
+                                <li><strong>Finish</strong>: Sand edges, drill holes for keychain if needed</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- YouTube & Learning Resources -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="mb-0"><i class="fab fa-youtube me-2"></i>Video Tutorials & Learning Resources</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Watch these videos to learn molding and casting techniques. <strong>If your internet is slow</strong>, prioritize the silicone mold tutorials.</p>
+                            
+                            <h4 class="h5 mt-3">Silicone Mold Making</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X10" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Silicone Mold Making Tutorial - Complete Guide</h6>
+                                        <small class="text-muted">~30 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Complete walkthrough of creating silicone molds from start to finish.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to design molds, build mold boxes, mix silicone, and avoid common mistakes.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X11" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Two-Part Silicone Mold Tutorial</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to create two-part molds for complex shapes.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to design parting lines, create registration keys, and pour two-part molds.</small>
+                                </a>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Documentation &amp; Evidence</h4>
-                                    <ul class="mb-0">
-                                        <li>CAD files of your mold design and toolpaths if CNC is used.</li>
-                                        <li>Photos of mixing, pouring, and demolding steps.</li>
-                                        <li>Notes on material choices that are realistic for African makers (cost, availability, safety).</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6 mb-0">
-                                    <h4 class="h6 text-uppercase text-muted">Recommended Video Tutorials</h4>
-                                    <ul class="mb-0">
-                                        <li>
-                                            <a href="https://www.youtube.com/results?search_query=silicone+mold+making+tutorial" target="_blank" rel="noopener">
-                                                Silicone Mold Making Tutorials
-                                            </a>
-                                            - Learn to create flexible silicone molds for casting.
-                                        </li>
-                                        <li>
-                                            <a href="https://www.youtube.com/results?search_query=resin+casting+tutorial" target="_blank" rel="noopener">
-                                                Resin Casting Tutorials
-                                            </a>
-                                            - Learn techniques for casting with epoxy resin and other materials.
-                                        </li>
-                                    </ul>
-                                </div>
+
+                            <h4 class="h5 mt-4">Resin Casting</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X12" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Epoxy Resin Casting Tutorial</h6>
+                                        <small class="text-muted">~20 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to mix and pour epoxy resin for clear, professional casts.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Mixing ratios, avoiding bubbles, curing process, and finishing techniques.</small>
+                                </a>
                             </div>
+
+                            <h4 class="h5 mt-4">Concrete Casting</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X13" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Concrete Casting for Makers</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to cast concrete planters, decorative items, and functional objects.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Concrete mixing, mold preparation, curing, and finishing techniques.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">Written Resources</h4>
+                            <ul>
+                                <li><a href="https://www.smooth-on.com/support/learning-center/" target="_blank" rel="noopener">Smooth-On Learning Center</a> - Comprehensive guides on mold making and casting</li>
+                                <li><a href="https://www.makezine.com/article/craft/molding-casting/" target="_blank" rel="noopener">Make: Molding and Casting Guide</a> - Beginner-friendly tutorials</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Assignments & Documentation -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>Assignments & Documentation Requirements</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5">Individual Assignment</h4>
+                            <p><strong>Design and create a mold, then cast at least two parts from it</strong>:</p>
+                            <ul>
+                                <li>Design a positive form (master) in CAD—can be 3D printed or CNC machined</li>
+                                <li>Create a mold using one of these methods:
+                                    <ul>
+                                        <li>Silicone mold (recommended for flexibility and detail)</li>
+                                        <li>3D-printed mold (for quick prototyping)</li>
+                                        <li>CNC-machined mold (for precision)</li>
+                                    </ul>
+                                </li>
+                                <li>Cast at least two parts using your chosen casting material (resin, concrete, soap, etc.)</li>
+                                <li>Document material choices: Why did you choose these materials? What was the cost? Are they available locally?</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Group Assignment (Optional but Recommended)</h4>
+                            <p>As a UNIPOD team, <strong>test different casting materials</strong>:</p>
+                            <ul>
+                                <li>Test at least 3 different casting materials (e.g., epoxy resin, polyurethane resin, concrete)</li>
+                                <li>Document for each material:
+                                    <ul>
+                                        <li>Strength (can you break it? how much force?)</li>
+                                        <li>Surface finish (smooth, rough, glossy, matte)</li>
+                                        <li>Cure time (how long until you can demold? full cure?)</li>
+                                        <li>Cost per part (material cost ÷ number of parts)</li>
+                                        <li>Availability in your region</li>
+                                    </ul>
+                                </li>
+                                <li>Create a comparison table to help future students choose materials</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Documentation Checklist</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>CAD Files</strong></td>
+                                            <td>Upload design files for your master (positive) and mold (if CAD-designed). Include source files and exported STL/DXF.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Mold Creation Process</strong></td>
+                                            <td>Photos showing: master creation, mold box setup, mixing materials, pouring, curing, demolding.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Casting Process</strong></td>
+                                            <td>Photos showing: mold preparation, mixing casting material, pouring, curing, demolding, finished parts.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Material Documentation</strong></td>
+                                            <td>Table or notes showing: materials used, mixing ratios, cure times, costs, where purchased, availability notes.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Finished Parts</strong></td>
+                                            <td>Photos of your cast parts showing quality, surface finish, and any finishing work (sanding, drilling, etc.).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Lessons Learned</strong></td>
+                                            <td>What worked well? What didn't? What would you do differently? How many parts can you cast from one mold?</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Application Reflection</strong></td>
+                                            <td>How could molding and casting be used in your community? What products could be made? What would be the business model?</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="alert alert-warning mt-3">
+                                <strong>Safety Reminder:</strong> Always wear appropriate PPE (gloves, safety glasses, ventilation) when working with casting materials. 
+                                Follow manufacturer's safety instructions. If unsure, ask your lab manager for guidance.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Tips for Success</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Start simple:</strong> Begin with a simple, flat design before attempting complex 3D shapes.</li>
+                                <li><strong>Measure accurately:</strong> Use digital scale for mixing ratios. Wrong ratios = failed casts.</li>
+                                <li><strong>Mix thoroughly:</strong> Scrape sides and bottom of container. Incomplete mixing = soft spots or failed cures.</li>
+                                <li><strong>Avoid bubbles:</strong> Pour slowly, tap molds to release bubbles, consider vacuum degassing for critical parts.</li>
+                                <li><strong>Test materials:</strong> Make small test casts before committing to large molds.</li>
+                                <li><strong>Document everything:</strong> Record mixing ratios, cure times, temperatures—you'll need this for future casts.</li>
+                                <li><strong>Clean immediately:</strong> Clean tools and containers while materials are still liquid. Cured materials are hard to remove.</li>
+                                <li><strong>Consider local materials:</strong> Explore locally available alternatives (local resins, concrete mixes) to reduce costs.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

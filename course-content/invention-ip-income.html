@@ -43,51 +43,438 @@
 
             <div class="row">
                 <div class="col-lg-10 mx-auto">
+                    <!-- Overview -->
                     <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-header bg-dark text-white">
-                            <h3 class="mb-0">
-                                <i class="fas fa-balance-scale me-2"></i>
-                                Overview — Invention, Intellectual Property, and Income
-                            </h3>
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-chalkboard-teacher me-2"></i>Overview</h3>
                         </div>
                         <div class="card-body">
-                            <p class="lead mb-3">
+                            <p class="lead">
                                 Welcome to Invention, Intellectual Property, and Income! This week, you'll learn to think about how your projects can 
                                 become sustainable initiatives or ventures. We'll explore intellectual property options, licensing, and pathways to 
                                 generate income or social impact.
                             </p>
-                            <p class="mb-3">
+                            <p>
                                 In African contexts, where innovation often addresses local challenges, understanding IP and business models is crucial. 
-                                We'll discuss open-source vs. proprietary approaches, simple business models, and how to align your work with goals of 
-                                organizations like Timbuktoo, UNDP, and UNIPODS.
+                                Many UNIPOD projects solve real problems—from agricultural monitoring to health devices to educational tools. This week 
+                                helps you think about how to protect, share, and potentially monetize your work.
                             </p>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Learning Objectives</h4>
-                                    <ul class="mb-0">
-                                        <li>Understand basic IP options (copyright, patents, open source, Creative Commons).</li>
-                                        <li>Decide how you want to license your work and why.</li>
-                                        <li>Sketch simple business or impact models around your project.</li>
+                            <p>
+                                We'll discuss open-source vs. proprietary approaches, simple business models, and how to align your work with goals of 
+                                organizations like Timbuktoo, UNDP, and UNIPODS. By the end of the week, you'll have chosen a license for your project 
+                                and sketched a plan for how it could create value in your community.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Learning Outcomes -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="fas fa-bullseye me-2"></i>Learning Outcomes</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>By the end of this week, you will be able to:</p>
+                            <ul>
+                                <li><strong>Understand IP options</strong> including copyright, patents, trademarks, and their differences</li>
+                                <li><strong>Understand open-source licenses</strong> including GPL, MIT, Apache, and Creative Commons</li>
+                                <li><strong>Choose appropriate licenses</strong> for your code, designs, and documentation</li>
+                                <li><strong>Sketch business models</strong> for generating income from your projects</li>
+                                <li><strong>Identify funding opportunities</strong> aligned with Timbuktoo, UNDP, and UNIPODS goals</li>
+                                <li><strong>Reflect on openness vs. protection</strong> in the context of African innovation</li>
+                                <li><strong>Document licensing decisions</strong> clearly on your project pages</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Core Concepts -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Core Concepts & Theory</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5 mt-3">1. Intellectual Property Types</h4>
+                            <p>Different types of IP protect different aspects of your work:</p>
+                            <ul>
+                                <li><strong>Copyright</strong>:
+                                    <ul>
+                                        <li>Protects creative works (code, designs, documentation, art)</li>
+                                        <li>Automatic—you own copyright as soon as you create something</li>
+                                        <li>Lasts for your lifetime + 50-70 years (varies by country)</li>
+                                        <li>Use: Protecting your code, designs, documentation</li>
                                     </ul>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Assignments</h4>
-                                    <ul class="mb-0">
-                                        <li><strong>Individual:</strong> Choose and document a license for your final project (with justification).</li>
-                                        <li><strong>Individual:</strong> Draft a short plan for how your project could generate income or social value in your context.</li>
+                                </li>
+                                <li><strong>Patents</strong>:
+                                    <ul>
+                                        <li>Protects inventions (new processes, methods, devices)</li>
+                                        <li>Must be filed and granted (expensive, time-consuming)</li>
+                                        <li>Lasts 20 years from filing</li>
+                                        <li>Use: Protecting novel inventions (usually not relevant for course projects)</li>
                                     </ul>
-                                </div>
+                                </li>
+                                <li><strong>Trademarks</strong>:
+                                    <ul>
+                                        <li>Protects brand names, logos, slogans</li>
+                                        <li>Must be registered</li>
+                                        <li>Use: Protecting your project name or brand</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Trade Secrets</strong>:
+                                    <ul>
+                                        <li>Protects confidential information (formulas, processes)</li>
+                                        <li>No registration needed, but must be kept secret</li>
+                                        <li>Use: Protecting proprietary methods (opposite of open-source)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">2. Open-Source Licenses</h4>
+                            <p>Open-source licenses allow others to use, modify, and share your work:</p>
+                            <ul>
+                                <li><strong>MIT License</strong>:
+                                    <ul>
+                                        <li>Very permissive—allows almost anything</li>
+                                        <li>Requires attribution (credit to original author)</li>
+                                        <li>Use: When you want maximum adoption and minimal restrictions</li>
+                                        <li>Good for: Libraries, tools, educational projects</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Apache 2.0</strong>:
+                                    <ul>
+                                        <li>Similar to MIT but includes patent grant</li>
+                                        <li>Requires attribution and patent license</li>
+                                        <li>Use: When you want to protect against patent lawsuits</li>
+                                    </ul>
+                                </li>
+                                <li><strong>GPL (GNU General Public License)</strong>:
+                                    <ul>
+                                        <li>Copyleft—requires derivatives to also be open-source</li>
+                                        <li>Strong protection for open-source ecosystem</li>
+                                        <li>Use: When you want to ensure work stays open-source</li>
+                                        <li>Good for: Software that should remain free</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Creative Commons</strong>:
+                                    <ul>
+                                        <li>For creative works (designs, documentation, media)</li>
+                                        <li>Variants: CC-BY (attribution), CC-BY-SA (share-alike), CC-BY-NC (non-commercial)</li>
+                                        <li>Use: For designs, documentation, educational materials</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Public Domain (CC0)</strong>:
+                                    <ul>
+                                        <li>No restrictions—anyone can use for any purpose</li>
+                                        <li>Use: When you want maximum freedom for others</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">3. Business Models for Makers</h4>
+                            <p>Ways to generate income or impact from your projects:</p>
+                            <ul>
+                                <li><strong>Product Sales</strong>:
+                                    <ul>
+                                        <li>Sell physical products you make</li>
+                                        <li>Example: Selling 3D-printed items, custom electronics</li>
+                                        <li>Consider: Manufacturing costs, pricing, distribution</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Service Model</strong>:
+                                    <ul>
+                                        <li>Provide services using your skills</li>
+                                        <li>Example: Custom design services, consulting, training</li>
+                                        <li>Consider: Time investment, pricing, scalability</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Open-Source + Support</strong>:
+                                    <ul>
+                                        <li>Give away designs/code, charge for support/customization</li>
+                                        <li>Example: Free designs, paid assembly/installation</li>
+                                        <li>Consider: Value of support vs. product</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Licensing</strong>:
+                                    <ul>
+                                        <li>License your IP to others (if not fully open-source)</li>
+                                        <li>Example: Commercial license for proprietary use</li>
+                                        <li>Consider: Market demand, enforcement</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Grants and Funding</strong>:
+                                    <ul>
+                                        <li>Secure funding from organizations, governments, foundations</li>
+                                        <li>Example: Timbuktoo grants, UNDP funding, local government support</li>
+                                        <li>Consider: Alignment with funder goals, reporting requirements</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Social Enterprise</strong>:
+                                    <ul>
+                                        <li>Create social impact while generating income</li>
+                                        <li>Example: Affordable products for underserved communities</li>
+                                        <li>Consider: Social mission, sustainability, scalability</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">4. Openness vs. Protection in African Contexts</h4>
+                            <p>Considerations for African innovators:</p>
+                            <ul>
+                                <li><strong>Benefits of Open-Source</strong>:
+                                    <ul>
+                                        <li>Knowledge sharing builds collective capacity</li>
+                                        <li>Others can build on your work, creating more value</li>
+                                        <li>Easier to get help and collaboration</li>
+                                        <li>Aligns with UNIPOD/Timbuktoo goals of knowledge sharing</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Benefits of Protection</strong>:
+                                    <ul>
+                                        <li>Can generate income from licensing</li>
+                                        <li>Prevents others from commercializing without permission</li>
+                                        <li>May be necessary for attracting investment</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Hybrid Approaches</strong>:
+                                    <ul>
+                                        <li>Open-source for education/research, commercial license for business use</li>
+                                        <li>Open hardware, proprietary software (or vice versa)</li>
+                                        <li>Open design, trademarked brand</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mini-Lab -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0"><i class="fas fa-flask me-2"></i>Mini-Lab: Choose a License for Your Project</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">Let's work through the process of choosing an appropriate license for your final project.</p>
+                            
+                            <h4 class="h5 mt-3">Step 1: Identify What You're Licensing</h4>
+                            <p>Different parts of your project may need different licenses:</p>
+                            <ul>
+                                <li><strong>Code/Software</strong>: Use software licenses (MIT, GPL, Apache)</li>
+                                <li><strong>Designs/CAD files</strong>: Use Creative Commons or software licenses</li>
+                                <li><strong>Documentation</strong>: Use Creative Commons (CC-BY recommended)</li>
+                                <li><strong>Media (photos, videos)</strong>: Use Creative Commons</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Step 2: Consider Your Goals</h4>
+                            <p>Ask yourself:</p>
+                            <ul>
+                                <li>Do you want others to build on your work? → Choose open-source</li>
+                                <li>Do you want to prevent commercial use? → Choose non-commercial license (CC-BY-NC)</li>
+                                <li>Do you want derivatives to also be open? → Choose copyleft (GPL, CC-BY-SA)</li>
+                                <li>Do you want maximum adoption? → Choose permissive (MIT, CC-BY)</li>
+                                <li>Do you want to generate income? → Consider commercial licensing or hybrid approach</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Step 3: Check Dependencies</h4>
+                            <p>If your project uses libraries or code from others:</p>
+                            <ul>
+                                <li>Check their licenses</li>
+                                <li>Ensure your license is compatible</li>
+                                <li>Example: GPL code requires your code to also be GPL</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Step 4: Add License to Your Project</h4>
+                            <p>Include license information:</p>
+                            <ul>
+                                <li>Create LICENSE file in your repository</li>
+                                <li>Add license statement to your documentation page</li>
+                                <li>Add license headers to code files (if required by license)</li>
+                                <li>Explain your choice in your documentation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- YouTube & Learning Resources -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="mb-0"><i class="fab fa-youtube me-2"></i>Video Tutorials & Learning Resources</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Watch these videos to learn about IP, licensing, and business models. <strong>If your internet is slow</strong>, prioritize the licensing tutorials.</p>
+                            
+                            <h4 class="h5 mt-3">Intellectual Property and Licensing</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X21" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Open Source Licenses Explained</h6>
+                                        <small class="text-muted">~20 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Understand different open-source licenses and when to use each.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Differences between MIT, GPL, Apache, and how to choose.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X22" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Creative Commons Licenses Explained</h6>
+                                        <small class="text-muted">~15 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn about Creative Commons licenses for designs and creative works.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> CC-BY, CC-BY-SA, CC-BY-NC variants and their uses.</small>
+                                </a>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-12">
-                                    <h4 class="h6 text-uppercase text-muted">Documentation &amp; Evidence</h4>
-                                    <ul class="mb-0">
-                                        <li>License statement on your project page and in your code/files.</li>
-                                        <li>1–2 page write‑up of possible funding, partnerships, or revenue paths (aligned with Timbuktoo/UNDP goals where relevant).</li>
-                                        <li>Reflection on openness vs. protection and what it means in an African innovation ecosystem.</li>
-                                    </ul>
-                                </div>
+
+                            <h4 class="h5 mt-4">Business Models for Makers</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X23" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Maker Business Models</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn how makers turn projects into businesses.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Different business models for hardware/software projects.</small>
+                                </a>
                             </div>
+
+                            <h4 class="h5 mt-4">Written Resources</h4>
+                            <ul>
+                                <li><a href="https://choosealicense.com/" target="_blank" rel="noopener">Choose a License</a> - Interactive guide to choosing a license</li>
+                                <li><a href="https://creativecommons.org/choose/" target="_blank" rel="noopener">Creative Commons License Chooser</a> - Choose CC license</li>
+                                <li><a href="https://opensource.org/licenses" target="_blank" rel="noopener">Open Source Initiative</a> - List of approved open-source licenses</li>
+                                <li><a href="https://www.timbuktoo.org/" target="_blank" rel="noopener">Timbuktoo</a> - Innovation and funding opportunities</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Assignments & Documentation -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>Assignments & Documentation Requirements</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5">Individual Assignment 1: Choose and Document a License</h4>
+                            <p><strong>Choose and document a license for your final project (with justification)</strong>:</p>
+                            <ul>
+                                <li>Select appropriate licenses for:
+                                    <ul>
+                                        <li>Your code/software</li>
+                                        <li>Your designs/CAD files</li>
+                                        <li>Your documentation</li>
+                                    </ul>
+                                </li>
+                                <li>Add license files to your repository:
+                                    <ul>
+                                        <li>Create LICENSE file(s) in your repository</li>
+                                        <li>Add license headers to code files (if required)</li>
+                                        <li>Add license statement to your documentation page</li>
+                                    </ul>
+                                </li>
+                                <li>Justify your choice:
+                                    <ul>
+                                        <li>Explain why you chose these licenses</li>
+                                        <li>What are your goals (sharing, protection, income)?</li>
+                                        <li>How does this align with UNIPOD/Timbuktoo values?</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Individual Assignment 2: Business/Impact Model</h4>
+                            <p><strong>Draft a short plan (1-2 pages) for how your project could generate income or social value</strong>:</p>
+                            <ul>
+                                <li>Describe potential pathways:
+                                    <ul>
+                                        <li>Product sales model</li>
+                                        <li>Service model</li>
+                                        <li>Open-source + support</li>
+                                        <li>Grants and funding</li>
+                                        <li>Social enterprise</li>
+                                        <li>Or combination of approaches</li>
+                                    </ul>
+                                </li>
+                                <li>Consider your context:
+                                    <ul>
+                                        <li>What is the market need?</li>
+                                        <li>Who are potential customers/users?</li>
+                                        <li>What are the costs (materials, time, distribution)?</li>
+                                        <li>What is the pricing model?</li>
+                                        <li>How does this align with Timbuktoo/UNDP/UNIPODS goals?</li>
+                                    </ul>
+                                </li>
+                                <li>Identify opportunities:
+                                    <ul>
+                                        <li>Potential funding sources</li>
+                                        <li>Partnership opportunities</li>
+                                        <li>Distribution channels</li>
+                                        <li>Scaling strategies</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Documentation Checklist</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>License Files</strong></td>
+                                            <td>LICENSE file(s) in your repository with full license text. Include separate licenses for code, designs, and documentation if different.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>License Statement on Project Page</strong></td>
+                                            <td>Clear statement on your documentation page explaining what is licensed and under which license(s).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>License Justification</strong></td>
+                                            <td>Written explanation of why you chose these licenses, your goals, and how it aligns with UNIPOD values.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Business/Impact Model Document</strong></td>
+                                            <td>1-2 page write-up describing:
+                                                <ul>
+                                                    <li>Potential income/social value pathways</li>
+                                                    <li>Market analysis and user needs</li>
+                                                    <li>Costs and pricing considerations</li>
+                                                    <li>Funding/partnership opportunities</li>
+                                                    <li>Alignment with Timbuktoo/UNDP/UNIPODS goals</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Reflection on Openness vs. Protection</strong></td>
+                                            <td>Written reflection (1-2 paragraphs) on:
+                                                <ul>
+                                                    <li>Why you chose open-source vs. proprietary (or hybrid)</li>
+                                                    <li>What this means in an African innovation ecosystem</li>
+                                                    <li>How knowledge sharing vs. protection balances in your context</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="alert alert-info mt-3">
+                                <strong>Remember:</strong> There's no "right" answer for licensing—it depends on your goals. The important thing is 
+                                to make an informed choice and document it clearly.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Tips for Success</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Start with open-source:</strong> For course projects, open-source licenses are usually best—they align with UNIPOD values and enable knowledge sharing.</li>
+                                <li><strong>Use standard licenses:</strong> Don't create custom licenses—use well-known licenses (MIT, GPL, CC-BY) that others understand.</li>
+                                <li><strong>Be consistent:</strong> Use the same license for related materials (e.g., all code uses MIT, all designs use CC-BY).</li>
+                                <li><strong>Document clearly:</strong> Make it obvious what is licensed and how—don't leave people guessing.</li>
+                                <li><strong>Think about your goals:</strong> Do you want maximum sharing? Income potential? Protection? Choose accordingly.</li>
+                                <li><strong>Consider your context:</strong> What makes sense in your country/region? What are local IP laws?</li>
+                                <li><strong>Research funding opportunities:</strong> Look into Timbuktoo, UNDP, local government, and foundation grants.</li>
+                                <li><strong>Think long-term:</strong> Consider how your project could evolve and what licensing supports that evolution.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

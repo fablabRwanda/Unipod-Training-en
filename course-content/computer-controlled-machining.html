@@ -42,69 +42,465 @@
 
             <div class="row">
                 <div class="col-lg-10 mx-auto">
+                    <!-- Overview -->
                     <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-header bg-dark text-white">
-                            <h3 class="mb-0">
-                                <i class="fas fa-industry me-2"></i>
-                                Overview — Computer-Controlled Machining
-                            </h3>
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-chalkboard-teacher me-2"></i>Overview</h3>
                         </div>
                         <div class="card-body">
-                            <p class="lead mb-3">
+                            <p class="lead">
                                 Welcome to Computer-Controlled Machining! This week, you'll learn to use large-format CNC routers to create furniture, 
                                 signage, and other big objects. CNC machining enables you to work with full sheets of plywood, MDF, or other materials, 
                                 creating strong, precise assemblies.
                             </p>
-                            <p class="mb-3">
+                            <p>
+                                In African contexts, CNC machining enables local production of furniture, construction elements, and large-scale objects that 
+                                would be expensive to import. Whether you're making classroom furniture for schools, storage for labs, or signage for 
+                                communities, CNC machining gives you the ability to create substantial, functional objects from locally available materials.
+                            </p>
+                            <p>
                                 We'll focus on designing for CNC (press-fit joints, toolpath considerations), using CAM software to generate safe G-code, 
                                 and operating large machines safely. By the end of the week, you'll have created a substantial object that addresses a 
                                 local need—whether it's classroom furniture, lab storage, or community signage.
                             </p>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Learning Objectives</h4>
-                                    <ul class="mb-0">
-                                        <li>Understand toolpaths, feeds &amp; speeds, and material holding for CNC routers.</li>
-                                        <li>Design a parametric 2.5D object suitable for plywood or similar sheet materials.</li>
-                                        <li>Use CAM software to generate safe G‑code for your lab’s machine.</li>
+                        </div>
+                    </div>
+
+                    <!-- Learning Outcomes -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="fas fa-bullseye me-2"></i>Learning Outcomes</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>By the end of this week, you will be able to:</p>
+                            <ul>
+                                <li><strong>Understand CNC router operation</strong> including toolpaths, feeds & speeds, and material holding</li>
+                                <li><strong>Design for CNC machining</strong> including press-fit joints, clearances, and toolpath considerations</li>
+                                <li><strong>Use CAM software</strong> to generate safe G-code from CAD designs</li>
+                                <li><strong>Operate CNC routers safely</strong> following lab safety protocols</li>
+                                <li><strong>Characterize machine capabilities</strong> through test cuts and documentation</li>
+                                <li><strong>Create large-scale objects</strong> using sheet materials and mechanical joints</li>
+                                <li><strong>Document machining processes</strong> including settings, tool choices, and lessons learned</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Core Concepts -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Core Concepts & Theory</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5 mt-3">1. Understanding CNC Routers</h4>
+                            <p>
+                                CNC (Computer Numerical Control) routers are machines that cut materials using computer-controlled movements:
+                            </p>
+                            <ul>
+                                <li><strong>Spindle</strong>: Rotating motor that holds cutting tools (end mills, router bits)</li>
+                                <li><strong>Gantry</strong>: Moving frame that positions the spindle in X, Y, and Z axes</li>
+                                <li><strong>Bed/Table</strong>: Surface where material is secured</li>
+                                <li><strong>Controller</strong>: Computer that interprets G-code and controls machine movements</li>
+                                <li><strong>Tool</strong>: Cutting bit (end mill) that removes material</li>
+                            </ul>
+                            <p>
+                                <strong>Types of operations:</strong>
+                            </p>
+                            <ul>
+                                <li><strong>Profile cuts</strong>: Cutting along the outline of a shape (through-cut or partial depth)</li>
+                                <li><strong>Pocket cuts</strong>: Removing material from inside a shape</li>
+                                <li><strong>Drilling</strong>: Creating holes</li>
+                                <li><strong>Engraving</strong>: Shallow cuts for text or patterns</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">2. Toolpaths and Cutting Strategies</h4>
+                            <p>Toolpaths define how the tool moves to cut your design:</p>
+                            <ul>
+                                <li><strong>Climb vs. Conventional Milling</strong>:
+                                    <ul>
+                                        <li><strong>Climb milling</strong>: Tool rotates in direction of travel (better finish, less tool wear)</li>
+                                        <li><strong>Conventional milling</strong>: Tool rotates against direction of travel (more stable, better for rough cuts)</li>
+                                        <li>Most CAM software defaults to climb milling for finish passes</li>
                                     </ul>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Assignments</h4>
-                                    <ul class="mb-0">
-                                        <li><strong>Group:</strong> Characterize your CNC (run test cuts for different tools, feeds, and materials, and document results).</li>
-                                        <li><strong>Individual:</strong> Design and fabricate a big object that uses press‑fit or mechanical joints.</li>
-                                        <li><strong>Individual:</strong> Reflect on how your design addresses a local need (e.g. low‑cost classroom furniture, lab storage).</li>
+                                </li>
+                                <li><strong>Stepover</strong>: Distance between parallel toolpaths (typically 50-80% of tool diameter)</li>
+                                <li><strong>Stepdown</strong>: Depth of each pass (typically 1-2× tool diameter, or less for hard materials)</li>
+                                <li><strong>Feed rate</strong>: How fast the tool moves (mm/min or inches/min)</li>
+                                <li><strong>Spindle speed</strong>: How fast the tool rotates (RPM)</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">3. Feeds and Speeds</h4>
+                            <p>Proper feeds and speeds are critical for quality cuts and tool life:</p>
+                            <ul>
+                                <li><strong>Feed Rate (mm/min)</strong>:
+                                    <ul>
+                                        <li>Too slow: Tool rubs, burns material, poor finish</li>
+                                        <li>Too fast: Tool breaks, poor finish, machine strain</li>
+                                        <li>Typical: 1000-3000 mm/min for plywood with 6mm end mill</li>
                                     </ul>
-                                </div>
+                                </li>
+                                <li><strong>Spindle Speed (RPM)</strong>:
+                                    <ul>
+                                        <li>Too slow: Poor finish, tool wear</li>
+                                        <li>Too fast: Tool breaks, burns material</li>
+                                        <li>Typical: 12000-18000 RPM for plywood</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Depth of Cut</strong>:
+                                    <ul>
+                                        <li>Too deep: Tool breaks, poor finish</li>
+                                        <li>Too shallow: Slow cutting, tool wear</li>
+                                        <li>Typical: 1-3mm per pass for plywood (depending on tool size)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Calculating Feeds and Speeds</strong>:
+                                    <ul>
+                                        <li>Use online calculators or CAM software recommendations</li>
+                                        <li>Start conservative and increase gradually</li>
+                                        <li>Test cuts are essential—every machine and material is different</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">4. Material Holding</h4>
+                            <p>Securing material is critical for safety and accuracy:</p>
+                            <ul>
+                                <li><strong>Screws</strong>:
+                                    <ul>
+                                        <li>Screw material to waste board or table</li>
+                                        <li>Place screws in areas that will be cut away</li>
+                                        <li>Use enough screws to prevent movement</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Clamps</strong>:
+                                    <ul>
+                                        <li>Use clamps around edges (outside cut area)</li>
+                                        <li>Ensure clamps don't interfere with toolpath</li>
+                                        <li>Check clearance before starting</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Vacuum Table</strong> (if available):
+                                    <ul>
+                                        <li>Holds material with suction</li>
+                                        <li>No screws needed, but requires good seal</li>
+                                        <li>Check vacuum pressure before cutting</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Double-Sided Tape</strong> (for small parts):
+                                    <ul>
+                                        <li>Use strong tape for light cuts</li>
+                                        <li>Not suitable for heavy cutting forces</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">5. Designing for CNC</h4>
+                            <p>Design considerations for CNC machining:</p>
+                            <ul>
+                                <li><strong>Tool Size Constraints</strong>:
+                                    <ul>
+                                        <li>Minimum inside corner radius = tool radius (can't cut sharp inside corners)</li>
+                                        <li>Minimum slot width = tool diameter + clearance</li>
+                                        <li>Design for available tool sizes (typically 3mm, 6mm, 12mm end mills)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Press-Fit Joints</strong>:
+                                    <ul>
+                                        <li>Slots should be slightly smaller than material thickness (account for kerf)</li>
+                                        <li>Test fit with test cuts before final design</li>
+                                        <li>Typical clearance: Material thickness - 0.1mm to 0.2mm (depends on material and tool)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Tab and Slot Joints</strong>:
+                                    <ul>
+                                        <li>Strong, no fasteners needed</li>
+                                        <li>Design tabs slightly smaller than slots for press-fit</li>
+                                        <li>Add chamfers or fillets to ease assembly</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Material Considerations</strong>:
+                                    <ul>
+                                        <li>Design for available sheet sizes (typically 1220×2440mm or 4×8 feet)</li>
+                                        <li>Minimize waste by nesting parts efficiently</li>
+                                        <li>Consider material thickness variations (measure actual material)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mini-Lab -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0"><i class="fas fa-flask me-2"></i>Mini-Lab: Characterize Your CNC Router</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">Before designing your project, let's characterize your CNC router to understand its capabilities and optimal settings.</p>
+                            
+                            <h4 class="h5 mt-3">Step 1: Create Test Cut Design</h4>
+                            <p>Design a test piece that explores:</p>
+                            <ul>
+                                <li>Different slot widths (3mm, 6mm, 9mm, 12mm)</li>
+                                <li>Different depths (1mm, 2mm, 3mm, through-cut)</li>
+                                <li>Inside corners (sharp, 3mm radius, 6mm radius)</li>
+                                <li>Text at different sizes (5mm, 10mm, 20mm height)</li>
+                                <li>Circles of different sizes (10mm, 20mm, 50mm diameter)</li>
+                            </ul>
+
+                            <h4 class="h5 mt-3">Step 2: Test Different Tools</h4>
+                            <p>Cut test pieces with different tools:</p>
+                            <ul>
+                                <li>3mm end mill (fine detail, slower)</li>
+                                <li>6mm end mill (balanced, most common)</li>
+                                <li>12mm end mill (fast, rough cuts)</li>
+                            </ul>
+                            <p>For each tool, test different feed rates and spindle speeds.</p>
+
+                            <h4 class="h5 mt-3">Step 3: Test Material Holding</h4>
+                            <p>Test different holding methods:</p>
+                            <ul>
+                                <li>Screws in waste areas</li>
+                                <li>Clamps around edges</li>
+                                <li>Vacuum (if available)</li>
+                            </ul>
+                            <p>Check which method works best for your material and machine.</p>
+
+                            <h4 class="h5 mt-3">Step 4: Measure Kerf</h4>
+                            <p>Kerf is the width of material removed by the cut:</p>
+                            <ol>
+                                <li>Cut a slot (e.g., 10mm wide)</li>
+                                <li>Measure actual slot width</li>
+                                <li>Kerf = Actual width - Tool diameter</li>
+                                <li>Example: 10mm slot measures 10.2mm with 6mm tool → Kerf = 0.2mm</li>
+                            </ol>
+                            <p>Use kerf value in your designs for accurate press-fit joints.</p>
+
+                            <h4 class="h5 mt-3">Step 5: Document Results</h4>
+                            <p>Create a table documenting:</p>
+                            <ul>
+                                <li>Tool size</li>
+                                <li>Feed rate and spindle speed</li>
+                                <li>Material</li>
+                                <li>Cut quality (smooth, rough, burned)</li>
+                                <li>Kerf measurement</li>
+                                <li>Best settings for your machine</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- YouTube & Learning Resources -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="mb-0"><i class="fab fa-youtube me-2"></i>Video Tutorials & Learning Resources</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Watch these videos to learn CNC machining. <strong>If your internet is slow</strong>, prioritize the CNC basics and CAM software tutorials.</p>
+                            
+                            <h4 class="h5 mt-3">CNC Router Basics</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X29" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>CNC Router Tutorial for Beginners</h6>
+                                        <small class="text-muted">~30 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Complete introduction to CNC router operation, safety, and basic cutting.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How CNC routers work, safety procedures, and basic operation.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X30" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Understanding Feeds and Speeds for CNC</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to calculate and optimize feeds and speeds for quality cuts.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to calculate feeds/speeds, what affects cut quality, and how to optimize.</small>
+                                </a>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Documentation &amp; Evidence</h4>
-                                    <ul class="mb-0">
-                                        <li>Design files (CAD + CAM) and exported toolpaths.</li>
-                                        <li>Photos of machining, assembly, and final object in use.</li>
-                                        <li>Notes on settings, tool choices, and what you would change next time.</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6 mb-0">
-                                    <h4 class="h6 text-uppercase text-muted">Recommended Video Tutorials</h4>
-                                    <ul class="mb-0">
-                                        <li>
-                                            <a href="https://www.youtube.com/results?search_query=cnc+router+tutorial+beginner" target="_blank" rel="noopener">
-                                                CNC Router Tutorials
-                                            </a>
-                                            - Learn CNC router operation, toolpath generation, and safety practices.
-                                        </li>
-                                        <li>
-                                            <a href="https://www.youtube.com/results?search_query=cam+software+tutorial" target="_blank" rel="noopener">
-                                                CAM Software Tutorials
-                                            </a>
-                                            - Learn to use CAM software to generate toolpaths from CAD designs.
-                                        </li>
-                                    </ul>
-                                </div>
+
+                            <h4 class="h5 mt-4">CAM Software</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X31" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Fusion 360 CAM Tutorial - Toolpath Generation</h6>
+                                        <small class="text-muted">~40 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to generate toolpaths in Fusion 360 CAM.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to set up CAM operations, configure toolpaths, and generate G-code.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X32" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>VCarve/Aspire Tutorial for CNC</h6>
+                                        <small class="text-muted">~35 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to use VCarve or Aspire for CNC toolpath generation.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to import designs, create toolpaths, and prepare files for cutting.</small>
+                                </a>
                             </div>
+
+                            <h4 class="h5 mt-4">Design for CNC</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X33" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Designing Press-Fit Joints for CNC</h6>
+                                        <small class="text-muted">~20 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to design strong, accurate press-fit joints.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to account for kerf, material thickness, and design accurate joints.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">Written Resources</h4>
+                            <ul>
+                                <li><a href="https://www.cnccookbook.com/" target="_blank" rel="noopener">CNC Cookbook</a> - Comprehensive CNC resources and calculators</li>
+                                <li><a href="https://www.onsrud.com/xdoc/feedsandspeeds" target="_blank" rel="noopener">Onsrud Feeds and Speeds Calculator</a> - Calculate optimal cutting parameters</li>
+                                <li><a href="https://www.fusion360.com/learn/" target="_blank" rel="noopener">Fusion 360 Learning</a> - CAM tutorials and resources</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Assignments & Documentation -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>Assignments & Documentation Requirements</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5">Group Assignment</h4>
+                            <p><strong>Characterize your CNC router</strong>:</p>
+                            <ul>
+                                <li>Run test cuts exploring:
+                                    <ul>
+                                        <li>Different tools (3mm, 6mm, 12mm end mills)</li>
+                                        <li>Different feed rates (slow, medium, fast)</li>
+                                        <li>Different spindle speeds</li>
+                                        <li>Different materials (plywood, MDF, acrylic if available)</li>
+                                    </ul>
+                                </li>
+                                <li>Document results:
+                                    <ul>
+                                        <li>Create a table comparing settings and results</li>
+                                        <li>Note cut quality (smooth, rough, burned, chipped)</li>
+                                        <li>Measure kerf for each tool</li>
+                                        <li>Identify optimal settings for your machine</li>
+                                    </ul>
+                                </li>
+                                <li>Share findings:
+                                    <ul>
+                                        <li>Create a shared document or wiki</li>
+                                        <li>Include photos of test cuts</li>
+                                        <li>Note any machine-specific quirks or limitations</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Individual Assignment</h4>
+                            <p><strong>Design and fabricate a big object that uses press-fit or mechanical joints</strong>:</p>
+                            <ul>
+                                <li>Design requirements:
+                                    <ul>
+                                        <li>Use full sheet material (or significant portion)</li>
+                                        <li>Include press-fit joints (tabs and slots)</li>
+                                        <li>Design for available material thickness</li>
+                                        <li>Account for kerf in joint design</li>
+                                        <li>Make it parametric (so dimensions can be adjusted)</li>
+                                    </ul>
+                                </li>
+                                <li>Fabrication:
+                                    <ul>
+                                        <li>Generate toolpaths using CAM software</li>
+                                        <li>Review toolpaths for safety (no collisions, proper depths)</li>
+                                        <li>Cut on CNC router</li>
+                                        <li>Assemble using press-fit joints (no screws/glue if possible)</li>
+                                    </ul>
+                                </li>
+                                <li>Reflection:
+                                    <ul>
+                                        <li>How does your design address a local need?</li>
+                                        <li>What would you change if making it again?</li>
+                                        <li>How could this be scaled or adapted?</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Documentation Checklist</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>CAD Design Files</strong></td>
+                                            <td>Upload source CAD files (Fusion 360, SolidWorks, etc.) and exported DXF files. Include parametric dimensions.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>CAM Files and Toolpaths</strong></td>
+                                            <td>Screenshots or files showing toolpath setup, feeds/speeds used, and G-code generation.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Machine Characterization</strong></td>
+                                            <td>Documentation of test cuts: table of settings, photos of results, kerf measurements, optimal settings identified.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Machining Process Photos</strong></td>
+                                            <td>Photos showing: material setup, machine during cutting, toolpaths being executed, any issues encountered.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Assembly Photos</strong></td>
+                                            <td>Photos showing: cut parts, assembly process, final assembled object, joints close-up.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Final Object Photos</strong></td>
+                                            <td>Photos of completed object in use or context. Show how it addresses the local need.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Settings Documentation</strong></td>
+                                            <td>Table or notes showing: tool used, feed rate, spindle speed, depth of cut, material, and results.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Lessons Learned</strong></td>
+                                            <td>What worked well? What didn't? What would you change? How accurate were your joint fits?</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Application Reflection</strong></td>
+                                            <td>How does your design address a local need? What problem does it solve? How could it be improved or scaled?</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="alert alert-warning mt-3">
+                                <strong>Safety First:</strong> CNC routers are powerful machines. Always:
+                                <ul class="mb-0 mt-2">
+                                    <li>Wear safety glasses and hearing protection</li>
+                                    <li>Follow lab safety protocols</li>
+                                    <li>Never leave machine unattended while cutting</li>
+                                    <li>Know where emergency stop is located</li>
+                                    <li>Check toolpaths carefully before cutting</li>
+                                    <li>Start with test cuts at low speeds</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Tips for Success</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Characterize first:</strong> Do test cuts before designing your project—know your machine's capabilities.</li>
+                                <li><strong>Measure actual material:</strong> Material thickness can vary. Measure your actual sheets, don't assume.</li>
+                                <li><strong>Account for kerf:</strong> Test and measure kerf for each tool. Use this in your joint designs.</li>
+                                <li><strong>Start conservative:</strong> Use slower feeds/speeds initially, then increase if cuts are good.</li>
+                                <li><strong>Check toolpaths:</strong> Review toolpaths in CAM software before cutting. Look for collisions, wrong depths, etc.</li>
+                                <li><strong>Secure material well:</strong> Material movement during cutting is dangerous and ruins cuts.</li>
+                                <li><strong>Test joints first:</strong> Cut a small test piece with your joint design before cutting the full project.</li>
+                                <li><strong>Design for assembly:</strong> Add chamfers or fillets to make assembly easier.</li>
+                                <li><strong>Nest efficiently:</strong> Arrange parts on sheet to minimize waste.</li>
+                                <li><strong>Document everything:</strong> Record settings, tool choices, and results—you'll need this for future projects.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

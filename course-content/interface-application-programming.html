@@ -43,68 +43,516 @@
 
             <div class="row">
                 <div class="col-lg-10 mx-auto">
+                    <!-- Overview -->
                     <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-header bg-dark text-white">
-                            <h3 class="mb-0">
-                                <i class="fas fa-laptop-code me-2"></i>
-                                Overview — Interface and Application Programming
-                            </h3>
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-chalkboard-teacher me-2"></i>Overview</h3>
                         </div>
                         <div class="card-body">
-                            <p class="lead mb-3">
+                            <p class="lead">
                                 Welcome to Interface and Application Programming! This week, you'll learn to build software interfaces that communicate 
                                 with your hardware projects. From simple desktop applications to web-based dashboards, interfaces make your projects 
                                 accessible and user-friendly.
                             </p>
-                            <p class="mb-3">
-                                We'll explore different approaches (Processing, Python, web-based interfaces) and choose tools that work well in 
-                                African contexts—considering offline capabilities, low-spec devices, and shared lab computers. By the end of the week, 
-                                you'll have created an interface that reads sensor data, controls outputs, or visualizes information from your projects.
+                            <p>
+                                In African contexts, interfaces enable powerful applications: monitoring systems for agriculture, data visualization 
+                                for health systems, control panels for water management, and more. We'll explore different approaches (Processing, 
+                                Python, web-based interfaces) and choose tools that work well in African contexts—considering offline capabilities, 
+                                low-spec devices, and shared lab computers.
                             </p>
+                            <p>
+                                This week builds on Networking and Communications (where you learned to send data between devices) and prepares you 
+                                for Final Project (where you'll create a complete system with interface). By the end of the week, you'll have created 
+                                an interface that reads sensor data, controls outputs, or visualizes information from your projects.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Learning Outcomes -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="fas fa-bullseye me-2"></i>Learning Outcomes</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>By the end of this week, you will be able to:</p>
+                            <ul>
+                                <li><strong>Establish communication</strong> between software applications and microcontrollers using serial, WebSocket, or HTTP protocols</li>
+                                <li><strong>Create desktop interfaces</strong> using Processing, Python (Tkinter, PyQt), or similar frameworks</li>
+                                <li><strong>Create web-based interfaces</strong> using HTML/CSS/JavaScript that can run in browsers</li>
+                                <li><strong>Visualize data</strong> using graphs, charts, and real-time displays</li>
+                                <li><strong>Control hardware</strong> through software interfaces (buttons, sliders, forms)</li>
+                                <li><strong>Design for constraints</strong> including offline operation, low-spec devices, and limited connectivity</li>
+                                <li><strong>Document interfaces</strong> so others can understand and modify your code</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Core Concepts -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Core Concepts & Theory</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5 mt-3">1. Communication Protocols</h4>
+                            <p>Interfaces communicate with hardware using different protocols:</p>
+                            <ul>
+                                <li><strong>Serial Communication (UART)</strong>:
+                                    <ul>
+                                        <li>Simple, direct connection between computer and microcontroller</li>
+                                        <li>Baud rate: 9600, 115200, etc. (must match on both sides)</li>
+                                        <li>Use: Desktop applications, simple data logging</li>
+                                        <li>In Processing: <code>Serial</code> library</li>
+                                        <li>In Python: <code>pyserial</code> library</li>
+                                        <li>In JavaScript: <code>SerialPort</code> library (Node.js) or Web Serial API (browsers)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>WebSocket</strong>:
+                                    <ul>
+                                        <li>Real-time bidirectional communication over network</li>
+                                        <li>Use: Web interfaces, remote monitoring</li>
+                                        <li>Requires: Server (ESP32, computer, or cloud)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>HTTP/REST API</strong>:
+                                    <ul>
+                                        <li>Request-response protocol, works over network</li>
+                                        <li>Use: Web interfaces, mobile apps, cloud integration</li>
+                                        <li>Requires: Server (ESP32 web server, computer, or cloud)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">2. Interface Approaches</h4>
+                            <p>Choose the right tool for your context:</p>
+                            <ul>
+                                <li><strong>Processing</strong>:
+                                    <ul>
+                                        <li>Visual programming language, great for graphics and animations</li>
+                                        <li>Pros: Simple, visual, good for learning, works offline</li>
+                                        <li>Cons: Less suitable for complex applications</li>
+                                        <li>Use: Data visualization, interactive art, simple control panels</li>
+                                        <li>Best for: Beginners, visual projects</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Python (Tkinter, PyQt, Kivy)</strong>:
+                                    <ul>
+                                        <li>Powerful, versatile, widely used</li>
+                                        <li>Pros: Lots of libraries, cross-platform, works offline</li>
+                                        <li>Cons: Requires Python installation</li>
+                                        <li>Use: Desktop applications, data analysis, complex interfaces</li>
+                                        <li>Best for: Intermediate users, data-heavy applications</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Web-based (HTML/CSS/JavaScript)</strong>:
+                                    <ul>
+                                        <li>Runs in browsers, accessible from any device</li>
+                                        <li>Pros: No installation needed, works on phones/tablets, easy to share</li>
+                                        <li>Cons: Requires server (ESP32, computer, or cloud), needs connectivity for remote access</li>
+                                        <li>Use: Dashboards, remote monitoring, mobile-friendly interfaces</li>
+                                        <li>Best for: When you need accessibility across devices</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Node.js/Electron</strong>:
+                                    <ul>
+                                        <li>JavaScript-based desktop applications</li>
+                                        <li>Pros: Web technologies in desktop app, cross-platform</li>
+                                        <li>Cons: Larger file size, more complex setup</li>
+                                        <li>Use: Professional desktop applications</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">3. Designing for African Contexts</h4>
+                            <p>Consider these constraints when designing interfaces:</p>
+                            <ul>
+                                <li><strong>Offline-First</strong>:
+                                    <ul>
+                                        <li>Design interfaces that work without internet</li>
+                                        <li>Use local servers (ESP32, local computer) instead of cloud</li>
+                                        <li>Cache data locally for offline viewing</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Low-Spec Devices</strong>:
+                                    <ul>
+                                        <li>Keep interfaces lightweight (minimal JavaScript, simple graphics)</li>
+                                        <li>Test on older computers or low-end devices</li>
+                                        <li>Avoid heavy frameworks or libraries</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Shared Lab Computers</strong>:
+                                    <ul>
+                                        <li>Design interfaces that don't require installation (web-based or portable apps)</li>
+                                        <li>Save settings/data to user folders, not system folders</li>
+                                        <li>Make interfaces easy to reset/clear for next user</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Limited Connectivity</strong>:
+                                    <ul>
+                                        <li>Minimize data transfer (send only necessary data)</li>
+                                        <li>Use efficient protocols (WebSocket instead of polling HTTP)</li>
+                                        <li>Compress data if sending large amounts</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">4. Data Visualization</h4>
+                            <p>Effective interfaces visualize data clearly:</p>
+                            <ul>
+                                <li><strong>Real-time Graphs</strong>: Show sensor data over time (temperature, light, etc.)</li>
+                                <li><strong>Gauges/Meters</strong>: Display current values (speed, percentage, etc.)</li>
+                                <li><strong>Status Indicators</strong>: LEDs, colors, icons showing system state</li>
+                                <li><strong>Tables/Lists</strong>: Organized data display</li>
+                                <li><strong>Maps</strong>: Geographic data visualization (for distributed sensor networks)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mini-Lab -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0"><i class="fas fa-flask me-2"></i>Mini-Lab: Python Interface for Sensor Monitoring</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">Let's create a simple Python interface that reads sensor data from Arduino and displays it in real-time—perfect for monitoring applications.</p>
+                            
+                            <h4 class="h5 mt-3">Step 1: Arduino Code (Sensor Reader)</h4>
+                            <pre class="bg-light p-3 rounded"><code>// Arduino code - sends sensor data via serial
+#define TEMP_PIN A0
+#define LIGHT_PIN A1
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Sensor Monitor Ready");
+}
+
+void loop() {
+  // Read sensors
+  int tempRaw = analogRead(TEMP_PIN);
+  int lightRaw = analogRead(LIGHT_PIN);
+  
+  // Convert and format data
+  float temp = (tempRaw / 1024.0) * 5.0 * 100 - 50; // TMP36 conversion
+  float light = (lightRaw / 1024.0) * 100; // Percentage
+  
+  // Send as CSV: temperature,light
+  Serial.print(temp);
+  Serial.print(",");
+  Serial.println(light);
+  
+  delay(1000); // Send every second
+}</code></pre>
+
+                            <h4 class="h5 mt-3">Step 2: Python Interface Code</h4>
+                            <pre class="bg-light p-3 rounded"><code># Python interface using Tkinter and pyserial
+import serial
+import tkinter as tk
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import time
+
+class SensorMonitor:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Sensor Monitor")
+        
+        # Open serial port (change 'COM3' to your port)
+        self.ser = serial.Serial('COM3', 9600, timeout=1)
+        time.sleep(2)  # Wait for Arduino to reset
+        
+        # Create GUI
+        self.setup_gui()
+        
+        # Start data reading
+        self.update_data()
+    
+    def setup_gui(self):
+        # Labels for current values
+        self.temp_label = tk.Label(self.root, text="Temperature: --°C", font=("Arial", 16))
+        self.temp_label.pack(pady=10)
+        
+        self.light_label = tk.Label(self.root, text="Light: --%", font=("Arial", 16))
+        self.light_label.pack(pady=10)
+        
+        # Graph for temperature over time
+        self.fig = Figure(figsize=(6, 4))
+        self.ax = self.fig.add_subplot(111)
+        self.ax.set_title("Temperature Over Time")
+        self.ax.set_xlabel("Time (seconds)")
+        self.ax.set_ylabel("Temperature (°C)")
+        
+        self.canvas = FigureCanvasTkAgg(self.fig, self.root)
+        self.canvas.get_tk_widget().pack()
+        
+        # Data storage
+        self.times = []
+        self.temps = []
+        self.max_points = 50  # Show last 50 points
+    
+    def update_data(self):
+        if self.ser.in_waiting:
+            try:
+                line = self.ser.readline().decode('utf-8').strip()
+                if ',' in line:
+                    temp, light = map(float, line.split(','))
+                    
+                    # Update labels
+                    self.temp_label.config(text=f"Temperature: {temp:.1f}°C")
+                    self.light_label.config(text=f"Light: {light:.1f}%")
+                    
+                    # Update graph
+                    current_time = len(self.times)
+                    self.times.append(current_time)
+                    self.temps.append(temp)
+                    
+                    # Keep only last N points
+                    if len(self.times) > self.max_points:
+                        self.times = self.times[-self.max_points:]
+                        self.temps = self.temps[-self.max_points:]
+                    
+                    # Redraw graph
+                    self.ax.clear()
+                    self.ax.plot(self.times, self.temps, 'b-')
+                    self.ax.set_title("Temperature Over Time")
+                    self.ax.set_xlabel("Time (seconds)")
+                    self.ax.set_ylabel("Temperature (°C)")
+                    self.canvas.draw()
+            except:
+                pass  # Ignore errors
+        
+        # Schedule next update
+        self.root.after(100, self.update_data)
+
+# Run application
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = SensorMonitor(root)
+    root.mainloop()</code></pre>
+
+                            <h4 class="h5 mt-3">Step 3: Install Dependencies and Run</h4>
+                            <ol>
+                                <li>Install Python libraries:
+                                    <pre class="bg-light p-3 rounded"><code>pip install pyserial matplotlib</code></pre>
+                                </li>
+                                <li>Upload Arduino code to your board</li>
+                                <li>Note your serial port (COM3 on Windows, /dev/ttyUSB0 on Linux, /dev/tty.usbserial on Mac)</li>
+                                <li>Update port in Python code</li>
+                                <li>Run Python script: <code>python sensor_monitor.py</code></li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Recommended Software Tools -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-secondary text-white">
+                            <h3 class="mb-0"><i class="fas fa-tools me-2"></i>Recommended Software Tools</h3>
+                        </div>
+                        <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Learning Objectives</h4>
-                                    <ul class="mb-0">
-                                        <li>Send and receive data between a program and a microcontroller.</li>
-                                        <li>Create basic user interfaces (desktop, web, or mobile) to visualize or control hardware.</li>
-                                        <li>Choose languages and frameworks that fit your lab’s skills and connectivity.</li>
+                                    <h5>Processing (Recommended for Beginners)</h5>
+                                    <ul>
+                                        <li><strong>Free and visual</strong>: Great for learning interface programming</li>
+                                        <li><strong>Serial library built-in</strong>: Easy Arduino communication</li>
+                                        <li><strong>Graphics-focused</strong>: Perfect for data visualization</li>
+                                        <li>Download: <a href="https://processing.org/download" target="_blank">processing.org</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Assignments</h4>
-                                    <ul class="mb-0">
-                                        <li><strong>Individual:</strong> Build an application that reads from or writes to your board (e.g. sliders controlling LEDs, graphs plotting sensor data).</li>
-                                        <li><strong>Group:</strong> Compare at least two approaches (e.g. Processing vs. Python vs. web) and document pros/cons for your UNIPOD.</li>
+                                    <h5>Python (Recommended for Intermediate Users)</h5>
+                                    <ul>
+                                        <li><strong>Powerful and versatile</strong>: Lots of libraries for everything</li>
+                                        <li><strong>Libraries</strong>: pyserial (serial), matplotlib (graphs), tkinter (GUI built-in)</li>
+                                        <li><strong>Cross-platform</strong>: Works on Windows, Mac, Linux</li>
+                                        <li>Install: <code>pip install pyserial matplotlib</code></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="row mt-3">
+                            <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Documentation &amp; Evidence</h4>
-                                    <ul class="mb-0">
-                                        <li>Source code of your interface and screenshots of it in use.</li>
-                                        <li>Explanation of the communication protocol (serial, WebSocket, HTTP, etc.).</li>
-                                        <li>Reflection on deployment constraints (offline-first, low-spec devices, shared lab computers).</li>
+                                    <h5>Web Technologies (HTML/CSS/JavaScript)</h5>
+                                    <ul>
+                                        <li><strong>No installation</strong>: Runs in any browser</li>
+                                        <li><strong>Accessible</strong>: Works on phones, tablets, computers</li>
+                                        <li><strong>Libraries</strong>: Chart.js (graphs), Web Serial API (browser serial)</li>
+                                        <li>Use: When you need cross-device access</li>
                                     </ul>
                                 </div>
-                                <div class="col-md-6 mb-0">
-                                    <h4 class="h6 text-uppercase text-muted">Recommended Video Tutorials</h4>
-                                    <ul class="mb-0">
-                                        <li>
-                                            <a href="https://www.youtube.com/results?search_query=processing+arduino+tutorial" target="_blank" rel="noopener">
-                                                Processing + Arduino Tutorials
-                                            </a>
-                                            - Learn to create visual interfaces with Processing that communicate with Arduino.
-                                        </li>
-                                        <li>
-                                            <a href="https://www.youtube.com/results?search_query=python+serial+communication+arduino" target="_blank" rel="noopener">
-                                                Python Serial Communication
-                                            </a>
-                                            - Learn to read and write serial data between Python and microcontrollers.
-                                        </li>
+                                <div class="col-md-6 mb-3">
+                                    <h5>Node.js (For Advanced Users)</h5>
+                                    <ul>
+                                        <li><strong>JavaScript everywhere</strong>: Same language for frontend and backend</li>
+                                        <li><strong>Libraries</strong>: serialport, express, socket.io</li>
+                                        <li><strong>Use</strong>: Professional applications, web servers</li>
                                     </ul>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- YouTube & Learning Resources -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="mb-0"><i class="fab fa-youtube me-2"></i>Video Tutorials & Learning Resources</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Watch these videos to learn interface programming. <strong>If your internet is slow</strong>, prioritize Processing or Python tutorials.</p>
+                            
+                            <h4 class="h5 mt-3">Processing + Arduino</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X14" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Processing + Arduino Serial Communication</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to connect Processing with Arduino for visual interfaces.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to use Serial library, read sensor data, and create real-time visualizations.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">Python Interfaces</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X15" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Python Serial Communication with Arduino</h6>
+                                        <small class="text-muted">~30 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Complete guide to reading and writing serial data in Python.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Using pyserial library, parsing data, and creating GUI with Tkinter.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X16" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Python GUI with Tkinter - Complete Tutorial</h6>
+                                        <small class="text-muted">~45 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to create desktop GUIs with Python Tkinter.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Buttons, labels, entry fields, layouts, and event handling.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">Web Interfaces</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X17" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>ESP32 Web Server Tutorial</h6>
+                                        <small class="text-muted">~40 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to create web interfaces that communicate with ESP32.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> Creating web servers on ESP32, HTML forms, AJAX for real-time updates.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">Written Resources</h4>
+                            <ul>
+                                <li><a href="https://processing.org/tutorials/" target="_blank" rel="noopener">Processing Tutorials</a> - Official Processing learning resources</li>
+                                <li><a href="https://pyserial.readthedocs.io/" target="_blank" rel="noopener">PySerial Documentation</a> - Complete pyserial reference</li>
+                                <li><a href="https://realpython.com/python-gui-tkinter/" target="_blank" rel="noopener">Real Python Tkinter Guide</a> - Comprehensive Tkinter tutorial</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Assignments & Documentation -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>Assignments & Documentation Requirements</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5">Individual Assignment</h4>
+                            <p><strong>Build an application that reads from or writes to your board</strong>:</p>
+                            <ul>
+                                <li>Create an interface using one of these approaches:
+                                    <ul>
+                                        <li>Processing application with visualizations</li>
+                                        <li>Python desktop application with GUI</li>
+                                        <li>Web-based interface (HTML/CSS/JavaScript)</li>
+                                    </ul>
+                                </li>
+                                <li>Interface should:
+                                    <ul>
+                                        <li>Read sensor data from your board (e.g., temperature, light, distance)</li>
+                                        <li>OR control outputs on your board (e.g., sliders controlling LEDs, buttons controlling motors)</li>
+                                        <li>OR both (read sensors AND control outputs)</li>
+                                    </ul>
+                                </li>
+                                <li>Include data visualization (graphs, charts, real-time displays)</li>
+                                <li>Make interface user-friendly (clear labels, intuitive controls)</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Group Assignment (Optional but Recommended)</h4>
+                            <p>As a UNIPOD team, <strong>compare at least two interface approaches</strong>:</p>
+                            <ul>
+                                <li>Test Processing vs. Python vs. Web-based interfaces</li>
+                                <li>Document for each approach:
+                                    <ul>
+                                        <li>Ease of development (how long to build?)</li>
+                                        <li>Performance (does it run smoothly?)</li>
+                                        <li>Deployment (how easy to share/install?)</li>
+                                        <li>Offline capability (does it work without internet?)</li>
+                                        <li>Device compatibility (works on low-spec computers?)</li>
+                                    </ul>
+                                </li>
+                                <li>Create a recommendation guide for your UNIPOD: "When to use which approach?"</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Documentation Checklist</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Source Code</strong></td>
+                                            <td>Upload complete source code to GitHub/GitLab. Include clear comments explaining how code works.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Screenshots</strong></td>
+                                            <td>Multiple screenshots showing interface in use: displaying data, controlling outputs, different states.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Communication Protocol</strong></td>
+                                            <td>Document how interface communicates with hardware: serial protocol, data format, baud rate, etc.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Installation Instructions</strong></td>
+                                            <td>Step-by-step guide: how to install dependencies, how to run the application, what ports/settings are needed.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Working Demonstration</strong></td>
+                                            <td>Video or animated GIF showing interface in action: reading sensor data, updating graphs, controlling outputs.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Deployment Considerations</strong></td>
+                                            <td>Reflection on: Does it work offline? Does it work on low-spec devices? How would you deploy this in a shared lab?</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Reflection</strong></td>
+                                            <td>What did you learn? What was challenging? How would you improve the interface? What would you add next?</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Tips for Success</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Start simple:</strong> Begin with basic serial communication before adding complex features.</li>
+                                <li><strong>Test incrementally:</strong> Test communication first, then add GUI elements one at a time.</li>
+                                <li><strong>Handle errors gracefully:</strong> Add try/except blocks, check for connection, handle missing data.</li>
+                                <li><strong>Design for your context:</strong> Consider offline operation, low-spec devices, shared computers.</li>
+                                <li><strong>Use libraries:</strong> Don't reinvent the wheel—use existing libraries for graphs, GUIs, serial communication.</li>
+                                <li><strong>Document well:</strong> Comment your code, write installation instructions, explain data formats.</li>
+                                <li><strong>Test on target devices:</strong> Test on the actual computers/devices where it will be used.</li>
+                                <li><strong>Make it user-friendly:</strong> Clear labels, intuitive controls, helpful error messages.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

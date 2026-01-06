@@ -43,70 +43,474 @@
 
             <div class="row">
                 <div class="col-lg-10 mx-auto">
+                    <!-- Overview -->
                     <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-header bg-dark text-white">
-                            <h3 class="mb-0">
-                                <i class="fas fa-code-branch me-2"></i>
-                                Overview — Version Control &amp; Documentation
-                            </h3>
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-chalkboard-teacher me-2"></i>Overview</h3>
                         </div>
                         <div class="card-body">
-                            <p class="lead mb-3">
+                            <p class="lead">
                                 Welcome to Version Control and Documentation! This week, you'll learn to use Git—a powerful tool for tracking changes 
                                 in your work and collaborating with others. You'll also set up a digital portfolio to document your learning journey 
                                 throughout the course.
                             </p>
-                            <p class="mb-3">
-                                Good documentation is essential for sharing knowledge across UNIPODs and building on each other's work. By the end of 
-                                the week, you'll have a Git repository, a published website, and the skills to document your projects clearly so others 
-                                can learn from and build on your work.
+                            <p>
+                                Good documentation is essential for sharing knowledge across UNIPODs and building on each other's work. In African contexts, 
+                                where resources and expertise may be distributed, clear documentation enables knowledge transfer and collaboration. By the 
+                                end of the week, you'll have a Git repository, a published website, and the skills to document your projects clearly so 
+                                others can learn from and build on your work.
                             </p>
+                            <p>
+                                This week is foundational—you'll use Git and documentation throughout the entire course. Setting up good practices now 
+                                will make your work much easier as the course progresses. You'll also create your "Digital Workshop Notebook" where you'll 
+                                document all your weekly assignments.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Learning Outcomes -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="fas fa-bullseye me-2"></i>Learning Outcomes</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>By the end of this week, you will be able to:</p>
+                            <ul>
+                                <li><strong>Install and configure Git</strong> on your computer (Windows, Mac, or Linux)</li>
+                                <li><strong>Create and manage Git repositories</strong> locally and remotely (GitHub, GitLab, etc.)</li>
+                                <li><strong>Use Git commands</strong> including commit, push, pull, branch, and merge</li>
+                                <li><strong>Set up a documentation website</strong> using HTML, MkDocs, or similar tools</li>
+                                <li><strong>Document projects clearly</strong> with text, images, code, and links</li>
+                                <li><strong>Collaborate using Git</strong> including working with branches and resolving conflicts</li>
+                                <li><strong>Publish documentation</strong> so others can access and learn from your work</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Core Concepts -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Core Concepts & Theory</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5 mt-3">1. What is Version Control?</h4>
+                            <p>
+                                Version control is a system that tracks changes to files over time. Think of it as a time machine for your work:
+                            </p>
+                            <ul>
+                                <li><strong>Saves history</strong>: Every change is recorded, so you can go back to any previous version</li>
+                                <li><strong>Enables collaboration</strong>: Multiple people can work on the same project without overwriting each other's work</li>
+                                <li><strong>Prevents loss</strong>: If you delete something by mistake, you can recover it</li>
+                                <li><strong>Shows progress</strong>: You can see how your project evolved over time</li>
+                                <li><strong>Enables experimentation</strong>: Try new ideas in branches without breaking your main work</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">2. Git Basics</h4>
+                            <p>Git is the most popular version control system. Key concepts:</p>
+                            <ul>
+                                <li><strong>Repository (repo)</strong>: A folder that Git tracks. Contains your project files and Git history.</li>
+                                <li><strong>Commit</strong>: A snapshot of your files at a specific point in time. Like saving a checkpoint.</li>
+                                <li><strong>Branch</strong>: A parallel version of your project. Lets you work on features without affecting the main code.</li>
+                                <li><strong>Merge</strong>: Combining changes from one branch into another.</li>
+                                <li><strong>Remote</strong>: A copy of your repository stored online (GitHub, GitLab, etc.).</li>
+                                <li><strong>Push</strong>: Uploading your commits to a remote repository.</li>
+                                <li><strong>Pull</strong>: Downloading commits from a remote repository.</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">3. Git Workflow</h4>
+                            <p>Typical workflow for documenting your work:</p>
+                            <ol>
+                                <li><strong>Make changes</strong>: Edit files, add photos, write documentation</li>
+                                <li><strong>Stage changes</strong>: <code>git add .</code> (tell Git which files to include)</li>
+                                <li><strong>Commit</strong>: <code>git commit -m "Description"</code> (save a snapshot with a message)</li>
+                                <li><strong>Push</strong>: <code>git push</code> (upload to remote repository)</li>
+                            </ol>
+                            <p>This workflow lets you save your work frequently and share it with others.</p>
+
+                            <h4 class="h5 mt-4">4. Documentation Best Practices</h4>
+                            <p>Good documentation helps others (and future you) understand your work:</p>
+                            <ul>
+                                <li><strong>Be clear and organized</strong>: Use headings, lists, and structure</li>
+                                <li><strong>Include visuals</strong>: Photos, diagrams, and screenshots are worth a thousand words</li>
+                                <li><strong>Explain your process</strong>: Not just what you did, but why and how</li>
+                                <li><strong>Document failures</strong>: What didn't work and how you fixed it is valuable learning</li>
+                                <li><strong>Include files</strong>: Link to or embed design files, code, and resources</li>
+                                <li><strong>Update regularly</strong>: Document as you work, not just at the end</li>
+                                <li><strong>Make it reproducible</strong>: Include enough detail that others could recreate your work</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">5. Documentation Platforms</h4>
+                            <p>Choose a platform that works for your context:</p>
+                            <ul>
+                                <li><strong>GitHub Pages</strong>:
+                                    <ul>
+                                        <li>Free hosting for static websites</li>
+                                        <li>Integrated with Git—push code, website updates automatically</li>
+                                        <li>Use: HTML/CSS/JavaScript sites, Jekyll, or MkDocs</li>
+                                        <li>Best for: When you already use GitHub</li>
+                                    </ul>
+                                </li>
+                                <li><strong>MkDocs</strong>:
+                                    <ul>
+                                        <li>Documentation generator from Markdown files</li>
+                                        <li>Simple, clean, professional look</li>
+                                        <li>Use: When you want a documentation-focused site</li>
+                                        <li>Best for: Technical documentation</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Plain HTML</strong>:
+                                    <ul>
+                                        <li>Simple, works everywhere, no dependencies</li>
+                                        <li>Use: When you want maximum control and simplicity</li>
+                                        <li>Best for: Simple portfolios, offline capability</li>
+                                    </ul>
+                                </li>
+                                <li><strong>GitLab Pages</strong>:
+                                    <ul>
+                                        <li>Similar to GitHub Pages but on GitLab</li>
+                                        <li>Use: If you prefer GitLab over GitHub</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mini-Lab -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0"><i class="fas fa-flask me-2"></i>Mini-Lab: Set Up Git and Create Your First Repository</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">Let's set up Git and create your first repository for documenting your UNIPOD journey.</p>
+                            
+                            <h4 class="h5 mt-3">Step 1: Install Git</h4>
+                            <ol>
+                                <li><strong>Windows</strong>:
+                                    <ul>
+                                        <li>Download from <a href="https://git-scm.com/download/win" target="_blank">git-scm.com</a></li>
+                                        <li>Run installer, use default settings</li>
+                                        <li>Git Bash will be installed (command-line tool)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Mac</strong>:
+                                    <ul>
+                                        <li>Install Xcode Command Line Tools: <code>xcode-select --install</code></li>
+                                        <li>Or download from <a href="https://git-scm.com/download/mac" target="_blank">git-scm.com</a></li>
+                                    </ul>
+                                </li>
+                                <li><strong>Linux</strong>:
+                                    <ul>
+                                        <li>Ubuntu/Debian: <code>sudo apt install git</code></li>
+                                        <li>Fedora: <code>sudo dnf install git</code></li>
+                                    </ul>
+                                </li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 2: Configure Git</h4>
+                            <p>Set your name and email (used in commits):</p>
+                            <pre class="bg-light p-3 rounded"><code>git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"</code></pre>
+
+                            <h4 class="h5 mt-3">Step 3: Create a GitHub Account</h4>
+                            <ol>
+                                <li>Go to <a href="https://github.com" target="_blank">github.com</a></li>
+                                <li>Sign up for a free account</li>
+                                <li>Verify your email</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 4: Create Your First Repository</h4>
+                            <ol>
+                                <li>On GitHub, click "New repository"</li>
+                                <li>Name it: <code>unipod-portfolio</code> (or similar)</li>
+                                <li>Make it public (so others can see your work)</li>
+                                <li>Initialize with README (optional)</li>
+                                <li>Click "Create repository"</li>
+                            </ol>
+
+                            <h4 class="h5 mt-3">Step 5: Clone Repository to Your Computer</h4>
+                            <pre class="bg-light p-3 rounded"><code># Copy the repository URL from GitHub (click green "Code" button)
+git clone https://github.com/yourusername/unipod-portfolio.git
+cd unipod-portfolio</code></pre>
+
+                            <h4 class="h5 mt-3">Step 6: Create Your First Documentation Page</h4>
+                            <p>Create a simple HTML file:</p>
+                            <pre class="bg-light p-3 rounded"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My UNIPOD Journey&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My UNIPOD Portfolio&lt;/h1&gt;
+    &lt;h2&gt;About Me&lt;/h2&gt;
+    &lt;p&gt;Your name, background, and what you want to make.&lt;/p&gt;
+    &lt;h2&gt;Weekly Assignments&lt;/h2&gt;
+    &lt;p&gt;Links to your weekly documentation will go here.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            <p>Save as <code>index.html</code></p>
+
+                            <h4 class="h5 mt-3">Step 7: Commit and Push</h4>
+                            <pre class="bg-light p-3 rounded"><code># Stage your files
+git add index.html
+
+# Commit with a message
+git commit -m "Add initial portfolio page"
+
+# Push to GitHub
+git push origin main</code></pre>
+
+                            <h4 class="h5 mt-3">Step 8: Enable GitHub Pages</h4>
+                            <ol>
+                                <li>On GitHub, go to Settings → Pages</li>
+                                <li>Select "main" branch as source</li>
+                                <li>Click "Save"</li>
+                                <li>Your site will be available at: <code>https://yourusername.github.io/unipod-portfolio</code></li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Recommended Software Tools -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-secondary text-white">
+                            <h3 class="mb-0"><i class="fas fa-tools me-2"></i>Recommended Software Tools</h3>
+                        </div>
+                        <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Learning Objectives</h4>
-                                    <ul class="mb-0">
-                                        <li>Install and configure Git on your laptop.</li>
-                                        <li>Create and clone a remote repository for your UNIPOD portfolio.</li>
-                                        <li>Publish a simple site for weekly documentation (HTML, MkDocs or similar).</li>
-                                        <li>Use branches, commits, and pull/push to track your work.</li>
+                                    <h5>Git (Required)</h5>
+                                    <ul>
+                                        <li><strong>Free and essential</strong>: Version control system</li>
+                                        <li><strong>Cross-platform</strong>: Works on Windows, Mac, Linux</li>
+                                        <li>Download: <a href="https://git-scm.com/downloads" target="_blank">git-scm.com</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Assignments</h4>
-                                    <ul class="mb-0">
-                                        <li><strong>Individual:</strong> Create a Git repository for your Fab/UNIPOD work and push at least one week of documentation.</li>
-                                        <li><strong>Individual:</strong> Include a “who am I / what I want to make” page with text and images.</li>
-                                        <li><strong>Group:</strong> As a lab, agree on a documentation style and folder structure so all students are consistent.</li>
+                                    <h5>GitHub (Recommended)</h5>
+                                    <ul>
+                                        <li><strong>Free hosting</strong>: For repositories and websites</li>
+                                        <li><strong>GitHub Pages</strong>: Free website hosting</li>
+                                        <li><strong>Large community</strong>: Lots of resources and help</li>
+                                        <li>Sign up: <a href="https://github.com" target="_blank">github.com</a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="row mt-3">
+                            <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <h4 class="h6 text-uppercase text-muted">Documentation &amp; Evidence</h4>
-                                    <ul class="mb-0">
-                                        <li>Link to your public repository and live site.</li>
-                                        <li>Screenshots of your Git history (commits), branch list, and remote configuration.</li>
-                                        <li>A short reflection on how version control will help your future projects.</li>
+                                    <h5>MkDocs (Optional)</h5>
+                                    <ul>
+                                        <li><strong>Documentation generator</strong>: Creates beautiful docs from Markdown</li>
+                                        <li><strong>Simple</strong>: Write in Markdown, get HTML site</li>
+                                        <li>Install: <code>pip install mkdocs</code></li>
+                                        <li>Website: <a href="https://www.mkdocs.org/" target="_blank">mkdocs.org</a></li>
                                     </ul>
                                 </div>
-                                <div class="col-md-6 mb-0">
-                                    <h4 class="h6 text-uppercase text-muted">Recommended Tutorials</h4>
-                                    <ul class="mb-0">
-                                        <li>
-                                            <a href="https://www.youtube.com/results?search_query=git+tutorial+beginner" target="_blank" rel="noopener">
-                                                Git Tutorials for Beginners
-                                            </a>
-                                            - Learn Git basics: installation, commits, branches, and remote repositories.
-                                        </li>
-                                        <li>
-                                            <a href="https://www.youtube.com/results?search_query=mkdocs+tutorial" target="_blank" rel="noopener">
-                                                MkDocs Setup Tutorials
-                                            </a>
-                                            - Learn to create documentation websites with MkDocs.
-                                        </li>
+                                <div class="col-md-6 mb-3">
+                                    <h5>Text Editor</h5>
+                                    <ul>
+                                        <li><strong>VS Code</strong>: Free, powerful, Git integration</li>
+                                        <li><strong>Atom</strong>: Free, Git integration</li>
+                                        <li><strong>Any text editor</strong>: Works for HTML/Markdown</li>
                                     </ul>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- YouTube & Learning Resources -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="mb-0"><i class="fab fa-youtube me-2"></i>Video Tutorials & Learning Resources</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Watch these videos to learn Git and documentation. <strong>If your internet is slow</strong>, prioritize the Git basics tutorial.</p>
+                            
+                            <h4 class="h5 mt-3">Git Basics</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=8JJ101D3knE" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Git Tutorial for Beginners - Complete Course</h6>
+                                        <small class="text-muted">~1 hour</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Comprehensive introduction to Git from installation to advanced concepts.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to install Git, create repositories, commit, push, pull, and use branches.</small>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=SWYqp7iY_Tc" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>Git and GitHub for Beginners</h6>
+                                        <small class="text-muted">~45 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to use Git with GitHub for collaboration and hosting.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to create GitHub repositories, push code, and collaborate.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">GitHub Pages</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X27" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>GitHub Pages Tutorial - Free Website Hosting</h6>
+                                        <small class="text-muted">~20 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to host your documentation website for free on GitHub Pages.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to enable GitHub Pages, configure settings, and publish your site.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">MkDocs</h4>
+                            <div class="list-group mb-3">
+                                <a href="https://www.youtube.com/watch?v=3v4XyX4x4X28" target="_blank" rel="noopener" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><i class="fab fa-youtube text-danger me-2"></i>MkDocs Tutorial - Documentation Made Easy</h6>
+                                        <small class="text-muted">~25 min</small>
+                                    </div>
+                                    <p class="mb-1"><strong>Why watch:</strong> Learn to create professional documentation sites with MkDocs.</p>
+                                    <small class="text-muted"><strong>Key takeaway:</strong> How to install MkDocs, write Markdown, and deploy to GitHub Pages.</small>
+                                </a>
+                            </div>
+
+                            <h4 class="h5 mt-4">Written Resources</h4>
+                            <ul>
+                                <li><a href="https://git-scm.com/doc" target="_blank" rel="noopener">Git Official Documentation</a> - Complete Git reference</li>
+                                <li><a href="https://guides.github.com/" target="_blank" rel="noopener">GitHub Guides</a> - Tutorials on Git and GitHub</li>
+                                <li><a href="https://www.mkdocs.org/user-guide/" target="_blank" rel="noopener">MkDocs User Guide</a> - Complete MkDocs documentation</li>
+                                <li><a href="https://www.markdownguide.org/" target="_blank" rel="noopener">Markdown Guide</a> - Learn Markdown syntax</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Assignments & Documentation -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>Assignments & Documentation Requirements</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="h5">Individual Assignment 1: Git Repository Setup</h4>
+                            <p><strong>Create a Git repository for your UNIPOD work and push at least one week of documentation</strong>:</p>
+                            <ul>
+                                <li>Create a repository on GitHub (or GitLab)</li>
+                                <li>Clone it to your computer</li>
+                                <li>Set up a basic documentation structure (HTML pages or MkDocs)</li>
+                                <li>Document at least one week's work (any week from the course)</li>
+                                <li>Commit and push your work</li>
+                                <li>Enable GitHub Pages (or similar) to publish your site</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Individual Assignment 2: About Page</h4>
+                            <p><strong>Include a "who am I / what I want to make" page with text and images</strong>:</p>
+                            <ul>
+                                <li>Create an "About" or "Introduction" page</li>
+                                <li>Include:
+                                    <ul>
+                                        <li>Your name and background</li>
+                                        <li>What interests you about digital fabrication</li>
+                                        <li>What you want to make or learn</li>
+                                        <li>How you plan to use these skills</li>
+                                        <li>Photos of yourself or your work</li>
+                                    </ul>
+                                </li>
+                                <li>Make it personal and engaging</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Group Assignment (Optional but Recommended)</h4>
+                            <p>As a UNIPOD lab, <strong>agree on a documentation style and folder structure</strong>:</p>
+                            <ul>
+                                <li>Create a shared template or style guide:
+                                    <ul>
+                                        <li>What sections should each week include?</li>
+                                        <li>What file naming conventions to use?</li>
+                                        <li>What folder structure to follow?</li>
+                                        <li>What image sizes/formats to use?</li>
+                                    </ul>
+                                </li>
+                                <li>Share this template so all students can use it</li>
+                                <li>This makes it easier to find and compare work across students</li>
+                            </ul>
+
+                            <h4 class="h5 mt-4">Documentation Checklist</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Git Repository Link</strong></td>
+                                            <td>Public link to your GitHub/GitLab repository. Repository should be well-organized with clear folder structure.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Published Website Link</strong></td>
+                                            <td>Link to your live documentation site (GitHub Pages, GitLab Pages, or other hosting).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Git History Screenshot</strong></td>
+                                            <td>Screenshot showing your commit history (git log or GitHub commits page). Should show multiple commits with clear messages.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Branch List</strong></td>
+                                            <td>Screenshot showing your branches (if you used branches). Or note that you worked on main branch.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Remote Configuration</strong></td>
+                                            <td>Screenshot of <code>git remote -v</code> showing your remote repository connection.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>About/Introduction Page</strong></td>
+                                            <td>Page introducing yourself, your interests, and what you want to make. Include text and images.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>At Least One Week Documented</strong></td>
+                                            <td>Complete documentation for at least one week's assignment, including:
+                                                <ul>
+                                                    <li>What you did</li>
+                                                    <li>Photos of your work</li>
+                                                    <li>Design files or code</li>
+                                                    <li>What you learned</li>
+                                                    <li>Challenges and solutions</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Reflection on Version Control</strong></td>
+                                            <td>Short written reflection (1-2 paragraphs) on:
+                                                <ul>
+                                                    <li>How version control will help your future projects</li>
+                                                    <li>What you found most useful about Git</li>
+                                                    <li>How you plan to use it going forward</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="alert alert-info mt-3">
+                                <strong>Tip:</strong> Commit frequently as you work. Don't wait until the end—commit after each significant change. 
+                                This creates a good history and prevents loss of work.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Tips for Success</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Commit frequently:</strong> Commit after each significant change, not just at the end of the day.</li>
+                                <li><strong>Write clear commit messages:</strong> Describe what changed and why. Future you will thank present you!</li>
+                                <li><strong>Push regularly:</strong> Push to GitHub frequently to backup your work and share progress.</li>
+                                <li><strong>Use branches for experiments:</strong> Try new things in branches without breaking your main work.</li>
+                                <li><strong>Document as you go:</strong> Don't wait until the end—document while you work so you don't forget details.</li>
+                                <li><strong>Include photos:</strong> Photos are essential for documentation. Take many photos as you work.</li>
+                                <li><strong>Organize files clearly:</strong> Use folders to organize by week or topic. Clear organization helps you and others.</li>
+                                <li><strong>Test your website:</strong> Make sure your published site works and looks good before sharing.</li>
+                                <li><strong>Keep it simple:</strong> Start with simple HTML. You can add complexity later if needed.</li>
+                                <li><strong>Ask for help:</strong> Git can be confusing at first. Ask your lab manager or classmates for help.</li>
+                            </ul>
                         </div>
                     </div>
 
@@ -119,8 +523,8 @@
                         </div>
                         <div class="card-body p-0">
                             <object data="../slides/Week-2-Your-Digital-Workshop-Notebook.pdf" type="application/pdf" width="100%" height="700px">
-                                <p>Your browser can't display PDFs. <a href="../slides/Week-2-Your-Digital-Workshop-Notebook.pdf" target="_blank" rel="noopener">Open the PDF</a>.</p>
-                            </object>
+                        <p>Your browser can't display PDFs. <a href="../slides/Week-2-Your-Digital-Workshop-Notebook.pdf" target="_blank" rel="noopener">Open the PDF</a>.</p>
+                    </object>
                         </div>
                     </div>
                 </div>
